@@ -14,4 +14,4 @@ If you encounter any issues using the API, or you have any questions, please get
 > * To track changes and updates, you can follow the [GitHub repository](https://github.com/MewsSystems/gitbook-pos-api/tree/main)
 
 > ### OpenAPI definition
-> We maintain an [OpenAPI definition](https://your.bizzon.com/api/v2/docs/openapi.yaml) (formerly Swagger) for the __Mews Connector API__. You can use this to build out client applications using third party tools.
+> We maintain an [OpenAPI definition](https://dev.agentcash.net/api/v2/docs/openapi.yaml) (formerly Swagger) for the __Mews Connector API__. You can use this to build out client applications using third party tools.
