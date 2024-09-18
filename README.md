@@ -1,4 +1,4 @@
-# Mews Connector API
+# Mews POS API
 
 Welcome to the __Mews POS API__. This is a general-purpose API that enables partners of Mews to access data and services in __Mews Operations__.
 
