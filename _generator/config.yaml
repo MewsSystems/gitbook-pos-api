@@ -1,0 +1,4 @@
+source: https://dev.agentcash.net/api/v2/docs/openapi.yaml
+output: ../operations
+tags:
+  - HealthCheckObject
