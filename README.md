@@ -1,6 +1,6 @@
 # Mews POS API
 
-Welcome to the __Mews POS API__. This is a general-purpose API that enables partners of Mews to access data and services in __Mews Operations__.
+Welcome to the __Mews POS API__. 
 
 To make a quick start and get a feel for the API, see [Getting started](getting-started/README.md). For a full guide on how to connect, what authentication tokens you need, the meaning of error codes and much more, see our [Guidelines](guidelines/README.md). For a deeper understanding of **Mews** concepts, see [Concepts](concepts/README.md). 
 All of the API operations are detailed in [API Operations](operations/README.md).
@@ -14,4 +14,4 @@ If you encounter any issues using the API, or you have any questions, please get
 > * To track changes and updates, you can follow the [GitHub repository](https://github.com/MewsSystems/gitbook-pos-api/tree/main)
 
 > ### OpenAPI definition
-> We maintain an [OpenAPI definition](https://api.mews.com/Swagger/connector/swagger.yaml) (formerly Swagger) for the __Mews Connector API__. You can use this to build out client applications using third party tools.
+> We maintain an [OpenAPI definition](https://your.bizzon.com/api/v2/docs/openapi.yaml) (formerly Swagger) for the __Mews Connector API__. You can use this to build out client applications using third party tools.
