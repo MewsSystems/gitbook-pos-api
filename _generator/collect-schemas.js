@@ -20,6 +20,10 @@ import { getSchemaId } from './utils.js';
  * @returns {SchemasAccumulator}
  */
 export function collectSchemas(schema, path, accumulator) {
+  // early return for get requests if they do not have request schemas
+  if (schema == undefined) {
+    return accumulator;
+  }
   const schemaId = getSchemaId(schema);
   const nestedPath = [...path];
   schema['x-schema-paths'] ??= [];

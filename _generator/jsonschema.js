@@ -61,13 +61,6 @@ export function propertyType(schema) {
   if (resolvedType) {
     return resolvedType;
   }
-  // FIXME: this one can be probably removed?
-  if (isEnum(schema)) {
-    const title = schema.title || schema['x-readme-ref-name'];
-    const anchor = getSchemaAnchor(schema);
-
-    return `[${title}](#${anchor})`;
-  }
   if (schema.type === 'array') {
     const nestedType = propertyType(schema.items);
     return `array of ${nestedType}`;

@@ -20,9 +20,11 @@
 
 `[PlatformAddress]{{ operation.path }}`
 
+@if(operation.requestExample)
 ```javascript
 {{ helpers.json(operation.requestExample) }}
 ```
+@end
 
 @each((schema, i) in operation.requestSchemas)
 @!component('parameters', { schema, hideTitle: i === 0 })

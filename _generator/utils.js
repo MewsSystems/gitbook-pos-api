@@ -47,7 +47,7 @@ export function getSchemaAnchor(schema) {
  * @returns {string | null}
  */
 export function getSchemaId(schema) {
-  const schemaId = schema['x-schema-id'] || schema['x-readme-ref-name'];
+  const schemaId = schema['x-readme-ref-name'];
   if (schemaId) {
     return schemaId.toLowerCase();
   }
