@@ -119,6 +119,7 @@ export function getPageResolver(pageContext) {
 
 export function resolvePropertyType(schema) {
   const schemaId = getSchemaId(schema);
+
   const typeLink = DISCOVERED_TYPES.get(schemaId);
   if (!typeLink) {
     return null;

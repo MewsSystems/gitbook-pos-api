@@ -16,6 +16,7 @@ import { loadDiscoveredTypes, saveDiscoveredTypes } from './types-resolver.js';
  */
 
 const config = loadConfig();
+
 const oas = new OASNormalize(config.oasPath, { enablePaths: true });
 /** @type {OASDocument} */
 const definition = await oas.validate();
