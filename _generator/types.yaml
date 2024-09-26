@@ -1,1 +1,7 @@
 types:
+  health_check:
+    file: healthcheck.md
+    anchor: health_check
+  health_check_attributes:
+    file: healthcheck.md
+    anchor: health_check_attributes

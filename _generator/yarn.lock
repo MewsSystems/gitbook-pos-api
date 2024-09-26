@@ -671,7 +671,7 @@ oas-linter@^3.2.2:
     should "^13.2.1"
     yaml "^1.10.0"
 
-oas-normalize@^11.0.4, oas-normalize@^11.1.1:
+oas-normalize@^11.1.2:
   version "11.1.2"
   resolved "https://registry.yarnpkg.com/oas-normalize/-/oas-normalize-11.1.2.tgz#96e231e44e8913954501be5430424caaab03675c"
   integrity sha512-CFcTG7FD8JQBNT3StJ3cAePxXb+Yfyifw7395bfvUbKndwiT3evYtb5tzdzd8k4O4J1P+r7MU0EY8kIl8E85HA==
@@ -712,10 +712,10 @@ oas-validator@^5.0.8:
     should "^13.2.1"
     yaml "^1.10.0"
 
-oas@^24.2.2:
-  version "24.9.0"
-  resolved "https://registry.yarnpkg.com/oas/-/oas-24.9.0.tgz#a0a0c2ff835e315cf5cb6410ba9c31d72b7534cd"
-  integrity sha512-2FOtIq9kB5G1F61aCaDv+7aDwMk2W41MgKphaaGYM2O57MkY9eaoTypJv1WoXEOQg7tKtGX8xFa+eExcVxiWbw==
+oas@^25.0.1:
+  version "25.0.1"
+  resolved "https://registry.yarnpkg.com/oas/-/oas-25.0.1.tgz#6aaafe01a33aec660b9c8605bce2d7ee054bd1f7"
+  integrity sha512-PnQFvb7/PP6bBC4yJIZBYeOJtML1f8mC2SZQBRSqZkM1V1nBlUOq0eOTo/RCKKXT2a0UMa0eC35BjW9c0l1NXg==
   dependencies:
     "@readme/json-schema-ref-parser" "^1.2.0"
     "@types/json-schema" "^7.0.11"
@@ -723,9 +723,9 @@ oas@^24.2.2:
     jsonpath-plus "^9.0.0"
     jsonpointer "^5.0.0"
     memoizee "^0.4.16"
-    oas-normalize "^11.1.1"
+    oas-normalize "^11.1.2"
     openapi-types "^12.1.1"
-    path-to-regexp "^7.0.0"
+    path-to-regexp "^8.1.0"
     remove-undefined-objects "^5.0.0"
 
 openapi-types@^12.1.1, openapi-types@^12.1.3:
@@ -733,10 +733,10 @@ openapi-types@^12.1.1, openapi-types@^12.1.3:
   resolved "https://registry.yarnpkg.com/openapi-types/-/openapi-types-12.1.3.tgz#471995eb26c4b97b7bd356aacf7b91b73e777dd3"
   integrity sha512-N4YtSYJqghVu4iek2ZUvcN/0aqH1kRDuNqzcycDxhOUpg7GdvLa2F3DgS6yBNhInhv2r/6I0Flkn7CqL8+nIcw==
 
-path-to-regexp@^7.0.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-7.2.0.tgz#3d9cc9d46527e2ce2ef7b2cf696aad3cd1ae4f2b"
-  integrity sha512-0W4AcUxPpFlcS8ql8ZEmFwaI0X5WshUVAFdXe3PBurrt18DK8bvSS+UKHvJUAfGILco/nTtc/E4LcPNfVysfwQ==
+path-to-regexp@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-8.1.0.tgz#4d687606ed0be8ed512ba802eb94d620cb1a86f0"
+  integrity sha512-Bqn3vc8CMHty6zuD+tG23s6v2kwxslHEhTj4eYaVKGIEB+YX/2wd0/rgXLFD9G9id9KCtbVy/3ZgmvZjpa0UdQ==
 
 picocolors@^1.0.0:
   version "1.1.0"

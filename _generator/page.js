@@ -76,12 +76,12 @@ const regexMdLinks = /\[([^\[]+)\]\(([^\)]+)\)/gm;
  * @returns {string}
  */
 function absoluteMdLinksToRelative(markdown, fileName) {
-  const basePath = `/connector-api/operations/`;
+  const basePath = `/pos-api/operations/`;
   const currentFile = `${basePath}/${fileName}`;
 
   return markdown.replace(regexMdLinks, (fullMatch, linkText, linkHref) => {
     if (
-      !linkHref.startsWith('https://mews-systems.gitbook.io/connector-api/')
+      !linkHref.startsWith('https://mews-systems.gitbook.io/pos-api/')
     ) {
       return fullMatch;
     }
@@ -126,7 +126,7 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
 
       // collect response schemas first so that shared schemas appear next to response
       const response =
-        operation.getResponseByStatusCode(200).content['application/json'];
+        operation.getResponseByStatusCode(200).content['application/vnd.api+json'];
       const responseExample = response.example || {};
       const responseSchemas = collectSchemas(
         response.schema,
@@ -134,8 +134,8 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
         resolver.createSectionSchemasAccumulator()
       );
 
-      const request = operation.getRequestBody('application/json');
-      const requestExample = request.example || {};
+      const request = operation.getRequestBody('application/vnd.api+json');
+      const requestExample = request.example || null;
       const requestSchemas = collectSchemas(
         request.schema,
         [operationId, 'request'],
