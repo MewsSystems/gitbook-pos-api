@@ -15,5 +15,6 @@
 * [API Operations](operations/README.md)
   * [Common objects](operations/_objects.md)
   * [Accounting categories](operations/accountingcategories.md)
+  * [HealthCheck](operations/healthcheck.md)
 * [Deprecations](deprecations/README.md)
 * [Changelog](changelog/README.md)
