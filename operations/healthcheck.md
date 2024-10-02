@@ -7,7 +7,7 @@ Returns a health check object with status message.
 
 ### Request
 
-`[PlatformAddress]/api/v2/health-check`
+`GET` `[PlatformAddress]/api/v2/health-check`
 
 ### Response
 
@@ -20,6 +20,8 @@ Returns a health check object with status message.
   }
 }
 ```
+
+A resource object representing the health status of an API.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
