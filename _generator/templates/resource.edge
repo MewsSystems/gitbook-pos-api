@@ -18,7 +18,7 @@
 
 ### Request{{-- {#{{ operation.operationId }}_request} --}}
 
-`[PlatformAddress]{{ operation.path }}`
+`{{ operation.method.toUpperCase() }}` `[PlatformAddress]{{ operation.path }}`
 
 @if(operation.requestExample)
 ```javascript
