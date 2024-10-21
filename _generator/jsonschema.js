@@ -61,7 +61,8 @@ export function propertyType(schema) {
   if (resolvedType) {
     return resolvedType;
   }
-  if (schema.type === 'array') {
+
+  if (schema.type === 'array' || schema.type?.at(0) === 'array') {
     const nestedType = propertyType(schema.items);
     return `array of ${nestedType}`;
   }
@@ -78,11 +79,14 @@ export function propertyContract(schema) {
     schema = schema.anyOf[0];
   }
 
-  if (schema.nullable) {
+  // handle OpenAPI 3.1 type array
+  // For more details: https://www.openapis.org/blog/2021/02/16/migrating-from-openapi-3-0-to-3-1-0
+  if (schema.type?.at(-1) === 'null') {
     result.push('optional');
   } else {
     result.push('required');
   }
+
   if (schema.maxItems) {
     const suffix = schema.maxItems > 1 ? 's' : '';
     result.push(`max ${schema.maxItems} item${suffix}`);
