@@ -5,3 +5,24 @@ types:
   health_check_attributes:
     file: healthcheck.md
     anchor: health_check_attributes
+  register_response:
+    file: registers.md
+    anchor: register_response
+  register:
+    file: registers.md
+    anchor: register
+  register_attributes:
+    file: registers.md
+    anchor: register_attributes
+  register_relationships:
+    file: registers.md
+    anchor: register_relationships
+  relationships_attributes:
+    file: registers.md
+    anchor: relationships_attributes
+  outlet:
+    file: registers.md
+    anchor: outlet
+  outlet_attributes:
+    file: registers.md
+    anchor: outlet_attributes

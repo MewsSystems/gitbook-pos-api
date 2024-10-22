@@ -6,7 +6,6 @@ import {
 } from './jsonschema.js';
 import { getSchemaId } from './utils.js';
 import { compareProperties } from './sorting/propertySort.js';
-import { capitalize } from './utils.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -30,7 +29,7 @@ function createTemplateProperty(name, property) {
   const deprecatedMessage = property['x-deprecatedMessage'] ?? '';
 
   return {
-    name: capitalize(name),
+    name: name,
     description: description === deprecatedMessage ? '' : description,
     deprecatedMessage,
     type: propertyType(property),

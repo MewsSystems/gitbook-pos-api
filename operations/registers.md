@@ -1,12 +1,10 @@
 <!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Registers
 
-## A register within an outlet.
+## Get registers
 
-A register represents a terminal within an outlet, used to issue invoices. Each register is
-uniquely identified within its outlet and can either be physical or virtual.
-Note: This operation needs [Authentication](../essential-guide/authentication.md) and 
-supports the `include` query parameter `outlet` following the [JSON:API specification](../essential-guide/features.md).
+A register represents a terminal or cash register within an outlet, used to issue invoices. Each register is uniquely identified within its outlet and can either be physical or virtual.
+Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports the `include` query parameter `outlet` following the [JSON:API specification](../essential-guide/features.md).
 
 ### Request
 
@@ -56,42 +54,62 @@ supports the `include` query parameter `outlet` following the [JSON:API specific
 }
 ```
 
-A related resource object from type registers.
-
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Data` | [register](registers.md#register) | required |  |
-| `Included` | array of [outlet](registers.md#outlet) | optional, max 1 item |  |
+| `data` | [register](registers.md#register) | required | The document's "primary data". |
+| `included` | array of object [outlet](registers.md#outlet) | optional, max 1 item | Details of the outlet to which the register is associated. |
 
 #### register
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | undefined | required, max length 36 characters | globally unique ID (UUID) that identifies the related object. |
-| `Type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
-| `Attributes` | [register_attributes](registers.md#register_attributes) | required |  |
-| `Relationships` | [register_relationships](registers.md#register_relationships) | required |  |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [register_attributes](registers.md#register_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `relationships` | [register_relationships](registers.md#register_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
 
 #### register_attributes
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Name` | string | required, max length 255 characters | Name of the register. |
-| `Invoices_count` | integer | required | Total number of invoices issued from this register. |
-| `Index` | integer | required | The index of a register within an outlet. |
-| `Virtual` | boolean | required | A boolean indicating whether the register is virtual `true` or physical `false`. |
-| `Created_at` | string | required, max length 25 characters | Register created at timestamp in ISO 8601 format. |
-| `Updated_at` | string | required, max length 25 characters | Register updated at timestamp in ISO 8601 format. |
+| `name` | string | required, max length 255 characters | Name of the register. |
+| `invoices_count` | integer | required | Total number of invoices issued from this register. |
+| `index` | integer | required | The index of a register within an outlet. |
+| `virtual` | boolean | required | A boolean indicating whether the register is virtual `true` or physical `false`. |
+| `created_at` | string | required, max length 25 characters | Register created at timestamp in ISO 8601 format. |
+| `updated_at` | string | required, max length 25 characters | Register updated at timestamp in ISO 8601 format. |
 
 #### register_relationships
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Outlets` | object | required | A related resource object from type registers. |
+| `outlets` | object | required | Details of the outlet to which the register is associated. |
 
 #### relationships_attributes
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `Id` | undefined | required, max length 36 characters | globally unique ID (UUID) that identifies the related object. |
-| `Type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+
+#### outlet
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [outlet_attributes](registers.md#outlet_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### outlet_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `name` | string | required, max length 255 characters | The name of the outlet, representing the business or location. |
+| `address1` | string | required, max length 255 characters | The first line of the outlet's street address, typically including the street number and name. |
+| `address2` | string | required, max length 255 characters | The second line of outlet's address. |
+| `city` | string | required, max length 86 characters | The city where the outlet is located. |
+| `state` | string | required, max length 54 characters | The state or region where the outlet is located. |
+| `postal_code` | string | required, max length 10 characters | The postal or ZIP code for outlet's location. |
+| `index` | integer | required | A unique sequential number representing the outlet number within the establishment. |
+| `created_at` | string | required, max length 25 characters | Outlet created at timestamp in ISO 8601 format. |
+| `updated_at` | string | required, max length 25 characters | Outlet updated at timestamp in ISO 8601 format. |

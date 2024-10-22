@@ -64,7 +64,7 @@ export function propertyType(schema) {
 
   if (schema.type === 'array' || schema.type?.at(0) === 'array') {
     const nestedType = propertyType(schema.items);
-    return `array of ${nestedType}`;
+    return `array of object ${nestedType}`;
   }
   return schema.type;
 }
