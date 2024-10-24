@@ -6,7 +6,6 @@ import {
 } from './jsonschema.js';
 import { getSchemaId } from './utils.js';
 import { compareProperties } from './sorting/propertySort.js';
-import { capitalize } from './utils.js';
 
 /**
  * @typedef { import('oas/operation').Operation } Operation
@@ -25,15 +24,15 @@ import { capitalize } from './utils.js';
  * @param {SchemaObject} property
  * @returns {TemplateProperty}
  */
-function createTemplateProperty(name, property) {
+function createTemplateProperty(name, property, tagName) {
   const description = propertyDescription(name, property);
   const deprecatedMessage = property['x-deprecatedMessage'] ?? '';
 
   return {
-    name: capitalize(name),
+    name: name,
     description: description === deprecatedMessage ? '' : description,
     deprecatedMessage,
-    type: propertyType(property),
+    type: propertyType(property, tagName),
     contract: propertyContract(property),
     deprecated: property.deprecated ?? false,
   };
@@ -88,13 +87,13 @@ function fixupCoproductTemplateSchema(templateSchema) {
  * @param {SchemaObject} schema
  * @returns {TemplateSchema}
  */
-export function createTemplateSchema(schema) {
+export function createTemplateSchema(schema, tagName) {
   const schemaId = getSchemaId(schema);
   const path = schema['x-schema-paths'] ?? [];
   const properties =
     schema.properties &&
     Object.entries(schema.properties)
-      .map(([name, property]) => createTemplateProperty(name, property))
+      .map(([name, property]) => createTemplateProperty(name, property, tagName))
       .sort(compareProperties);
   let baseObject = {};
   if (isEnum(schema)) {
