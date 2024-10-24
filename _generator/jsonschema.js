@@ -52,18 +52,25 @@ function pickSingularComposedSchema(schema) {
  * @param {SchemaObject} schema
  * @returns {string}
  */
-export function propertyType(schema) {
+export function propertyType(schema, tagName) {
+
   const singularSchema = pickSingularComposedSchema(schema);
   if (!schema.type && singularSchema) {
     schema = singularSchema;
   }
-  const resolvedType = resolvePropertyType(schema);
+
+  const resolvedType = resolvePropertyType(schema, tagName);
   if (resolvedType) {
     return resolvedType;
   }
 
+  if (schema.anyOf) {
+    let types = schema.anyOf?.map(schema => resolvePropertyType(schema, tagName))
+    return types
+  }
+
   if (schema.type === 'array' || schema.type?.at(0) === 'array') {
-    const nestedType = propertyType(schema.items);
+    const nestedType = propertyType(schema.items, tagName);
     return `array of object ${nestedType}`;
   }
   return schema.type;

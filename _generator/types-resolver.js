@@ -37,6 +37,7 @@ function schemaToTypeLink(schema, pageContext) {
     id,
     file: pageContext.fileName,
     anchor,
+    tag: pageContext.tagName,
   };
 }
 
@@ -69,8 +70,10 @@ export class SchemasAccumulator {
       return;
     }
 
+    let updatedSchemaId = `${this.#pageContext.tagName}_${schemaId}`
+
     this.#discoveredTypes.set(
-      schemaId,
+      updatedSchemaId,
       schemaToTypeLink(schema, this.#pageContext)
     );
     this.#knownPageSchemas.add(schemaId);
@@ -117,9 +120,10 @@ export function getPageResolver(pageContext) {
   };
 }
 
-export function resolvePropertyType(schema) {
+export function resolvePropertyType(schema, tagName) {
   const schemaId = getSchemaId(schema);
-  const typeLink = DISCOVERED_TYPES.get(schemaId);
+  let updatedSchemaId = `${tagName}_${schemaId}`
+  const typeLink = DISCOVERED_TYPES.get(updatedSchemaId);
   if (!typeLink) {
     return null;
   }

@@ -1,28 +1,157 @@
 types:
-  health_check:
-    file: healthcheck.md
-    anchor: health_check
-  health_check_attributes:
-    file: healthcheck.md
-    anchor: health_check_attributes
-  register_response:
+  Invoices_invoice_response:
+    file: invoices.md
+    anchor: invoice_response
+    tag: Invoices
+  Invoices_invoice:
+    file: invoices.md
+    anchor: invoice
+    tag: Invoices
+  Invoices_invoice_attributes:
+    file: invoices.md
+    anchor: invoice_attributes
+    tag: Invoices
+  Invoices_invoice_relationships:
+    file: invoices.md
+    anchor: invoice_relationships
+    tag: Invoices
+  Invoices_invoice_user_attributes:
+    file: invoices.md
+    anchor: invoice_user_attributes
+    tag: Invoices
+  Invoices_invoice_register_attributes:
+    file: invoices.md
+    anchor: invoice_register_attributes
+    tag: Invoices
+  Invoices_invoice_original_attributes:
+    file: invoices.md
+    anchor: invoice_original_attributes
+    tag: Invoices
+  Invoices_invoice_items_attributes:
+    file: invoices.md
+    anchor: invoice_items_attributes
+    tag: Invoices
+  Invoices_invoice_item:
+    file: invoices.md
+    anchor: invoice_item
+    tag: Invoices
+  Invoices_invoice_item_attributes:
+    file: invoices.md
+    anchor: invoice_item_attributes
+    tag: Invoices
+  Invoices_user:
+    file: invoices.md
+    anchor: user
+    tag: Invoices
+  Invoices_register:
+    file: invoices.md
+    anchor: register
+    tag: Invoices
+  Invoices_register_attributes:
+    file: invoices.md
+    anchor: register_attributes
+    tag: Invoices
+  Invoices_register_relationships:
+    file: invoices.md
+    anchor: register_relationships
+    tag: Invoices
+  Invoices_relationship_attributes:
+    file: invoices.md
+    anchor: relationship_attributes
+    tag: Invoices
+  Invoices_product_variant:
+    file: invoices.md
+    anchor: product_variant
+    tag: Invoices
+  Invoices_product_variant_attributes:
+    file: invoices.md
+    anchor: product_variant_attributes
+    tag: Invoices
+  Invoices_invoice_item_modifier:
+    file: invoices.md
+    anchor: invoice_item_modifier
+    tag: Invoices
+  Invoices_invoice_item_modifiers_attributes:
+    file: invoices.md
+    anchor: invoice_item_modifiers_attributes
+    tag: Invoices
+  Invoices_invoice_pagination_links:
+    file: invoices.md
+    anchor: invoice_pagination_links
+    tag: Invoices
+  Registers_register_response:
     file: registers.md
     anchor: register_response
-  register:
+    tag: Registers
+  Registers_register:
     file: registers.md
     anchor: register
-  register_attributes:
+    tag: Registers
+  Registers_register_attributes:
     file: registers.md
     anchor: register_attributes
-  register_relationships:
+    tag: Registers
+  Registers_register_relationships:
     file: registers.md
     anchor: register_relationships
-  relationships_attributes:
+    tag: Registers
+  Registers_relationship_attributes:
     file: registers.md
-    anchor: relationships_attributes
-  outlet:
+    anchor: relationship_attributes
+    tag: Registers
+  Registers_outlet:
     file: registers.md
     anchor: outlet
-  outlet_attributes:
+    tag: Registers
+  Registers_outlet_attributes:
     file: registers.md
     anchor: outlet_attributes
+    tag: Registers
+  Products_products_response:
+    file: products.md
+    anchor: products_response
+    tag: Products
+  Products_product:
+    file: products.md
+    anchor: product
+    tag: Products
+  Products_product_attributes:
+    file: products.md
+    anchor: product_attributes
+    tag: Products
+  Products_product_relationships:
+    file: products.md
+    anchor: product_relationships
+    tag: Products
+  Products_product_relationships_attributes:
+    file: products.md
+    anchor: product_relationships_attributes
+    tag: Products
+  Products_product_type:
+    file: products.md
+    anchor: product_type
+    tag: Products
+  Products_product_type_attributes:
+    file: products.md
+    anchor: product_type_attributes
+    tag: Products
+  Products_modifier_set:
+    file: products.md
+    anchor: modifier_set
+    tag: Products
+  Products_modifier_set_attributes:
+    file: products.md
+    anchor: modifier_set_attributes
+    tag: Products
+  Products_product_variant:
+    file: products.md
+    anchor: product_variant
+    tag: Products
+  Products_product_variant_attributes:
+    file: products.md
+    anchor: product_variant_attributes
+    tag: Products
+  Products_product_pagination_links:
+    file: products.md
+    anchor: product_pagination_links
+    tag: Products

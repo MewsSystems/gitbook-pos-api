@@ -103,10 +103,10 @@ function absoluteMdLinksToRelative(markdown, fileName) {
  * @param {Iterable<SchemaObject>} schemas
  * @returns {TemplateSchema[]}
  */
-function prepareTemplateSchemas(schemas) {
+function prepareTemplateSchemas(schemas, tagName) {
   const templateSchemas = [];
   for (const schema of schemas) {
-    const templateSchema = createTemplateSchema(schema);
+    const templateSchema = createTemplateSchema(schema, tagName);
     templateSchemas.push(templateSchema);
   }
   return templateSchemas;
@@ -156,11 +156,11 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
         restricted: operation.schema['x-restricted'],
         requestExample,
         requestSchemas: prepareTemplateSchemas(
-          requestSchemas.getCollectedSchemas()
+          requestSchemas.getCollectedSchemas(), tagName
         ),
         responseExample,
         responseSchemas: prepareTemplateSchemas(
-          responseSchemas.getCollectedSchemas()
+          responseSchemas.getCollectedSchemas(), tagName
         ).sort(compareSchemas),
       };
     })

@@ -83,9 +83,9 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `outlets` | object | required | Details of the outlet to which the register is associated. |
+| `outlet` | object | required | Details of the outlet to which the register is associated. |
 
-#### relationships_attributes
+#### relationship_attributes
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
