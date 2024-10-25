@@ -43,7 +43,7 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
         "address1": "123 Main Street",
         "address2": "Suite 4B",
         "city": "New York",
-        "State": "New York",
+        "state": "New York",
         "postal_code": "10001",
         "index": 5,
         "created_at": "2023-10-16T13:30:00Z",
@@ -85,7 +85,7 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | :-- | :-- | :-- | :-- |
 | `outlet` | object | required | Details of the outlet to which the register is associated. |
 
-#### relationship_attributes
+#### register_relationships_attributes
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -109,7 +109,7 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `address2` | string | required, max length 255 characters | The second line of outlet's address. |
 | `city` | string | required, max length 86 characters | The city where the outlet is located. |
 | `state` | string | required, max length 54 characters | The state or region where the outlet is located. |
-| `postal_code` | string | required, max length 10 characters | The postal or ZIP code for outlet's location. |
+| `postal_code` | string,null | optional, max length 10 characters | The postal or ZIP code for outlet's location. |
 | `index` | integer | required | A unique sequential number representing the outlet number within the establishment. |
 | `created_at` | string | required, max length 25 characters | Outlet created at timestamp in ISO 8601 format. |
 | `updated_at` | string | required, max length 25 characters | Outlet updated at timestamp in ISO 8601 format. |

@@ -155,3 +155,19 @@ types:
     file: products.md
     anchor: product_pagination_links
     tag: Products
+  Invoices_invoice_relationships_attributes:
+    file: invoices.md
+    anchor: invoice_relationships_attributes
+    tag: Invoices
+  Invoices_register_relationships_attributes:
+    file: invoices.md
+    anchor: register_relationships_attributes
+    tag: Invoices
+  Registers_register_relationships_attributes:
+    file: registers.md
+    anchor: register_relationships_attributes
+    tag: Registers
+  Invoices_user_attributes:
+    file: invoices.md
+    anchor: user_attributes
+    tag: Invoices
