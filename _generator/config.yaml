@@ -1,4 +1,6 @@
 source: https://pos.mews.com/api/v2/docs/openapi.yaml
 output: ../operations
 tags:
+  - Products
+  - Invoices
   - Registers
