@@ -52,18 +52,26 @@ function pickSingularComposedSchema(schema) {
  * @param {SchemaObject} schema
  * @returns {string}
  */
-export function propertyType(schema) {
+export function propertyType(schema, tagName) {
+
   const singularSchema = pickSingularComposedSchema(schema);
   if (!schema.type && singularSchema) {
     schema = singularSchema;
   }
-  const resolvedType = resolvePropertyType(schema);
+
+  const resolvedType = resolvePropertyType(schema, tagName);
   if (resolvedType) {
     return resolvedType;
   }
-  if (schema.type === 'array') {
-    const nestedType = propertyType(schema.items);
-    return `array of ${nestedType}`;
+
+  if (schema.anyOf) {
+    let types = schema.anyOf?.map(schema => resolvePropertyType(schema, tagName))
+    return types
+  }
+
+  if (schema.type === 'array' || schema.type?.at(0) === 'array') {
+    const nestedType = propertyType(schema.items, tagName);
+    return `array of object ${nestedType}`;
   }
   return schema.type;
 }
@@ -78,11 +86,14 @@ export function propertyContract(schema) {
     schema = schema.anyOf[0];
   }
 
-  if (schema.nullable) {
+  // handle OpenAPI 3.1 type array
+  // For more details: https://www.openapis.org/blog/2021/02/16/migrating-from-openapi-3-0-to-3-1-0
+  if (schema.type?.at(-1) === 'null') {
     result.push('optional');
   } else {
     result.push('required');
   }
+
   if (schema.maxItems) {
     const suffix = schema.maxItems > 1 ? 's' : '';
     result.push(`max ${schema.maxItems} item${suffix}`);

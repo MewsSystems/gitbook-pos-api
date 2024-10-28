@@ -39,7 +39,7 @@ export function collectSchemas(schema, path, accumulator) {
       collectSchemas(schema.properties[key], [...nestedPath, key], accumulator);
     }
   }
-  if (schema.type === 'array') {
+  if (schema.type === 'array' || schema.type?.at(0) === 'array') {
     collectSchemas(schema.items, nestedPath, accumulator);
   }
   const composedSchemas = schema.anyOf || schema.oneOf || schema.allOf || [];

@@ -1,4 +1,6 @@
-source: https://dev.agentcash.net/api/v2/docs/openapi.yaml
+source: https://pos.mews.com/api/v2/docs/openapi.yaml
 output: ../operations
 tags:
-  - HealthCheck
+  - Products
+  - Invoices
+  - Registers
