@@ -100,6 +100,9 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
         "virtual": false,
         "created_at": "2024-10-24T08:44:45.042Z",
         "updated_at": "2024-10-24T08:44:45.042Z"
+      },
+      "links": {
+        "self": "https://pos.mews-demo.com/api/v2/registers/eef23c03-49b9-432b-b1a3-955ea1501557"
       }
     },
     {
@@ -159,8 +162,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `total` | string | required, max length 255 characters | The final amount due on the invoice after all discounts and taxes. |
 | `subtotal` | string | required, max length 255 characters | The total amount of the invoice before taxes and additional charges. |
 | `tip_amount` | string,null | optional, max length 255 characters | The amount of gratuity or tip added to the invoice. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in ISO 8601 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in ISO 8601 format. |
+| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 | `cancelled` | boolean | required | Indicates whether the invoice has been cancelled (true) or not (false). |
 | `cancel_reason` | string,null | optional, max length 255 characters | The reason provided for cancelling the invoice, if applicable. |
 | `discount_amount` | string,null | optional, max length 255 characters | The total monetary value of the discount applied to the invoice. |
@@ -210,8 +213,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `subtotal_incl_discount` | string | required, max length 255 characters | The subtotal of the item after applying any discounts. |
 | `tax_incl_discount` | string | required, max length 255 characters | The tax amount applicable to the item after applying any discounts. |
 | `total_incl_discount` | string | required, max length 255 characters | The tax amount applicable to the item after applying any discounts. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in ISO 8601 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in ISO 8601 format. |
+| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### user
 
@@ -234,6 +237,7 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
 | `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 | `attributes` | [register_attributes](invoices.md#register_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `links` | object | required | A [links object](https://jsonapi.org/format/#document-resource-object-links) containing links related to the resource. |
 | `relationships` | [register_relationships](invoices.md#register_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
 
 #### register_attributes
@@ -244,8 +248,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `invoices_count` | integer | required | Total number of invoices issued from this register. |
 | `index` | integer | required | The index of a register within an outlet. |
 | `virtual` | boolean | required | A boolean indicating whether the register is virtual `true` or physical `false`. |
-| `created_at` | string | required, max length 25 characters | Register created at timestamp in ISO 8601 format. |
-| `updated_at` | string | required, max length 25 characters | Register updated at timestamp in ISO 8601 format. |
+| `created_at` | string | required, max length 25 characters | Register created at timestamp in RFC 3339 format. |
+| `updated_at` | string | required, max length 25 characters | Register updated at timestamp in RFC 3339 format. |
 
 #### register_relationships
 
@@ -277,8 +281,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `regular_retail_price` | string | required, max length 255 characters | Regular retail price. |
 | `sku` | string | required, max length 255 characters | SKU of the variant. |
 | `barcode` | string | required, max length 255 characters | Barcode of the variant. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in ISO 8601 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in ISO 8601 format. |
+| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### invoice_item_modifier
 
