@@ -32,6 +32,9 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
           "type": "outlets"
         }
       }
+    },
+    "links": {
+      "self": "https://pos.mews-demo/com/v2/registers/31b14937-2524-491f-b0a0-dc0a7393ff3f"
     }
   },
   "included": [
@@ -66,6 +69,7 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
 | `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 | `attributes` | [register_attributes](registers.md#register_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `links` | object | required | A [links object](https://jsonapi.org/format/#document-resource-object-links) containing links related to the resource. |
 | `relationships` | [register_relationships](registers.md#register_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
 
 #### register_attributes
@@ -76,8 +80,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `invoices_count` | integer | required | Total number of invoices issued from this register. |
 | `index` | integer | required | The index of a register within an outlet. |
 | `virtual` | boolean | required | A boolean indicating whether the register is virtual `true` or physical `false`. |
-| `created_at` | string | required, max length 25 characters | Register created at timestamp in ISO 8601 format. |
-| `updated_at` | string | required, max length 25 characters | Register updated at timestamp in ISO 8601 format. |
+| `created_at` | string | required, max length 25 characters | Register created at timestamp in RFC 3339 format. |
+| `updated_at` | string | required, max length 25 characters | Register updated at timestamp in RFC 3339 format. |
 
 #### register_relationships
 
@@ -111,5 +115,5 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `state` | string | required, max length 54 characters | The state or region where the outlet is located. |
 | `postal_code` | string,null | optional, max length 10 characters | The postal or ZIP code for outlet's location. |
 | `index` | integer | required | A unique sequential number representing the outlet number within the establishment. |
-| `created_at` | string | required, max length 25 characters | Outlet created at timestamp in ISO 8601 format. |
-| `updated_at` | string | required, max length 25 characters | Outlet updated at timestamp in ISO 8601 format. |
+| `created_at` | string | required, max length 25 characters | Outlet created at timestamp in RFC 3339 format. |
+| `updated_at` | string | required, max length 25 characters | Outlet updated at timestamp in RFC 3339 format. |

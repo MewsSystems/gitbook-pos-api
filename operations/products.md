@@ -165,8 +165,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `retail_price_incl_tax` | string | required, max length 255 characters | Retail price including tax. |
 | `regular_retail_price` | string | required, max length 255 characters | Regular retail price. |
 | `unit_price` | string | required, max length 255 characters | Unit price of the product. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in ISO 8601 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in ISO 8601 format. |
+| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### product_relationships
 
@@ -196,8 +196,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `name` | string | required, max length 255 characters | Name of the product type. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in ISO 8601 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in ISO 8601 format. |
+| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### modifier_set
 
@@ -215,8 +215,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `selection` | string | required | Modifier set selection type. |
 | `maximum_count` | integer | required | Maximum number of modifiers that can be selected. |
 | `minimum_count` | integer | required | Minimum number of modifiers that must be selected. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in ISO 8601 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in ISO 8601 format. |
+| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### product_variant
 
@@ -235,8 +235,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `regular_retail_price` | string | required, max length 255 characters | Regular retail price. |
 | `sku` | string | required, max length 255 characters | SKU of the variant. |
 | `barcode` | string | required, max length 255 characters | Barcode of the variant. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in ISO 8601 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in ISO 8601 format. |
+| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### product_pagination_links
 
