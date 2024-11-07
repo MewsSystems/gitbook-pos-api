@@ -1,10 +1,8 @@
 # Requests
 
-REST API... blah blah
+The **Mews POS API** follows the [JSON:API specification](https://jsonapi.org/) for formatting HTTP requests. `Content-Type` is set to the JSON:API media type `application/vnd.api+json`.
 
-http verbs... blah blah
-
-`Content-Type` set to `application/vnd.api+json` and JSON content depending on the operation to be performed, but formatted according to the [JSON:API](https://jsonapi.org/) standard.
+## Address pattern
 
 All operations follow this address pattern:
 
@@ -18,9 +16,7 @@ All operations follow this address pattern:
 
 ## Request body
 
-As per [JSON:API specification](https://jsonapi.org/), ... blah blah
-
-Each request to an endpoint of the API will include a payload consisting of a header with authentication information, and a body with the data needed to perform the operation.
+Each request will include a payload consisting of a header with authentication information, and a body with the data needed to perform the operation. For example:
 
 ```json
 {
