@@ -12,6 +12,8 @@
   * [Data handling](essential-guide/data-handling.md)
   * [Best practices](essential-guide/best-practices.md)
 * [Concepts](concepts/README.md)
+* [Use cases](use-cases/README.md)
+  * [Inventory management](use-cases/inventory.md)
 * [API Operations](operations/README.md)
   * [Invoices](operations/invoices.md)
   * [Products](operations/products.md)

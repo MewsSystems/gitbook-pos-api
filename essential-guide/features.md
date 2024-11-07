@@ -2,15 +2,19 @@
 
 The __Mews POS API__ has the following notable features:
 
+- [REST-based](https://en.wikipedia.org/wiki/REST)
+- Follows the [JSON:API specification](https://jsonapi.org/)
 - Versioned
 - Authenticated
-- Follows the [JSON:API specification](https://jsonapi.org/)
 - Uses cursor pagination (depending on the operation)
 
-Mews POS API follows the [JSON:API specification](https://jsonapi.org/) and is REST-based.
+## JSON: API
 
-JSON:API is a specification for how a client should request that resources be fetched or modified, and how a server should respond to those requests. Resources in Mews POS API include invoices, products, registers and more.
+**Mews POS API** follows the [JSON:API specification](https://jsonapi.org/). This is a standard and efficient way for formatting requests and responses, so familiarity with this specification will help you understand the **Mews POS API** and make the best use of it.
 
-JSON:API is designed to minimize both the number of requests and the amount of data transmitted between clients and servers. This efficiency is achieved without compromising readability, flexibility, or discoverability.
+- **Client libraries** – See the list of [JSON: API Implementations](https://jsonapi.org/implementations/) for code libraries to fast-track your development with JSON: API
+- **Media type** – JSON:API uses the JSON:API media type `application/vnd.api+json`
 
-JSON:API requires use of the JSON:API media type (application/vnd.api+json) for exchanging data.
+## Resources
+
+Resources in the **Mews POS API** include `invoices`, `products`, `registers` and more. Each has its own page in the API Operations section.

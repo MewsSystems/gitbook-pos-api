@@ -1,3 +1,3 @@
 # Environments
 
-No content yet.
+> **Template**: This documentation page is awaiting content. Please check back later for full details.

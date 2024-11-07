@@ -2,4 +2,8 @@
 
 This section describes all endpoints and operations supported by the API.
 
-TBD
+| Operation | Description |
+| :-- | :-- |
+| [Get invoices](invoices.md#get-invoices) | Returns a list of invoices. |
+| [Get products](products.md#get-products) | Returns a list of products. |
+| [Get registers](registers.md#get-registers) | Returns a list of registers or terminals. |
