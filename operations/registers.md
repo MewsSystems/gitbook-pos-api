@@ -4,7 +4,7 @@
 ## Get registers
 
 A register represents a terminal or cash register within an outlet, used to issue invoices. Each register is uniquely identified within its outlet and can either be physical or virtual.
-Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports the `include` query parameter `outlet` following the [JSON:API specification](../essential-guide/features.md).
+Note: This operation needs [Authentication](../essential-guide/authentication.md) and follows the [JSON:API specification](../essential-guide/features.md). To learn about the query parameters this operation supports, please visit [Requests page](../essential-guide/requests.md).
 
 ### Request
 

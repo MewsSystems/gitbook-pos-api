@@ -4,7 +4,7 @@
 ## Get invoices
 
 This operation returns a list of invoices.
-Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports the `include` query parameters `invoice_item, user, register, product_variant, invoice_item_modifier` following the [JSON:API specification](../essential-guide/features.md).
+Note: This operation needs [Authentication](../essential-guide/authentication.md) and follows the [JSON:API specification](../essential-guide/features.md). To learn about the query parameters this operation supports, please visit [Requests page](../essential-guide/requests.md)
 
 ### Request
 

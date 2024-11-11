@@ -4,7 +4,7 @@
 ## Get products
 
 This operation returns a list of products.
-Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports the `include` query parameters `product_type, modifier_set, product_variant` following the [JSON:API specification](../essential-guide/features.md).
+Note: This operation needs [Authentication](../essential-guide/authentication.md) and follows the [JSON:API specification](../essential-guide/features.md). To learn about the query parameters this operation supports, please visit [Requests page](../essential-guide/requests.md).
 
 ### Request
 
