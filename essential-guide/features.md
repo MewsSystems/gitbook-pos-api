@@ -12,6 +12,7 @@ Mews POS API follows to the [JSON:API specification](https://jsonapi.org/) and i
 The Mews API currently supports the following JSON:API features:
 
 - [Relationships](./relationships.md)
+- [Filtering](./filtering.md)
 
 Resources in Mews API include the following:
 
