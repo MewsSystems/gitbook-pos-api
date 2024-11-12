@@ -171,3 +171,7 @@ types:
     file: invoices.md
     anchor: user_attributes
     tag: Invoices
+  Invoices_invoices_response:
+    file: invoices.md
+    anchor: invoices_response
+    tag: Invoices

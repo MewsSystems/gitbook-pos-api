@@ -4,7 +4,10 @@
 ## Get registers
 
 A register represents a terminal or cash register within an outlet, used to issue invoices. Each register is uniquely identified within its outlet and can either be physical or virtual.
-Note: This operation needs [Authentication](../essential-guide/authentication.md) and follows the [JSON:API specification](../essential-guide/features.md). To learn about the query parameters this operation supports, please visit [Requests page](../essential-guide/requests.md).
+Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports following the [JSON:API features](../essential-guide/features.md):
+
+- [Relationships](../essential-guide/relationships.md); `outlet` using `include` query parameter.
+- [Sparse fieldsets](../essential-guide/sparse-fieldsets.md); supports all fields of `register` or related resources with `fields` query parameter.
 
 ### Request
 
@@ -19,11 +22,11 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
     "type": "registers",
     "attributes": {
       "name": "Main Register",
-      "invoices_count": 1200,
+      "invoicesCount": 1200,
       "index": 3,
       "virtual": false,
-      "created_at": "2023-10-16T14:30:00Z",
-      "updated_at": "2023-10-19T14:30:00Z"
+      "createdAt": "2023-10-16T14:30:00Z",
+      "updatedAt": "2023-10-19T14:30:00Z"
     },
     "relationships": {
       "outlet": {
@@ -47,10 +50,10 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
         "address2": "Suite 4B",
         "city": "New York",
         "state": "New York",
-        "postal_code": "10001",
+        "postalCode": "10001",
         "index": 5,
-        "created_at": "2023-10-16T13:30:00Z",
-        "updated_at": "2023-10-16T15:30:00Z"
+        "createdAt": "2023-10-16T13:30:00Z",
+        "updatedAt": "2023-10-16T15:30:00Z"
       }
     }
   ]
@@ -77,24 +80,17 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `name` | string | required, max length 255 characters | Name of the register. |
-| `invoices_count` | integer | required | Total number of invoices issued from this register. |
+| `invoicesCount` | integer | required | Total number of invoices issued from this register. |
 | `index` | integer | required | The index of a register within an outlet. |
 | `virtual` | boolean | required | A boolean indicating whether the register is virtual `true` or physical `false`. |
-| `created_at` | string | required, max length 25 characters | Register created at timestamp in RFC 3339 format. |
-| `updated_at` | string | required, max length 25 characters | Register updated at timestamp in RFC 3339 format. |
+| `createdAt` | string | required, max length 25 characters | Register created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Register updated at timestamp in RFC 3339 format. |
 
 #### register_relationships
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `outlet` | object | required | Details of the outlet to which the register is associated. |
-
-#### register_relationships_attributes
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
-| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 
 #### outlet
 
@@ -113,7 +109,7 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `address2` | string | required, max length 255 characters | The second line of outlet's address. |
 | `city` | string | required, max length 86 characters | The city where the outlet is located. |
 | `state` | string | required, max length 54 characters | The state or region where the outlet is located. |
-| `postal_code` | string,null | optional, max length 10 characters | The postal or ZIP code for outlet's location. |
+| `postalCode` | string,null | optional, max length 10 characters | The postal or ZIP code for outlet's location. |
 | `index` | integer | required | A unique sequential number representing the outlet number within the establishment. |
-| `created_at` | string | required, max length 25 characters | Outlet created at timestamp in RFC 3339 format. |
-| `updated_at` | string | required, max length 25 characters | Outlet updated at timestamp in RFC 3339 format. |
+| `createdAt` | string | required, max length 25 characters | Outlet created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Outlet updated at timestamp in RFC 3339 format. |

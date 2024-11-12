@@ -4,7 +4,11 @@
 ## Get invoices
 
 This operation returns a list of invoices.
-Note: This operation needs [Authentication](../essential-guide/authentication.md) and follows the [JSON:API specification](../essential-guide/features.md). To learn about the query parameters this operation supports, please visit [Requests page](../essential-guide/requests.md)
+Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports following the [JSON:API features](../essential-guide/features.md):
+
+- [Relationships](../essential-guide/relationships.md); `invoiceItem`, `user`, `register`, `productVariant`, `invoiceItemModifier` using `include` query parameter.
+- [Filters](../essential-guide/filters.md); `createdAtGt`.
+- [Sparse fieldsets](../essential-guide/sparse-fieldsets.md); supports all fields of `invoices` or related resources with `fields` query parameter.
 
 ### Request
 
@@ -24,13 +28,13 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
         "total": "10.00",
         "subtotal": "8.33",
         "cancelled": false,
-        "cancel_reason": null,
-        "discount_amount": "0.00",
+        "cancelReason": null,
+        "discountAmount": "0.00",
         "description": null,
-        "item_discount_amount": "0.00",
-        "created_at": "2024-10-24T08:44:45.409Z",
-        "updated_at": "2024-10-24T08:44:45.547Z",
-        "tip_amount": "0.00"
+        "itemDiscountAmount": "0.00",
+        "createdAt": "2024-10-24T08:44:45.409Z",
+        "updatedAt": "2024-10-24T08:44:45.547Z",
+        "tipAmount": "0.00"
       },
       "relationships": {
         "user": {
@@ -39,7 +43,7 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
             "type": "users"
           }
         },
-        "original_invoices": {
+        "originalInvoices": {
           "data": null
         },
         "register": {
@@ -48,11 +52,11 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
             "type": "registers"
           }
         },
-        "items": {
+        "invoiceItems": {
           "data": [
             {
               "id": "22426614-316e-4654-b567-60d781f9ae37",
-              "type": "invoice_items"
+              "type": "invoiceItems"
             }
           ]
         }
@@ -69,10 +73,10 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
     },
     {
       "id": "22426614-316e-4654-b567-60d781f9ae37",
-      "type": "invoice_items",
+      "type": "invoiceItems",
       "attributes": {
-        "product_name": "Awesome Rubber Bottle",
-        "unit_price_incl_tax": "10.00",
+        "productName": "Awesome Rubber Bottle",
+        "unitPriceInclTax": "10.00",
         "quantity": 1,
         "subtotal": "8.33",
         "tax": "1.67",
@@ -80,14 +84,14 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
         "discount": "0.00",
         "comp": false,
         "void": false,
-        "comp_void_reason": null,
-        "comp_void_notes": null,
-        "discount_amount": "1.00",
-        "subtotal_incl_discount": "7.33",
-        "tax_incl_discount": "1.47",
-        "total_incl_discount": "8.80",
-        "created_at": "2024-01-01T12:00:00Z",
-        "updated_at": "2024-01-01T12:00:00Z"
+        "compVoidReason": null,
+        "compVoidNotes": null,
+        "discountAmount": "1.00",
+        "subtotalInclDiscount": "7.33",
+        "taxInclDiscount": "1.47",
+        "totalInclDiscount": "8.80",
+        "createdAt": "2024-01-01T12:00:00Z",
+        "updatedAt": "2024-01-01T12:00:00Z"
       }
     },
     {
@@ -95,11 +99,11 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
       "type": "registers",
       "attributes": {
         "name": "Cummings and Sons",
-        "invoices_count": 1,
+        "invoicesCount": 1,
         "index": 9,
         "virtual": false,
-        "created_at": "2024-10-24T08:44:45.042Z",
-        "updated_at": "2024-10-24T08:44:45.042Z"
+        "createdAt": "2024-10-24T08:44:45.042Z",
+        "updatedAt": "2024-10-24T08:44:45.042Z"
       },
       "links": {
         "self": "https://pos.mews-demo.com/api/v2/registers/eef23c03-49b9-432b-b1a3-955ea1501557"
@@ -107,27 +111,27 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
     },
     {
       "id": "99a2d9e7-8903-4c45-8f72-d914f38eb44a",
-      "type": "product_variants",
+      "type": "productVariants",
       "attributes": {
         "sku": "SKU12345",
         "tax": "1.00",
         "deleted": false,
         "barcode": "012345678912",
-        "retail_price_excl_tax": "8.00",
-        "retail_price_incl_tax": "10.00",
-        "regular_retail_price": "9.00",
-        "created_at": "2024-01-01T12:00:00Z",
-        "updated_at": "2024-01-01T12:00:00Z"
+        "retailPriceExclTax": "8.00",
+        "retailPriceInclTax": "10.00",
+        "regularRetailPrice": "9.00",
+        "createdAt": "2024-01-01T12:00:00Z",
+        "updatedAt": "2024-01-01T12:00:00Z"
       }
     },
     {
       "id": "1a6d80c4-7f2e-4d49-9f5a-f279cdaaa87e",
-      "type": "invoice_item_modifiers",
+      "type": "invoiceItemModifiers",
       "attributes": {
         "name": "Extra Ice",
         "price": "0.50",
-        "created_at": "2024-01-01T12:00:00Z",
-        "updated_at": "2024-01-01T12:00:00Z"
+        "createdAt": "2024-01-01T12:00:00Z",
+        "updatedAt": "2024-01-01T12:00:00Z"
       }
     }
   ],
@@ -161,14 +165,14 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `tax` | string | required, max length 255 characters | The total tax amount applicable to the invoice. |
 | `total` | string | required, max length 255 characters | The final amount due on the invoice after all discounts and taxes. |
 | `subtotal` | string | required, max length 255 characters | The total amount of the invoice before taxes and additional charges. |
-| `tip_amount` | string,null | optional, max length 255 characters | The amount of gratuity or tip added to the invoice. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `tipAmount` | string,null | optional, max length 255 characters | The amount of gratuity or tip added to the invoice. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 | `cancelled` | boolean | required | Indicates whether the invoice has been cancelled (true) or not (false). |
-| `cancel_reason` | string,null | optional, max length 255 characters | The reason provided for cancelling the invoice, if applicable. |
-| `discount_amount` | string,null | optional, max length 255 characters | The total monetary value of the discount applied to the invoice. |
+| `cancelReason` | string,null | optional, max length 255 characters | The reason provided for cancelling the invoice, if applicable. |
+| `discountAmount` | string,null | optional, max length 255 characters | The total monetary value of the discount applied to the invoice. |
 | `description` | string,null | optional, max length 255 characters | A brief description of the invoice, including details about the transaction. |
-| `item_discount_amount` | string,null | optional, max length 255 characters | The total discount amount applied to individual items within the invoice. |
+| `itemDiscountAmount` | string,null | optional, max length 255 characters | The total discount amount applied to individual items within the invoice. |
 
 #### invoice_relationships
 
@@ -176,15 +180,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | :-- | :-- | :-- | :-- |
 | `user` | object | required | Details of the user associated with the invoice. |
 | `registers` | object | required | Details of the register associated with the invoice. |
-| `original_invoice` | object | required | Details of the original invoice associated with the invoice. |
+| `originalInvoice` | object | required | Details of the original invoice associated with the invoice. |
 | `items` | object | required | Details of the items associated with the invoice. |
-
-#### invoice_relationships_attributes
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
-| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 
 #### invoice_item
 
@@ -198,8 +195,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `product_name` | string | required, max length 255 characters | The name of the product or item being invoiced. |
-| `unit_price_incl_tax` | string | required, max length 255 characters | The price of the product per unit, including applicable taxes. |
+| `productName` | string | required, max length 255 characters | The name of the product or item being invoiced. |
+| `unitPriceInclTax` | string | required, max length 255 characters | The price of the product per unit, including applicable taxes. |
 | `quantity` | integer | required | The number of units of the product being purchased. |
 | `subtotal` | string | required, max length 255 characters | The total price of the product before taxes and discounts are applied. |
 | `tax` | string | required, max length 255 characters | The tax amount applicable to the specific item. |
@@ -207,14 +204,14 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `discount` | string | required, max length 255 characters | The percentage or amount of discount applied specifically to this item. |
 | `comp` | boolean | required | Indicates whether the item was provided for free (comped) or not. |
 | `void` | boolean | required | Indicates whether the item has been voided from the invoice. |
-| `comp_void_reason` | string,null | optional, max length 255 characters | The reason provided for voiding the item, if applicable. |
-| `comp_void_notes` | string,null | optional, max length 2048 characters | Additional notes regarding the comping or voiding of the item. |
-| `discount_amount` | string,null | optional, max length 255 characters | The total monetary value of the discount applied to this specific item. |
-| `subtotal_incl_discount` | string | required, max length 255 characters | The subtotal of the item after applying any discounts. |
-| `tax_incl_discount` | string | required, max length 255 characters | The tax amount applicable to the item after applying any discounts. |
-| `total_incl_discount` | string | required, max length 255 characters | The tax amount applicable to the item after applying any discounts. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `compVoidReason` | string,null | optional, max length 255 characters | The reason provided for voiding the item, if applicable. |
+| `compVoidNotes` | string,null | optional, max length 2048 characters | Additional notes regarding the comping or voiding of the item. |
+| `discountAmount` | string,null | optional, max length 255 characters | The total monetary value of the discount applied to this specific item. |
+| `subtotalInclDiscount` | string | required, max length 255 characters | The subtotal of the item after applying any discounts. |
+| `taxInclDiscount` | string | required, max length 255 characters | The tax amount applicable to the item after applying any discounts. |
+| `totalInclDiscount` | string | required, max length 255 characters | The tax amount applicable to the item after applying any discounts. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### user
 
@@ -245,24 +242,17 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `name` | string | required, max length 255 characters | Name of the register. |
-| `invoices_count` | integer | required | Total number of invoices issued from this register. |
+| `invoicesCount` | integer | required | Total number of invoices issued from this register. |
 | `index` | integer | required | The index of a register within an outlet. |
 | `virtual` | boolean | required | A boolean indicating whether the register is virtual `true` or physical `false`. |
-| `created_at` | string | required, max length 25 characters | Register created at timestamp in RFC 3339 format. |
-| `updated_at` | string | required, max length 25 characters | Register updated at timestamp in RFC 3339 format. |
+| `createdAt` | string | required, max length 25 characters | Register created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Register updated at timestamp in RFC 3339 format. |
 
 #### register_relationships
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `outlet` | object | required | Details of the outlet to which the register is associated. |
-
-#### register_relationships_attributes
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
-| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 
 #### product_variant
 
@@ -276,13 +266,13 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `retail_price_excl_tax` | string | required, max length 255 characters | Retail price excluding tax. |
-| `retail_price_incl_tax` | string | required, max length 255 characters | Retail price including tax. |
-| `regular_retail_price` | string | required, max length 255 characters | Regular retail price. |
+| `retailPriceExclTax` | string | required, max length 255 characters | Retail price excluding tax. |
+| `retailPriceInclTax` | string | required, max length 255 characters | Retail price including tax. |
+| `regularRetailPrice` | string | required, max length 255 characters | Regular retail price. |
 | `sku` | string | required, max length 255 characters | SKU of the variant. |
 | `barcode` | string | required, max length 255 characters | Barcode of the variant. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### invoice_item_modifier
 

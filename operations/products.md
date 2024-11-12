@@ -4,7 +4,10 @@
 ## Get products
 
 This operation returns a list of products.
-Note: This operation needs [Authentication](../essential-guide/authentication.md) and follows the [JSON:API specification](../essential-guide/features.md). To learn about the query parameters this operation supports, please visit [Requests page](../essential-guide/requests.md).
+Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports following the [JSON:API features](../essential-guide/features.md):
+
+- [Relationships](../essential-guide/relationships.md); `productType`, `modifierSet`, `productVariant` using `include` query parameter.
+- [Sparse fieldsets](../essential-guide/sparse-fieldsets.md); supports all fields of `product` or related resources with `fields` query parameter.
 
 ### Request
 
@@ -24,42 +27,42 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
         "sku": "ABC-123-HR-K",
         "status": "active",
         "barcode": "1234567890",
-        "created_at": "2022-10-16T11:29:00Z",
-        "updated_at": "2022-10-19T11:29:00Z",
+        "createdAt": "2022-10-16T11:29:00Z",
+        "updatedAt": "2022-10-19T11:29:00Z",
         "tax": "2.00",
-        "retail_price_incl_tax": "10.00",
-        "retail_price_excl_tax": "8.00",
-        "regular_retail_price": "10.00",
-        "unit_price": "10.00"
+        "retailPriceInclTax": "10.00",
+        "retailPriceExclTax": "8.00",
+        "regularRetailPrice": "10.00",
+        "unitPrice": "10.00"
       },
       "relationships": {
-        "product_type": {
+        "productType": {
           "data": {
             "id": "c53372e2-9aa1-452a-8965-2ea3fa514fb2",
-            "type": "product_types"
+            "type": "productTypes"
           }
         },
-        "modifier_sets": {
+        "modifierSets": {
           "data": [
             {
               "id": "06382148-c76a-489d-b382-72fb7d7ab37b",
-              "type": "modifier_sets"
+              "type": "modifierSets"
             },
             {
               "id": "e727124a-d2bb-4002-98bd-81af6d788666",
-              "type": "modifier_sets"
+              "type": "modifierSets"
             }
           ]
         },
-        "product_variants": {
+        "productVariants": {
           "data": [
             {
               "id": "0907e6d2-62c1-44cd-a886-f403ce9c7145",
-              "type": "product_variants"
+              "type": "productVariants"
             },
             {
               "id": "0d4e4ec6-118f-47a6-9040-b68abbec0575",
-              "type": "product_variants"
+              "type": "productVariants"
             }
           ]
         }
@@ -69,63 +72,63 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
   "included": [
     {
       "id": "c53372e2-9aa1-452a-8965-2ea3fa514fb2",
-      "type": "product_types",
+      "type": "productTypes",
       "attributes": {
         "name": "Food",
-        "created_at": "2022-10-16T11:29:00Z",
-        "updated_at": "2022-10-19T11:29:00Z"
+        "createdAt": "2022-10-16T11:29:00Z",
+        "updatedAt": "2022-10-19T11:29:00Z"
       }
     },
     {
       "id": "06382148-c76a-489d-b382-72fb7d7ab37b",
-      "type": "modifier_sets",
+      "type": "modifierSets",
       "attributes": {
         "name": "Size",
         "selection": "single",
-        "maximum_count": 10,
-        "minimum_count": 1,
-        "created_at": "2022-10-16T11:29:00Z",
-        "updated_at": "2022-10-19T11:29:00Z"
+        "maximumCount": 10,
+        "minimumCount": 1,
+        "createdAt": "2022-10-16T11:29:00Z",
+        "updatedAt": "2022-10-19T11:29:00Z"
       }
     },
     {
       "id": "e727124a-d2bb-4002-98bd-81af6d788666",
-      "type": "modifier_sets",
+      "type": "modifierSets",
       "attributes": {
         "name": "Toppings",
         "selection": "multiple",
-        "maximum_count": 10,
-        "minimum_count": 1,
-        "created_at": "2022-10-16T11:29:00Z",
-        "updated_at": "2022-10-19T11:29:00Z"
+        "maximumCount": 10,
+        "minimumCount": 1,
+        "createdAt": "2022-10-16T11:29:00Z",
+        "updatedAt": "2022-10-19T11:29:00Z"
       }
     },
     {
       "id": "0907e6d2-62c1-44cd-a886-f403ce9c7145",
-      "type": "product_variants",
+      "type": "productVariants",
       "attributes": {
         "sku": "ABD-123-HR-O",
         "barcode": "1234567891",
         "tax": "2.00",
-        "retail_price_incl_tax": "10.00",
-        "retail_price_excl_tax": "8.00",
-        "regular_retail_price": "10.00",
-        "created_at": "2022-10-16T11:29:00Z",
-        "updated_at": "2022-10-19T11:29:00Z"
+        "retailPriceInclTax": "10.00",
+        "retailPriceExclTax": "8.00",
+        "regularRetailPrice": "10.00",
+        "createdAt": "2022-10-16T11:29:00Z",
+        "updatedAt": "2022-10-19T11:29:00Z"
       }
     },
     {
       "id": "0d4e4ec6-118f-47a6-9040-b68abbec0575",
-      "type": "product_variants",
+      "type": "productVariants",
       "attributes": {
         "sku": "ABD-144-HR-Z",
         "barcode": "1234567777",
         "tax": "2.00",
-        "retail_price_incl_tax": "10.00",
-        "retail_price_excl_tax": "8.00",
-        "regular_retail_price": "10.00",
-        "created_at": "2022-10-16T11:29:00Z",
-        "updated_at": "2022-10-19T11:29:00Z"
+        "retailPriceInclTax": "10.00",
+        "retailPriceExclTax": "8.00",
+        "regularRetailPrice": "10.00",
+        "createdAt": "2022-10-16T11:29:00Z",
+        "updatedAt": "2022-10-19T11:29:00Z"
       }
     }
   ],
@@ -161,27 +164,20 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `barcode` | string | required, max length 255 characters | Barcode of the product. |
 | `status` | string | required | Status of the product. |
 | `tax` | string | required, max length 255 characters | Tax of the product. |
-| `retail_price_excl_tax` | string | required, max length 255 characters | Retail price excluding tax. |
-| `retail_price_incl_tax` | string | required, max length 255 characters | Retail price including tax. |
-| `regular_retail_price` | string | required, max length 255 characters | Regular retail price. |
-| `unit_price` | string | required, max length 255 characters | Unit price of the product. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `retailPriceExclTax` | string | required, max length 255 characters | Retail price excluding tax. |
+| `retailPriceInclTax` | string | required, max length 255 characters | Retail price including tax. |
+| `regularRetailPrice` | string | required, max length 255 characters | Regular retail price. |
+| `unitPrice` | string | required, max length 255 characters | Unit price of the product. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### product_relationships
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `product_type` | object | required | Details of the product type associated with the product. |
-| `modifier_sets` | object | required | Details of the modifier sets associated with the product. |
-| `product_variants` | object | required | Details of the product variants associated with the product. |
-
-#### product_relationships_attributes
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
-| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `productType` | object | required | Details of the product type associated with the product. |
+| `modifierSets` | object | required | Details of the modifier sets associated with the product. |
+| `productVariants` | object | required | Details of the product variants associated with the product. |
 
 #### product_type
 
@@ -196,8 +192,8 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `name` | string | required, max length 255 characters | Name of the product type. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### modifier_set
 
@@ -213,10 +209,10 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | :-- | :-- | :-- | :-- |
 | `name` | string | required, max length 255 characters | Name of the modifier set. |
 | `selection` | string | required | Modifier set selection type. |
-| `maximum_count` | integer | required | Maximum number of modifiers that can be selected. |
-| `minimum_count` | integer | required | Minimum number of modifiers that must be selected. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `maximumCount` | integer | required | Maximum number of modifiers that can be selected. |
+| `minimumCount` | integer | required | Minimum number of modifiers that must be selected. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### product_variant
 
@@ -230,13 +226,13 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `retail_price_excl_tax` | string | required, max length 255 characters | Retail price excluding tax. |
-| `retail_price_incl_tax` | string | required, max length 255 characters | Retail price including tax. |
-| `regular_retail_price` | string | required, max length 255 characters | Regular retail price. |
+| `retailPriceExclTax` | string | required, max length 255 characters | Retail price excluding tax. |
+| `retailPriceInclTax` | string | required, max length 255 characters | Retail price including tax. |
+| `regularRetailPrice` | string | required, max length 255 characters | Regular retail price. |
 | `sku` | string | required, max length 255 characters | SKU of the variant. |
 | `barcode` | string | required, max length 255 characters | Barcode of the variant. |
-| `created_at` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
-| `updated_at` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### product_pagination_links
 

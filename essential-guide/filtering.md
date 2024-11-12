@@ -10,7 +10,7 @@ It is recommended to always URI-encode the values of the filter query parameters
 
 | Property | Type | Contract | Description | Raw example | Encoded example |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| `created_at_gt` | string | optional | Date-time in RFC 3339 format. | `filter[created_at_gt]=2024-07-25T16:29:35+00:00` | `filter%5Bcreated_at_gt%5D=2024-07-25T16%3A29%3A35%2B00%3A00` |
+| `createdAtGt` | string | optional | Date-time in RFC 3339 format. | `filter[createdAtGt]=2024-07-25T16:29:35+00:00` | `filter%5BcreatedAtGt%5D=2024-07-25T16%3A29%3A35%2B00%3A00` |
 
 We shall be adding support for more filters.
 
@@ -19,7 +19,7 @@ We shall be adding support for more filters.
 
 In the example request, we will query the `/invoices` endpoint with filter:
 
-`GET` `[PlatformAddress]/api/v2/invoices?filter%5Bcreated_at_gt%5D=2024-07-25T16%3A29%3A35%2B00%3A00`
+`GET` `[PlatformAddress]/api/v2/invoices?filter%createdAtGt%5D=2024-07-25T16%3A29%3A35%2B00%3A00`
 
 #### Response
 
