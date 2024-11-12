@@ -7,7 +7,6 @@ The __Mews POS API__ has the following notable features:
 - Versioned
 - Authenticated
 - Uses cursor pagination (depending on the operation)
-- Follows the [JSON:API specification](https://jsonapi.org/)
 
 ## JSON:API
 
