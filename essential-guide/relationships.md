@@ -1,21 +1,20 @@
 # Relationships
 
-Mews POS API supports fetching relationships of a resource using syntax offered by JSON:API specification. The resource response contains a [relationships](https://jsonapi.org/format/#document-resource-object-relationships) key. The value of `relationships` key is a "relationship object". Each member of a relationships object represents a "relationship" from the resource object in which it has been defined to other resource objects.
+__Mews POS API__ supports fetching resource relationships using syntax offered by the JSON:API specification. The resource response contains a [relationships](https://jsonapi.org/format/#document-resource-object-relationships) key. The value of the relationships key is called a relationships object. Each member of a relationships object represents some form of individual connection or relationship from the resource object in which it has been defined to another specified resource object.
+Relationships may be to-one or to-many.
 
-Relationships may be `to-one` or `to-many`.
-
-A relationship’s name is given by its key. A relationship object contains a `data` key. The `data` key is a [resource identifier object](https://jsonapi.org/format/#document-resource-identifier-objects) and contains the following members:
+A relationship’s name is given by its individual relationship key. The value of this key is a relationship object containing a `data` key, which is the related [resource identifier object](https://jsonapi.org/format/#document-resource-identifier-objects). The `data` object contains the following members:
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
 | `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 
-Mews POS API, as per the JSON:API specification, supports inclusion of related resources through the `include` query parameter.
+__Mews POS API__, as per the JSON:API specification, supports inclusion of related resources (see [Relationships](#relationships) above) through the `include` query parameter.
 
-## The `include` query parameter
+## The include query parameter
 
-The client can request the inclusion of related resource in response using the `include` query parameter with comma separated values e.g. `?include=relatedResourceA,relatedResourceB`. For example, a request to [Invoices](../operations/invoices.md) resource with `?include=register,invoice_items` will include the related register and invoice items data for each invoice in response.
+The API client can request the inclusion of related resources in the response, using the `include` query parameter with comma separated values `?include=relatedResourceA,relatedResourceB`. For example, a request to the [Invoices](../operations/invoices.md) endpoint with `?include=register,invoice_items` will generate a response that includes the related register and invoice items data for each invoice.
 
 
 ### Example request and response
