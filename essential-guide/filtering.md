@@ -1,18 +1,17 @@
 # Filtering
 
-Mews POS API supports filtering using the JSON:API reserved `filter` query parameter. The `filter` query parameter can be used to filter resources by attributes.
-
+__Mews POS API__ supports filtering using the JSON:API `filter` query parameter. The `filter` query parameter can be used to filter resources by attributes.
 Please note that support for filters is endpoint-specific. Visit the documentation of an endpoint to get more details about the supported filters.
 
-It is recommended to always URI-encode the values of the filter query parameters as filters can contain unsafe URL characters.
+> **Unsafe characters**: We recommend you always URI-encode the values of filter query parameters, because filters can contain unsafe URL characters.
 
 ### Supported filters
 
-| Property | Type | Contract | Description | Raw example | Encoded example |
-| :-- | :-- | :-- | :-- | :-- | :-- |
-| `createdAtGt` | string | optional | Date-time in RFC 3339 format. | `filter[createdAtGt]=2024-07-25T16:29:35+00:00` | `filter%5BcreatedAtGt%5D=2024-07-25T16%3A29%3A35%2B00%3A00` |
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `createdAtGt` | string | optional | Date-time the resource was created, in RFC 3339 format. <br> Raw example: <br> `filter[createdAtGt]=2024-07-25T16:29:35+00:00` <br> Encoded example: <br> `filter%5BcreatedAtGt%5D=2024-07-25T16%3A29%3A35%2B00%3A00` |
 
-We shall be adding support for more filters.
+* We plan to add support for more filters in future.
 
 
 ### Example request and response
