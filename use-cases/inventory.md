@@ -14,22 +14,18 @@ This use case is aimed at external Inventory Management Systems, and it describe
 
 In order to synchronize products with Mews POS, use the [Get products](../operations/products.md#get-products) endpoint `GET /api/v2/products`. You can call this API operation periodically to refresh the product catalogue and make sure it is in sync with your system. The product attributes in the response include name, description, [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit), barcode, and price information.
 
-#### Example Request:
+#### Example request:
 
 ```
-GET /api/v2/products
-Authorization: Basic <base64-encoded-credentials>
-Content-Type: application/vnd.api+json
+GET [PlatformAddress]/api/v2/products
 ```
 
-Further detail can be obtained via linked entities such as `product_type` (e.g. food or beverage), `modifier_set` (product qualifiers, such as pizza toppings) and `product_variant`. These can be included in the response by using the same request but specifying the relevant include query parameters, as per the [JSON:API specification](https://jsonapi.org/).
+Further detail can be obtained via linked entities such as `productType` (e.g. food or beverage), `modifierSet` (product qualifiers, such as pizza toppings) and `productVariant`. These can be included in the response by using the same request but specifying the relevant include query parameters – see [Essential guide > Relationships](../essential-guide/relationships.md).
 
-#### Example Request:
+#### Example request:
 
 ```
-GET /api/v2/products?include=product_type,modifier_set,product_variant
-Authorization: Basic <base64-encoded-credentials>
-Content-Type: application/vnd.api+json
+GET [PlatformAddress]/api/v2/products?include=productType,modifierSet,productVariant
 ```
 
 ### Pagination
@@ -38,24 +34,20 @@ The response is paginated using cursor pagination. Use the `next` link to reques
 
 ## Fetching sales data
 
-Use the [Get invoices](../operations/invoices.md#get-invoices) endpoint `GET /api/v2/invoices` to fetch invoices, containing order item data. Invoice attributes in the response include a description field and information about amounts, including `tax`, `total`, `subtotal`, `discount` and `tip_amount`.
+Use the [Get invoices](../operations/invoices.md#get-invoices) endpoint `GET /api/v2/invoices` to fetch invoices, containing order item data. Invoice attributes in the response include a description field and information about amounts, including `tax`, `total`, `subtotal`, `discount` and `tipAmount`.
 
-#### Example Request:
-
-```
-GET /api/v2/invoices
-Authorization: Basic <base64-encoded-credentials>
-Content-Type: application/vnd.api+json
-```
-
-Filter the invoices by date using the `filter` query parameter.
-
-#### Example Request:
+#### Example request:
 
 ```
-GET /api/v2/invoices?filter=XXX
-Authorization: Basic <base64-encoded-credentials>
-Content-Type: application/vnd.api+json
+GET [PlatformAddress]/api/v2/invoices
+```
+
+Filter the invoices by date using the `filter` query parameter – see [Essential guide > Filtering](../essential-guide/filtering.md).
+
+#### Example request:
+
+```
+GET [PlatformAddress]/api/v2/invoices?filter%createdAtGt%5D=2024-07-25T16%3A29%3A35%2B00%3A00
 ```
 
 Linked to the invoice entity are:
@@ -64,116 +56,123 @@ Linked to the invoice entity are:
 * __Register__ – the cash register or outlet terminal used for the transaction
 * __Items__ – an array of invoice order items
 
-These can be selectively included in the response by using the same request but specifying the relevant include query parameters, as per the [JSON:API specification](https://jsonapi.org/). Item attributes include `product_name`, `quantity`, `total` and amount breakdowns for tax and discounts. Use the register `self` link to obtain the full register information, including outlet name.
+These can be selectively included in the response by using the same request but specifying the relevant include query parameters, as per [Essential guide > Relationships](../essential-guide/relationships.md). Item attributes include `productName`, `quantity`, `total` and amount breakdowns for tax and discounts. Use the register `self` link to obtain the full register information, including outlet name.
 
-#### Example Request:
+#### Example request:
 
 ```
-GET /api/v2/invoices?include=invoice_item,user,register
-Authorization: Basic <base64-encoded-credentials>
-Content-Type: application/vnd.api+json
+GET [PlatformAddress]/api/v2/invoices?include=invoiceItem,user,register
 ```
 
-#### Example Response:
+#### Example response:
 
 ```json
 {
-  "data": [
-    {
-      "id": "5a43b8fa-8029-4093-895b-bddd8c74ebe1",
-      "type": "invoices",
-      "attributes": {
-        "discount": "0.00",
-        "tax": "1.67",
-        "total": "10.00",
-        "subtotal": "8.33",
-        "cancelled": false,
-        "cancel_reason": null,
-        "discount_amount": "0.00",
-        "description": null,
-        "item_discount_amount": "0.00",
-        "created_at": "2024-10-24T08:44:45.409Z",
-        "updated_at": "2024-10-24T08:44:45.547Z",
-        "tip_amount": "0.00"
-      },
-      "relationships": {
-        "user": {
-          "data": {
-            "id": "817f7fc3-3dcb-4cb8-9991-af488a497968",
-            "type": "users"
-          }
-        },
-        "original_invoices": {
-          "data": null
-        },
-        "register": {
-          "data": {
-            "id": "eef23c03-49b9-432b-b1a3-955ea1501557",
-            "type": "registers"
-          }
-        },
-        "items": {
-          "data": [
-            {
-              "id": "22426614-316e-4654-b567-60d781f9ae37",
-              "type": "invoice_items"
+    "data": [
+        {
+            "id": "babcf91e-5930-4b90-b929-0fb2b076bd3b",
+            "type": "invoices",
+            "attributes": {
+                "cancelled": false,
+                "cancelReason": null,
+                "description": null,
+                "createdAt": "2018-07-26T07:35:07.817Z",
+                "updatedAt": "2018-07-26T07:35:07.836Z",
+                "discount": null,
+                "tax": "0.00",
+                "total": "10.00",
+                "subtotal": "10.00",
+                "discountAmount": null,
+                "itemDiscountAmount": null,
+                "tipAmount": null
+            },
+            "relationships": {
+                "user": {
+                    "data": {
+                        "id": "918a47d1-6553-42ee-8de4-3b5af5edc8e7",
+                        "type": "users"
+                    }
+                },
+                "register": {
+                    "data": {
+                        "id": "f35693cb-cc0c-4c6f-bf16-eb0547444642",
+                        "type": "registers"
+                    }
+                },
+                "invoiceItems": {
+                    "data": [
+                        {
+                            "id": "7d87444b-807a-4ea4-8b69-b0e91f5fa174",
+                            "type": "invoiceItems"
+                        }
+                    ]
+                }
             }
-          ]
         }
-      }
+    ],
+    "included": [
+        {
+            "id": "7d87444b-807a-4ea4-8b69-b0e91f5fa174",
+            "type": "invoiceItems",
+            "attributes": {
+                "productName": "liebe",
+                "quantity": "2.0",
+                "unitPriceInclTax": "5.00",
+                "subtotal": "10.00",
+                "tax": "0.00",
+                "total": "10.00",
+                "discount": null
+            },
+            "relationships": {
+                "product": {
+                    "data": {
+                        "id": "139a7f7a-591f-4797-ba23-08c9bee0d044",
+                        "type": "products"
+                    }
+                },
+                "productVariant": {
+                    "data": null
+                },
+                "invoiceItemModifiers": {
+                    "data": []
+                }
+            }
+        },
+        {
+            "id": "918a47d1-6553-42ee-8de4-3b5af5edc8e7",
+            "type": "users",
+            "attributes": {
+                "name": "John Smith"
+            }
+        },
+        {
+            "id": "f35693cb-cc0c-4c6f-bf16-eb0547444642",
+            "type": "registers",
+            "attributes": {
+                "name": "Register #1",
+                "invoicesCount": 1325,
+                "index": 1,
+                "virtual": false,
+                "createdAt": "2018-07-12T13:18:04.306Z",
+                "updatedAt": "2020-02-04T14:51:20.730Z"
+            },
+            "relationships": {
+                "outlet": {
+                    "data": {
+                        "id": "65e8856a-8bab-46d2-85e2-2cde89f40f95",
+                        "type": "outlets"
+                    }
+                }
+            },
+            "links": {
+                "self": "[PlatformAddress]/api/v2/registers/f35693cb-cc0c-4c6f-bf16-eb0547444642"
+            }
+        }
+    ],
+    "links": {
+        "prev": "[PlatformAddress]/api/v2/invoices?page[before]=OTMzMw&page[size]=1",
+        "next": "[PlatformAddress]/api/v2/invoices?page[after]=OTMzMw&page[size]=1"
     }
-  ],
-  "included": [
-    {
-      "id": "817f7fc3-3dcb-4cb8-9991-af488a497968",
-      "type": "users",
-      "attributes": {
-        "name": "Norbert Russel"
-      }
-    },
-    {
-      "id": "22426614-316e-4654-b567-60d781f9ae37",
-      "type": "invoice_items",
-      "attributes": {
-        "product_name": "Awesome Rubber Bottle",
-        "unit_price_incl_tax": "10.00",
-        "quantity": 1,
-        "subtotal": "8.33",
-        "tax": "1.67",
-        "total": "10.00",
-        "discount": "0.00",
-        "comp": false,
-        "void": false,
-        "comp_void_reason": null,
-        "comp_void_notes": null,
-        "discount_amount": "1.00",
-        "subtotal_incl_discount": "7.33",
-        "tax_incl_discount": "1.47",
-        "total_incl_discount": "8.80",
-        "created_at": "2024-01-01T12:00:00Z",
-        "updated_at": "2024-01-01T12:00:00Z"
-      }
-    },
-    {
-      "id": "eef23c03-49b9-432b-b1a3-955ea1501557",
-      "type": "registers",
-      "attributes": {
-        "name": "Cummings and Sons",
-        "invoices_count": 1,
-        "index": 9,
-        "virtual": false,
-        "created_at": "2024-10-24T08:44:45.042Z",
-        "updated_at": "2024-10-24T08:44:45.042Z"
-      },
-      "links": {
-        "self": "https://pos.mews-demo.com/api/v2/registers/eef23c03-49b9-432b-b1a3-955ea1501557"
-      }
-    },
-  ],
-  "links": {
-    "prev": "https://pos.mews-demo.com/api/v2/invoices?page%5Bbefore%5D=NA&page%5Bsize%5D=1",
-    "next": "https://pos.mews-demo.com/api/v2/invoices?page%5Bafter%5D=NA&page%5Bsize%5D=1"
-  }
 }
 ```
 
@@ -192,13 +191,25 @@ To obtain the outlet for an invoice, follow these steps:
 1. Fetch the invoice, including related register information
 2. Fetch the register, including related outlet information
 
-### Fetch the invoice, including related register information
+### 1. Fetch the invoice, including related register information
 
 To fetch the invoice and register, use `GET /api/v2/invoices?include=register`. The register information returned will include the register resource in the `self` field.
 
-### Fetch the register, including related outlet information
+#### Example request:
+
+```
+GET [PlatformAddress]/api/v2/invoices?include=register
+```
+
+### 2. Fetch the register, including related outlet information
 
 Use the register identifier to obtain the register and outlet, e.g. `GET /api/v2/registers?id=eef23c03-49b9-432b-b1a3-955ea1501557,include=outlet`.
+
+#### Example request:
+
+```
+GET [PlatformAddress]/api/v2/registers?id=eef23c03-49b9-432b-b1a3-955ea1501557,include=outlet
+```
 
 ## Frequently Asked Questions
 
@@ -214,12 +225,12 @@ Use the register identifier to obtain the register and outlet, e.g. `GET /api/v2
 ### How do you represent returns and cancellations?
 _How do you represent returns and cancellations, e.g. wrong order, or customer changed their mind?_
 
-* __Answer__: TBD
+* __Answer__: We represent refunds by having an `invoice` relationship to an `originalInvoice` object. It means that all invoices that have this relationship are actually refunds and not "real" invoices. For the original invoice, follow the `originalInvoice` relationship.
 
 ### How do you represent waste?
 _How do you represent waste, e.g. a dropped plate in the kitchen, or a spoiled item?_
 
-* __Answer__: We currently don't support this feature.
+* __Answer__: We currently don't have any specific provision for waste.
 
 ### Are open orders included in the API?
 _Are open orders included in the API as well, or is the state of every order final?_
@@ -229,16 +240,16 @@ _Are open orders included in the API as well, or is the state of every order fin
 ### How do you represent modifiers and add-ons?
 _How do you represent modifiers and add-ons, e.g. extra cheese, no tomatoes?_
 
-* __Answer__: TBD
+* __Answer__: We use invoice item modifiers for this. Invoice items are related to an `invoice` resource, and this has a relationship of its own to the invoice item modifiers which you'll get if you _include_ invoice items in the response – see [Essential guide > Relationships](../essential-guide/relationships.md).
 
 ### How do you represent combo deals?
 _How do you represent menu items and combo deals, e.g. Lunch combo Burger+Cola+Fries?_
 
-* __Answer__: TBD
+* __Answer__: In addition to product variants, __Mews POS__ supports product bundles, which could be used for combo deals. Product variants are supported in relation to the `product` resource. Product bundles are not currently supported in the API.
 
 ## Additional help
 
-You may find these additional resources helpful when working with __Mews POS__ in the demo environment.
+You may find these additional resources helpful when working with __Mews POS__ in the demo environment:
 
 > **Help Guides**:
 > * [Adding product variants in Mews POS](https://help.mews.com/s/article/adding-product-variants-in-the-mews-pos?language=en_US)
