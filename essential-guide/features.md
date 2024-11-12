@@ -13,6 +13,7 @@ The Mews API currently supports the following JSON:API features:
 
 - [Relationships](./relationships.md)
 - [Filtering](./filtering.md)
+- [Sparse fieldsets](./sparse-fieldsets.md)
 
 Resources in Mews API include the following:
 
