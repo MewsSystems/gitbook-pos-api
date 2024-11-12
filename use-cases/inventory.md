@@ -204,12 +204,12 @@ GET [PlatformAddress]/api/v2/invoices?include=register
 
 ### 2. Fetch the register, including related outlet information
 
-Use the register identifier to obtain the register and outlet, e.g. `GET /api/v2/registers/eef23c03-49b9-432b-b1a3-955ea1501557,include=outlet`.
+Use the register identifier to obtain the register and outlet, e.g. `GET /api/v2/registers/eef23c03-49b9-432b-b1a3-955ea1501557?include=outlet`.
 
 #### Example request:
 
 ```
-GET [PlatformAddress]/api/v2/registers/eef23c03-49b9-432b-b1a3-955ea1501557,include=outlet
+GET [PlatformAddress]/api/v2/registers/eef23c03-49b9-432b-b1a3-955ea1501557?include=outlet
 ```
 
 ## Frequently Asked Questions
