@@ -14,7 +14,7 @@ __Mews POS API__, as per the JSON:API specification, supports inclusion of relat
 
 ## The include query parameter
 
-The API client can request the inclusion of related resources in the response, using the `include` query parameter with comma separated values `?include=relatedResourceA,relatedResourceB`. For example, a request to the [Invoices](../operations/invoices.md) endpoint with `?include=register,invoice_items` will generate a response that includes the related register and invoice items data for each invoice.
+The API client can request the inclusion of related resources in the response, using the `include` query parameter with comma separated values `?include=relatedResourceA,relatedResourceB`. For example, a request to the [Invoices](../operations/invoices.md) endpoint with `?include=register,invoiceItems` will generate a response that includes the related register and invoice items data for each invoice.
 
 
 ### Example request and response
