@@ -69,69 +69,6 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
       }
     }
   ],
-  "included": [
-    {
-      "id": "c53372e2-9aa1-452a-8965-2ea3fa514fb2",
-      "type": "productTypes",
-      "attributes": {
-        "name": "Food",
-        "createdAt": "2022-10-16T11:29:00Z",
-        "updatedAt": "2022-10-19T11:29:00Z"
-      }
-    },
-    {
-      "id": "06382148-c76a-489d-b382-72fb7d7ab37b",
-      "type": "modifierSets",
-      "attributes": {
-        "name": "Size",
-        "selection": "single",
-        "maximumCount": 10,
-        "minimumCount": 1,
-        "createdAt": "2022-10-16T11:29:00Z",
-        "updatedAt": "2022-10-19T11:29:00Z"
-      }
-    },
-    {
-      "id": "e727124a-d2bb-4002-98bd-81af6d788666",
-      "type": "modifierSets",
-      "attributes": {
-        "name": "Toppings",
-        "selection": "multiple",
-        "maximumCount": 10,
-        "minimumCount": 1,
-        "createdAt": "2022-10-16T11:29:00Z",
-        "updatedAt": "2022-10-19T11:29:00Z"
-      }
-    },
-    {
-      "id": "0907e6d2-62c1-44cd-a886-f403ce9c7145",
-      "type": "productVariants",
-      "attributes": {
-        "sku": "ABD-123-HR-O",
-        "barcode": "1234567891",
-        "tax": "2.00",
-        "retailPriceInclTax": "10.00",
-        "retailPriceExclTax": "8.00",
-        "regularRetailPrice": "10.00",
-        "createdAt": "2022-10-16T11:29:00Z",
-        "updatedAt": "2022-10-19T11:29:00Z"
-      }
-    },
-    {
-      "id": "0d4e4ec6-118f-47a6-9040-b68abbec0575",
-      "type": "productVariants",
-      "attributes": {
-        "sku": "ABD-144-HR-Z",
-        "barcode": "1234567777",
-        "tax": "2.00",
-        "retailPriceInclTax": "10.00",
-        "retailPriceExclTax": "8.00",
-        "regularRetailPrice": "10.00",
-        "createdAt": "2022-10-16T11:29:00Z",
-        "updatedAt": "2022-10-19T11:29:00Z"
-      }
-    }
-  ],
   "links": {
     "prev": "https://pos.mews-demo.com/api/v2/products?page%5Bbefore%5D=NA&page%5Bsize%5D=1",
     "next": "https://pos.mews-demo.com/api/v2/products?page%5Bafter%5D=NA&page%5Bsize%5D=1"

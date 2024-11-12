@@ -39,24 +39,7 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
     "links": {
       "self": "https://pos.mews-demo/com/v2/registers/31b14937-2524-491f-b0a0-dc0a7393ff3f"
     }
-  },
-  "included": [
-    {
-      "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
-      "type": "outlets",
-      "attributes": {
-        "name": "Downtown Cafe",
-        "address1": "123 Main Street",
-        "address2": "Suite 4B",
-        "city": "New York",
-        "state": "New York",
-        "postalCode": "10001",
-        "index": 5,
-        "createdAt": "2023-10-16T13:30:00Z",
-        "updatedAt": "2023-10-16T15:30:00Z"
-      }
-    }
-  ]
+  }
 }
 ```
 
