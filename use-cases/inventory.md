@@ -20,12 +20,12 @@ In order to synchronize products with Mews POS, use the [Get products](../operat
 GET [PlatformAddress]/api/v2/products
 ```
 
-Further detail can be obtained via linked entities such as `productType` (e.g. food or beverage), `modifierSet` (product qualifiers, such as pizza toppings) and `productVariant`. These can be included in the response by using the same request but specifying the relevant include query parameters – see [Essential guide > Relationships](../essential-guide/relationships.md).
+Further detail can be obtained via linked entities such as `productType` (e.g. food or beverage), `modifierSets` (product qualifiers, such as pizza toppings) and `productVariants`. These can be included in the response by using the same request but specifying the relevant include query parameters – see [Essential guide > Relationships](../essential-guide/relationships.md).
 
 #### Example request:
 
 ```
-GET [PlatformAddress]/api/v2/products?include=productType,modifierSet,productVariant
+GET [PlatformAddress]/api/v2/products?include=productType,modifierSets,productVariants
 ```
 
 ### Pagination
@@ -34,7 +34,7 @@ The response is paginated using cursor pagination. Use the `next` link to reques
 
 ## Fetching sales data
 
-Use the [Get invoices](../operations/invoices.md#get-invoices) endpoint `GET /api/v2/invoices` to fetch invoices, containing order item data. Invoice attributes in the response include a description field and information about amounts, including `tax`, `total`, `subtotal`, `discount` and `tipAmount`.
+Use the [Get invoices](../operations/invoices.md#get-invoices) endpoint `GET /api/v2/invoices` to fetch invoices, containing order item data. Invoice attributes in the response include a description field and information about amounts, including `tax`, `total`, `subtotal`, `discount` and `tipAmount`. See [Get invoices](../operations/invoices.md#get-invoices) for the full set of supported attributes.
 
 #### Example request:
 
@@ -52,16 +52,17 @@ GET [PlatformAddress]/api/v2/invoices?filter%createdAtGt%5D=2024-07-25T16%3A29%3
 
 Linked to the invoice entity are:
 
-* __User__ – the customer
-* __Register__ – the cash register or outlet terminal used for the transaction
-* __Items__ – an array of invoice order items
+* __user__ – the customer
+* __register__ – the cash register or outlet terminal used for the transaction
+* __invoiceItems__ – an array of invoice order items
+* __originalInvoice__ – normally null, but may link to an original invoice in cases of refunds
 
-These can be selectively included in the response by using the same request but specifying the relevant include query parameters, as per [Essential guide > Relationships](../essential-guide/relationships.md). Item attributes include `productName`, `quantity`, `total` and amount breakdowns for tax and discounts. Use the register `self` link to obtain the full register information, including outlet name.
+These can be selectively included in the response by using the same request but specifying the relevant include query parameters, as per [Essential guide > Relationships](../essential-guide/relationships.md). Item attributes include, but are not limited to, `productName`, `quantity`, `total` and amount breakdowns for tax and discounts. Use the register `self` link to obtain the full register information, including outlet name.
 
 #### Example request:
 
 ```
-GET [PlatformAddress]/api/v2/invoices?include=invoiceItem,user,register
+GET [PlatformAddress]/api/v2/invoices?include=invoiceItems,user,register
 ```
 
 #### Example response:
@@ -203,12 +204,12 @@ GET [PlatformAddress]/api/v2/invoices?include=register
 
 ### 2. Fetch the register, including related outlet information
 
-Use the register identifier to obtain the register and outlet, e.g. `GET /api/v2/registers?id=eef23c03-49b9-432b-b1a3-955ea1501557,include=outlet`.
+Use the register identifier to obtain the register and outlet, e.g. `GET /api/v2/registers/eef23c03-49b9-432b-b1a3-955ea1501557,include=outlet`.
 
 #### Example request:
 
 ```
-GET [PlatformAddress]/api/v2/registers?id=eef23c03-49b9-432b-b1a3-955ea1501557,include=outlet
+GET [PlatformAddress]/api/v2/registers/eef23c03-49b9-432b-b1a3-955ea1501557,include=outlet
 ```
 
 ## Frequently Asked Questions
