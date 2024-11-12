@@ -75,6 +75,7 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
   }
 }
 ```
+Below is a list of all possible fields this endpoint can return including relationships fields fetched with include query parameter.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |

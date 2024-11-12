@@ -35,7 +35,7 @@
 ```javascript
 {{ helpers.json(operation.responseExample) }}
 ```
-
+Below is a list of all possible fields this endpoint can return including relationships fields fetched with include query parameter.
 @each((schema, i) in operation.responseSchemas)
 @!component('parameters', { schema, hideTitle: i === 0 })
 @end

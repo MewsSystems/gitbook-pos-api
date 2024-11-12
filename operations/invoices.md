@@ -6,7 +6,7 @@
 This operation returns a list of invoices.
 Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports the following [JSON:API features](../essential-guide/features.md):
 
-- [Relationships](../essential-guide/relationships.md)- `invoiceItems`, `user`, `register`, `originalInvoices` using `include` query parameter.
+- [Relationships](../essential-guide/relationships.md)- `invoiceItems`, `user`, `register`, `originalInvoice` using `include` query parameter.
 - [Filters](../essential-guide/filters.md)- `createdAtGt`.
 - [Sparse fieldsets](../essential-guide/sparse-fieldsets.md)- supports all fields of `invoices` and related resources with `fields` query parameter.
 
@@ -69,11 +69,12 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
   }
 }
 ```
+Below is a list of all possible fields this endpoint can return including relationships fields fetched with include query parameter.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | array of object [invoice](invoices.md#invoice) | required, max 1000 items | The document's "primary data". |
-| `included` | array of object [invoice_item](invoices.md#invoice_item),[user](invoices.md#user),[register](invoices.md#register),[product_variant](invoices.md#product_variant),[invoice_item_modifier](invoices.md#invoice_item_modifier) | optional, max 1000 items | Details of the objects to which the invoice is related. |
+| `included` | array of object [invoice_item](invoices.md#invoice_item),[user](invoices.md#user),[register](invoices.md#register) | optional, max 1000 items | Details of the objects to which the invoice is related. |
 | `links` | [invoice_pagination_links](invoices.md#invoice_pagination_links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
 
 #### invoice
@@ -181,41 +182,6 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `outlet` | object | required | Details of the outlet to which the register is associated. |
-
-#### product_variant
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
-| `type` | string | required, max length 255 characters | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
-| `attributes` | [product_variant_attributes](invoices.md#product_variant_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
-
-#### product_variant_attributes
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `retailPriceExclTax` | string | required, max length 255 characters | Retail price excluding tax. |
-| `retailPriceInclTax` | string | required, max length 255 characters | Retail price including tax. |
-| `regularRetailPrice` | string | required, max length 255 characters | Regular retail price. |
-| `sku` | string | required, max length 255 characters | SKU of the variant. |
-| `barcode` | string | required, max length 255 characters | Barcode of the variant. |
-| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
-| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
-
-#### invoice_item_modifier
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
-| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
-| `attributes` | [invoice_item_modifiers_attributes](invoices.md#invoice_item_modifiers_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
-
-#### invoice_item_modifiers_attributes
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `name` | string | required, max length 255 characters | Name of the modifier item. |
-| `price` | string | required, max length 255 characters | Price of the modifier item. |
 
 #### invoice_pagination_links
 
