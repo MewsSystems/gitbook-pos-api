@@ -6,9 +6,9 @@
 This operation returns a list of invoices.
 Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports the following [JSON:API features](../essential-guide/features.md):
 
-- [Relationships](../essential-guide/relationships.md)- `invoiceItems`, `user`, `register`, `originalInvoice` using `include` query parameter.
-- [Filters](../essential-guide/filtering.md)- `createdAtGt`.
-- [Sparse fieldsets](../essential-guide/sparse-fieldsets.md)- supports all fields of `invoices` and related resources with `fields` query parameter.
+- [Relationships](../essential-guide/relationships.md) - `invoiceItems`, `user`, `register`, `originalInvoice` using `include` query parameter.
+- [Filters](../essential-guide/filtering.md) - `createdAtGt`
+- [Sparse fieldsets](../essential-guide/sparse-fieldsets.md) - supports all fields of `invoices` and related resources with `fields` query parameter.
 
 ### Request
 

@@ -6,8 +6,8 @@
 This operation returns a list of products.
 Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports the following [JSON:API features](../essential-guide/features.md):
 
-- [Relationships](../essential-guide/relationships.md)- `productType`, `modifierSets`, `productVariants` using `include` query parameter.
-- [Sparse fieldsets](../essential-guide/sparse-fieldsets.md)- supports all fields of `product` and related resources with `fields` query parameter.
+- [Relationships](../essential-guide/relationships.md) - `productType`, `modifierSets`, `productVariants` using `include` query parameter.
+- [Sparse fieldsets](../essential-guide/sparse-fieldsets.md) - supports all fields of `product` and related resources with `fields` query parameter.
 
 ### Request
 

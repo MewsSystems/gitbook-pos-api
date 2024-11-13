@@ -175,3 +175,7 @@ types:
     file: invoices.md
     anchor: invoices_response
     tag: Invoices
+  Invoices_invoice_item_relationships:
+    file: invoices.md
+    anchor: invoice_item_relationships
+    tag: Invoices
