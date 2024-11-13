@@ -179,3 +179,27 @@ types:
     file: invoices.md
     anchor: invoice_item_relationships
     tag: Invoices
+  InvoiceItems_invoice_item_response:
+    file: invoiceitems.md
+    anchor: invoice_item_response
+    tag: InvoiceItems
+  InvoiceItems_invoice_item:
+    file: invoiceitems.md
+    anchor: invoice_item
+    tag: InvoiceItems
+  InvoiceItems_invoice_item_attributes:
+    file: invoiceitems.md
+    anchor: invoice_item_attributes
+    tag: InvoiceItems
+  InvoiceItems_invoice_item_relationships:
+    file: invoiceitems.md
+    anchor: invoice_item_relationships
+    tag: InvoiceItems
+  InvoiceItems_invoice_item_modifier:
+    file: invoiceitems.md
+    anchor: invoice_item_modifier
+    tag: InvoiceItems
+  InvoiceItems_invoice_item_modifiers_attributes:
+    file: invoiceitems.md
+    anchor: invoice_item_modifiers_attributes
+    tag: InvoiceItems

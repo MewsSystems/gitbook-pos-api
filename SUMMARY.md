@@ -21,5 +21,6 @@
   * [Invoices](operations/invoices.md)
   * [Products](operations/products.md)
   * [Registers](operations/registers.md)
+  * [Invoice Items](operations/invoiceitems.md)
 * [Deprecations](deprecations/README.md)
 * [Changelog](changelog/README.md)
