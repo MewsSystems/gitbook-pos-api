@@ -1,9 +1,9 @@
 <!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # InvoiceItems
 
-## Get invoiceItem
+## Get invoice item
 
-A invoiceItem represents an item within invoice.
+An invoice item is an individual order item that is part of an invoice.
 Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports the following [JSON:API features](../essential-guide/features.md):
 
 - [Relationships](../essential-guide/relationships.md) - `invoiceItemsModifiers`, `include` query parameter.
