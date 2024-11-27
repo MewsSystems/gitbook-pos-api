@@ -9,7 +9,8 @@ Please note that support for filters is endpoint-specific. Visit the documentati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `createdAtGt` | string | optional | Date-time the resource was created, in RFC 3339 format. <br> Raw example: <br> `filter[createdAtGt]=2024-07-25T16:29:35+00:00` <br> Encoded example: <br> `filter%5BcreatedAtGt%5D=2024-07-25T16%3A29%3A35%2B00%3A00` |
+| `createdAtGt` | string | optional | Date-time or date the resource was created, in RFC 3339 format. <br> Raw example: <br> `filter[createdAtGt]=2024-07-25T16:29:35+00:00` <br> Encoded example: <br> `filter%5BcreatedAtGt%5D%3D2024-07-25T16%3A29%3A35%2B00%3A00` |
+| `registerIdEq` | string | optional | Register id, in Universally unique ID UUID4 format. <br> Raw example: <br> `filter[registerIdEq]=f35693cb-cc0c-4c6f-bf16-eb0547444642` <br> Encoded example: <br> `filter%5BregisterIdEq%5D%3Df35693cb-cc0c-4c6f-bf16-eb0547444642` |
 
 * We plan to add support for more filters in future.
 
@@ -18,7 +19,11 @@ Please note that support for filters is endpoint-specific. Visit the documentati
 
 In the example request, we will query the `/invoices` endpoint with filter:
 
-`GET` `[PlatformAddress]/api/v2/invoices?filter%createdAtGt%5D=2024-07-25T16%3A29%3A35%2B00%3A00`
+`GET` `[PlatformAddress]/api/v2/invoices?filter[createdAtGt=2024-07-25T16%3A29%3A35%2B00%3A00`
+
+It is also possible to combine two filters:
+
+`GET` `[PlatformAddress]/api/v2/invoices?filter[createdAtGt]=2024-07-25T16%3A29%3A35%2B00%3A00&filter[registerIdEq]=f35693cb-cc0c-4c6f-bf16-eb0547444642`
 
 #### Response
 
