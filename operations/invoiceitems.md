@@ -52,7 +52,7 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
       "invoiceItemModifiers": {
         "data": [
           {
-            "id": "10",
+            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
             "type": "invoiceItemModifiers"
           }
         ]
@@ -111,7 +111,7 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `id` | string | required, max length 10 characters | A unique identifier for the related object. |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
 | `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 | `attributes` | [invoice_item_modifiers_attributes](invoiceitems.md#invoice_item_modifiers_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
 
