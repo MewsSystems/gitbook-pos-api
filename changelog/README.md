@@ -1,6 +1,6 @@
 # Changelog
 
-## 27th November 2024
+## 28th November 2024
 
 * Added `registerIdEq` filter to [Invoices](../operations/invoices.md).
 
