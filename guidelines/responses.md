@@ -1,6 +1,8 @@
 # Responses
 
-After a call to an endpoint, some operations will return a JSON response like the following:
+The **Mews POS API** follows the [JSON:API specification](https://jsonapi.org/) for formatting HTTP responses. `Content-Type` is set to the JSON:API media type `application/vnd.api+json`.
+
+A typical JSON response looks like this:
 
 ```json
 {

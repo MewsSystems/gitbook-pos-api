@@ -19,7 +19,7 @@ Please note that support for filters is endpoint-specific. Visit the documentati
 
 In the example request, we will query the `/invoices` endpoint with filter:
 
-`GET` `[PlatformAddress]/api/v2/invoices?filter[createdAtGt=2024-07-25T16%3A29%3A35%2B00%3A00`
+`GET` `[PlatformAddress]/api/v2/invoices?filter[createdAtGt]=2024-07-25T16%3A29%3A35%2B00%3A00`
 
 It is also possible to combine two filters:
 
