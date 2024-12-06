@@ -4,11 +4,11 @@
 ## Get invoices
 
 This operation returns a list of invoices.
-Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports the following [JSON:API features](../essential-guide/features.md):
+Note: This operation needs [Authentication](../guidelines/authentication.md) and supports the following [JSON:API features](../guidelines/features.md):
 
-- [Relationships](../essential-guide/relationships.md) - `invoiceItems`, `user`, `register`, `originalInvoice` using `include` query parameter.
-- [Filters](../essential-guide/filtering.md) - `createdAtGt`, `registerIdEq`
-- [Sparse fieldsets](../essential-guide/sparse-fieldsets.md) - supports all fields of `invoices` and related resources with `fields` query parameter.
+- [Relationships](../guidelines/relationships.md) - `invoiceItems`, `user`, `register`, `originalInvoice` using `include` query parameter.
+- [Filters](../guidelines/filtering.md) - `createdAtGt`
+- [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `invoices` and related resources with `fields` query parameter.
 
 ### Request
 
