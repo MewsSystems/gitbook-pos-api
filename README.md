@@ -1,13 +1,15 @@
 # Mews POS API
 
-Welcome to the **Mews POS API**. This API supports use cases related to **Mews POS**. It can be used in conjunction with the [**Mews Connector API**](https://mews-systems.gitbook.io/connector-api) for a rich set of interactions with the **Mews Hospitality Cloud**.
+Welcome to the __Mews POS API__. This API supports use cases related to __Mews POS__. It can be used in conjunction with the [Mews Connector API](https://mews-systems.gitbook.io/connector-api) for a rich set of interactions with the **Mews Hospitality Cloud**.
 
 > ### Important Notice!
-> The **Mews POS API** is new and under active development. As such, it is subject to change. The documentation provided is also being developed in parallel and may be updated frequently. Please keep this in mind when integrating, and regularly check for updates.
+> The __Mews POS API__ is new and under active development. As such, it is subject to change. The documentation provided is also being developed in parallel and may be updated frequently. Please keep this in mind when integrating, and regularly check for updates.
 
-To make a quick start and get a feel for the API, see [Getting Started](getting-started/README.md). For a full guide on how to connect, what authentication tokens you need, the meaning of error codes and much more, see our [Essential Guide](essential-guide/README.md). For a deeper understanding of **Mews** concepts, see [Concepts](concepts/README.md). All of the API endpoints and operations are detailed in [API Operations](operations/README.md). For specific guidance on using the API for different scenarios, have a look at [Use cases](use-cases/README.md) which will help you through your implementation.
+To make a quick start and get a feel for the API, see [Getting Started](getting-started/README.md). For a full guide on how to connect, what authentication tokens you need, the meaning of error codes and much more, see our [Usage guidelines](guidelines/README.md). To gain deeper insights into Mews concepts, see [Concepts](concepts/README.md).
+For guidance on using the API for specific scenarios, our [Use cases](use-cases/README.md) section will help you through your implementation.
+Detailed information on all API operations can be found in [API Operations](operations/README.md).
 
-If you encounter any issues using the API, or you have any questions, please get in touch via [partnersuccess@mews.com](mailto:partnersuccess@mews.com).
+If you have any questions or you encounter issues, please reach out to us at [partnersuccess@mews.com](mailto:partnersuccess@mews.com).
 
 > ### Changes to this API
 > * For the history of changes to the API, see the [Changelog](changelog/README.md)

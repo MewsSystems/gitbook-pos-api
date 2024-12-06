@@ -1,4 +1,4 @@
-# Essential guide
+# Usage guidelines
 
 This section provides important guidelines on how to use the __Mews POS API__. For a deeper understanding of **Mews** concepts, see [Concepts](../concepts/README.md). For information about individual endpoints or operations, see [API Operations](../operations/README.md).
 
@@ -8,12 +8,10 @@ This section provides important guidelines on how to use the __Mews POS API__. F
 
 ## Contents
 
-* [Features](features.md)<br>A summary of the main features of the API.
-* [Authentication](authentication.md)<br>Details of how API requests are authenticated, as well as client authorization.
+* [Authentication](authentication.md)<br>Details of how API Operation requests are authenticated.
 * [Requests](requests.md)<br>Details of how to make API Operation requests.
 * [Responses](responses.md)<br>Details of API Operation responses, including error messages.
-* [Environments](environments.md)<br>A description of the different environments available and how to access them, including test credentials.
-* [Request limits](request-limits.md)<br>A description of how requests may be limited and how clients should behave.
-* [Data handling](data-handling.md)<br>Various topics related to data formats and pagination.
-* [Best practices](best-practices.md)<br>Advice on best practices for using the API.
-
+* [Environments](environments.md)<br>A description of the different environments available and how to access them.
+* [Relationships](relationships.md)<br>How to work with resource relationships.
+* [Filtering](filtering.md)<br>How to use filtering when making requests.
+* [Sparse fieldsets](sparse-fieldsets.md)<br>How to request only data fields of interest when making requests.
