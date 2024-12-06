@@ -1,3 +1,5 @@
+root: ./
+
 redirects:
   essential-guide/README: guidelines/README.md
   essential-guide/features: guidelines/requests.md
