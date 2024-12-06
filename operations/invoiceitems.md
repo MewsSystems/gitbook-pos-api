@@ -4,10 +4,10 @@
 ## Get invoice item
 
 An invoice item is an individual order item that is part of an invoice.
-Note: This operation needs [Authentication](../essential-guide/authentication.md) and supports the following [JSON:API features](../essential-guide/features.md):
+Note: This operation needs [Authentication](../guidelines/authentication.md) and supports the following [JSON:API features](../guidelines/features.md):
 
-- [Relationships](../essential-guide/relationships.md) - `invoiceItemsModifiers`, `include` query parameter.
-- [Sparse fieldsets](../essential-guide/sparse-fieldsets.md) - supports all fields of `invoiceItem` and related resources with `fields` query parameter.
+- [Relationships](../guidelines/relationships.md) - `invoiceItemsModifiers`, `include` query parameter.
+- [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `invoiceItem` and related resources with `fields` query parameter.
 
 ### Request
 
