@@ -46,4 +46,4 @@ https://pos.mews-demo.com/api/v2/invoices?filter[createdAtGt]=2024-07-25T16%3A29
 
 ## Request body
 
-Each request will include a header with authentication information, and a body with any data needed to perform the operation, formatted as per [JSON:API](https://jsonapi.org/). 'Get' operations, such as [Get invoices](../operations/invoices.md#get-invoices), do not require any data in the request body.
+Each request will include a header with authentication information, and a body with any data needed to perform the operation, formatted as per [JSON:API](https://jsonapi.org/). 'Get' operations, such as [Get invoices](../operations/invoices.md#get-invoices), use the `GET` http verb and therefore do not have any data in the request body.
