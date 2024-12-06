@@ -31,7 +31,7 @@ All operations in the __Mews POS API__ follow a consistent URL structure:
 Example:
 
 ```http
-https://demo.mews.com/api/v2/invoice-items/31b14937-2524-491f-b0a0-dc0a7393ff3f
+https://pos.mews-demo.com/api/v2/invoice-items/31b14937-2524-491f-b0a0-dc0a7393ff3f
 ```
 
 ## Query parameters
@@ -41,7 +41,7 @@ The __Mews POS API__ supports query parameters for [Relationships](./relationshi
 Example:
 
 ```http
-https://demo.mews.com/api/v2/invoices?filter[createdAtGt]=2024-07-25T16%3A29%3A35%2B00%3A00
+https://pos.mews-demo.com/api/v2/invoices?filter[createdAtGt]=2024-07-25T16%3A29%3A35%2B00%3A00
 ```
 
 ## Request body
