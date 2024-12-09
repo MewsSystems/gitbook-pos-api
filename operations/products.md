@@ -4,7 +4,7 @@
 ## Get products
 
 This operation returns a list of products.
-Note: This operation needs [Authentication](../guidelines/authentication.md) and supports the following [JSON:API features](../guidelines/features.md):
+Note: This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
 - [Relationships](../guidelines/relationships.md) - `productType`, `modifierSets`, `productVariants` using `include` query parameter.
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `product` and related resources with `fields` query parameter.
