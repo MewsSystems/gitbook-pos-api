@@ -1,7 +1,7 @@
 root: ./
 
 redirects:
-  essential-guide/README: guidelines/README.md
+  essential-guide: guidelines/README.md
   essential-guide/features: guidelines/requests.md
   essential-guide/authentication: guidelines/authentication.md
   essential-guide/requests: guidelines/requests.md
