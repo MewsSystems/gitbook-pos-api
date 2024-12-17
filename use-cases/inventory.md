@@ -20,7 +20,7 @@ In order to synchronize products with Mews POS, use the [Get products](../operat
 GET [PlatformAddress]/api/v2/products
 ```
 
-Further detail can be obtained via linked entities such as `productType` (e.g. food or beverage), `modifierSets` (chargeable product qualifiers, such as pizza toppings) and `productVariants`. These can be included in the response by using the same request but specifying the relevant include query parameters – see [Essential guide > Relationships](../essential-guide/relationships.md).
+Further detail can be obtained via linked entities such as `productType` (e.g. food or beverage), `modifierSets` (product qualifiers, such as pizza toppings) and `productVariants`. These can be included in the response by using the same request but specifying the relevant include query parameters – see [Essential guide > Relationships](../essential-guide/relationships.md).
 
 #### Example request:
 
@@ -233,7 +233,6 @@ _How do you represent waste, e.g. a dropped plate in the kitchen, or a spoiled i
 _How do you represent modifiers and add-ons, e.g. extra cheese, no tomatoes?_
 
 * __Answer__: We use invoice item modifiers for this. Invoice items are related to an `invoice` resource, and this has a relationship of its own to the invoice item modifiers which you'll get if you _include_ invoice items in the response – see [Essential guide > Relationships](../essential-guide/relationships.md).
-Note only modifiers with an attached price tag (e.g. extra pizza toppings) are included in invoice items, not non-chargeable modifiers (e.g. steak cooked medium-rare).
 
 ### How do you represent combo deals?
 _How do you represent menu items and combo deals, e.g. Lunch combo Burger+Cola+Fries?_
