@@ -203,3 +203,59 @@ types:
     file: invoiceitems.md
     anchor: invoice_item_modifiers_attributes
     tag: InvoiceItems
+  Tables_table_attributes:
+    file: tables.md
+    anchor: table_attributes
+    tag: Tables
+  Tables_table_pagination_links:
+    file: tables.md
+    anchor: table_pagination_links
+    tag: Tables
+  Orders_order_relationships:
+    file: orders.md
+    anchor: order_relationships
+    tag: Orders
+  Orders_invoice_attributes:
+    file: orders.md
+    anchor: invoice_attributes
+    tag: Orders
+  Orders_invoice_relationships:
+    file: orders.md
+    anchor: invoice_relationships
+    tag: Orders
+  Orders_table_attributes:
+    file: orders.md
+    anchor: table_attributes
+    tag: Orders
+  Orders_booking_attributes:
+    file: orders.md
+    anchor: booking_attributes
+    tag: Orders
+  Orders_booking_relationships:
+    file: orders.md
+    anchor: booking_relationships
+    tag: Orders
+  Orders_customer_attributes:
+    file: orders.md
+    anchor: customer_attributes
+    tag: Orders
+  Customers_customer_attributes:
+    file: customers.md
+    anchor: customer_attributes
+    tag: Customers
+  Customers_customer_pagination_links:
+    file: customers.md
+    anchor: customer_pagination_links
+    tag: Customers
+  Bookings_booking_attributes:
+    file: bookings.md
+    anchor: booking_attributes
+    tag: Bookings
+  Bookings_booking_relationships:
+    file: bookings.md
+    anchor: booking_relationships
+    tag: Bookings
+  Bookings_booking_pagination_links:
+    file: bookings.md
+    anchor: booking_pagination_links
+    tag: Bookings

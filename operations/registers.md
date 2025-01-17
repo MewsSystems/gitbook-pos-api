@@ -4,7 +4,8 @@
 ## Get registers
 
 A register represents a terminal or cash register within an outlet, used to issue invoices. Each register is uniquely identified within its outlet and can either be physical or virtual.
-Note: This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
+
+**Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
 - [Relationships](../guidelines/relationships.md) - `outlet` using `include` query parameter.
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `register` and related resources with `fields` query parameter.
@@ -37,29 +38,12 @@ Note: This operation needs [Authentication](../guidelines/authentication.md) and
       }
     },
     "links": {
-      "self": "https://pos.mews-demo/com/v2/registers/31b14937-2524-491f-b0a0-dc0a7393ff3f"
+      "self": "https://pos.mews-demo/com/api/v2/registers/31b14937-2524-491f-b0a0-dc0a7393ff3f"
     }
   }
 }
 ```
 Below is a list of all possible fields this endpoint can return including relationships fields fetched with include query parameter.
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `data` | [register](registers.md#register) | required | The document's "primary data". |
-| `included` | array of object [outlet](registers.md#outlet) | optional, max 1 item | Details of the outlet to which the register is associated. |
-
-#### register
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
-| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
-| `attributes` | [register_attributes](registers.md#register_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
-| `links` | object | required | A [links object](https://jsonapi.org/format/#document-resource-object-links) containing links related to the resource. |
-| `relationships` | [register_relationships](registers.md#register_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
-
-#### register_attributes
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
@@ -75,14 +59,6 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `outlet` | object | required | Details of the outlet to which the register is associated. |
-
-#### outlet
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
-| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
-| `attributes` | [outlet_attributes](registers.md#outlet_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
 
 #### outlet_attributes
 

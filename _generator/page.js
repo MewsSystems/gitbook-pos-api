@@ -125,8 +125,8 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
       const operationId = operation.getOperationId();
 
       // collect response schemas first so that shared schemas appear next to response
-      const response =
-        operation.getResponseByStatusCode(200).content['application/vnd.api+json'];
+      const operationByCode = operation.getResponseByStatusCode(200) || operation.getResponseByStatusCode(201);
+      const response = operationByCode.content['application/vnd.api+json'];
       const responseExample = response.example || {};
       const responseSchemas = collectSchemas(
         response.schema,
@@ -164,6 +164,5 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
         ).sort(compareSchemas),
       };
     })
-    .sort(compareOperations);
   return { resourceName: tagName, operations: templateOperations };
 }
