@@ -67,6 +67,17 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `notes` | string,null | optional, max length 500 characters | Notes about the order. |
+| `covers` | undefined | required | How many people are seated at the table. |
+| `depositAmount` | string,null | optional, max length 255 characters | The amount of discount applied to the invoice. |
+| `tableStatus` | string,null | optional | Status of the table. |
+| `createdAt` | string | required, max length 25 characters | Order created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Order updated at timestamp in RFC 3339 format. |
+
+#### order_relationships
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
 | `invoice` | object | required | Details of the invoice associated with the order. |
 | `customer` | object | required | Details of the customer associated with the order. |
 | `booking` | object | required | Details of the booking associated with the order. |
@@ -114,11 +125,11 @@ Below is a list of all possible fields this endpoint can return including relati
 | `status` | string | required | The initial status of the booking. |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
-| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
-| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
-| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
-| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
-| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `duration` | integer | required | Represents the length of the booking in minutes. |
+| `notes` | string | required, max length 10000 characters | Additional notes for the booking. |
+| `roomNumber` | string | required, max length 100 characters | The room number of the booking's customer. |
+| `promotions` | string | required, max length 100 characters | The promotions of the booking. |
+| `bookingReference` | string | required, max length 255 characters | A reference code or identifier associated with the booking. |
 
 #### booking_relationships
 
@@ -126,6 +137,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | :-- | :-- | :-- | :-- |
 | `tables` | object | required | Details of the table associated with the booking. |
 | `customer` | object | required | Details of the customer associated with the booking. |
+| `order` | object | required | Details of the order associated with the booking. |
 
 #### customer_attributes
 
@@ -144,5 +156,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `notes` | string,null | optional, max length 500 characters | Additional notes about the customer. |
 | `phone` | string,null | optional, max length 20 characters | The customer's phone number. |
 | `mobile` | string,null | optional, max length 20 characters | The customer's mobile phone number. |
-| `countrySpecificCode` | string,null | optional, max length 50 characters | A unique country specific code assigned to the customer. Lottery code for example in Italy. |
+| `countrySpecificCode` | string,null | optional, max length 50 characters | A unique country specific code assigned to the customer. Lottery code, for example, in Italy. |
 | `dateOfBirth` | string,null | optional, max length 10 characters | The customer's date of birth in YYYY-MM-DD format. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |

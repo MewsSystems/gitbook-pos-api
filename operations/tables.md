@@ -3,7 +3,7 @@
 
 ## Get tables
 
-This operation returns a list of tables.
+This operation returns a list of restaurant tables.
 
 **Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 

@@ -22,21 +22,21 @@ This operation returns a list of customers
       "id": "31b14937-2524-491f-b0a0-dc0a7393ff33",
       "type": "customers",
       "attributes": {
-        "email": "example@email.com",
-        "fullName": "Name",
-        "taxNumber": "tax1234",
-        "dateOfBirth": "2024-10-24",
-        "phone": "+123123123",
-        "mobile": "+123123123",
-        "address1": "Address",
-        "address2": "Address",
-        "city": "City",
-        "state": "State",
-        "postalCode": "10000",
-        "country": "HR",
-        "notes": "This is a note",
-        "countrySpecificCode": "code",
-        "companyName": "Company name",
+        "fullName": "John Doe",
+        "companyName": "Doe Enterprises",
+        "taxNumber": "123456789",
+        "email": "john.doe@mews.com",
+        "address1": "123 Main St.",
+        "address2": "Apt. 123",
+        "city": "Palo Alto",
+        "state": "CA",
+        "postalCode": "12345",
+        "country": "US",
+        "notes": "This is a note about this customer.",
+        "phone": "1234567890",
+        "mobile": "3334567890",
+        "countrySpecificCode": "332118889",
+        "dateOfBirth": "1970-01-01",
         "createdAt": "2024-10-16T14:30:00Z",
         "updatedAt": "2024-10-19T14:30:00Z"
       }
@@ -65,8 +65,10 @@ Below is a list of all possible fields this endpoint can return including relati
 | `notes` | string,null | optional, max length 500 characters | Additional notes about the customer. |
 | `phone` | string,null | optional, max length 20 characters | The customer's phone number. |
 | `mobile` | string,null | optional, max length 20 characters | The customer's mobile phone number. |
-| `countrySpecificCode` | string,null | optional, max length 50 characters | A unique country specific code assigned to the customer. Lottery code for example in Italy. |
+| `countrySpecificCode` | string,null | optional, max length 50 characters | A unique country specific code assigned to the customer. Lottery code, for example, in Italy. |
 | `dateOfBirth` | string,null | optional, max length 10 characters | The customer's date of birth in YYYY-MM-DD format. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### customer_pagination_links
 
@@ -77,7 +79,7 @@ Below is a list of all possible fields this endpoint can return including relati
 
 ## Create customer
 
-A customer represents a person or organization that can be billed for goods or services.
+Create a customer. A customer represents a person or organization that can be billed for goods or services.
 Note: This operation needs [Authentication](../essential-guide/authentication.md).
 
 ### Request
@@ -90,15 +92,19 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
     "type": "customers",
     "attributes": {
       "fullName": "John Doe",
+      "companyName": "Doe Enterprises",
       "taxNumber": "123456789",
       "email": "john.doe@mews.com",
       "address1": "123 Main St.",
-      "city": "Anytown",
+      "address2": "Apt. 123",
+      "city": "Palo Alto",
       "state": "CA",
       "postalCode": "12345",
       "country": "US",
+      "notes": "This is a note about this customer.",
       "phone": "1234567890",
-      "companyName": "Doe Enterprises",
+      "mobile": "3334567890",
+      "countrySpecificCode": "332118889",
       "dateOfBirth": "1970-01-01"
     }
   }
@@ -120,8 +126,10 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 | `notes` | string,null | optional, max length 500 characters | Additional notes about the customer. |
 | `phone` | string,null | optional, max length 20 characters | The customer's phone number. |
 | `mobile` | string,null | optional, max length 20 characters | The customer's mobile phone number. |
-| `countrySpecificCode` | string,null | optional, max length 50 characters | A unique country specific code assigned to the customer. Lottery code for example in Italy. |
+| `countrySpecificCode` | string,null | optional, max length 50 characters | A unique country specific code assigned to the customer. Lottery code, for example, in Italy. |
 | `dateOfBirth` | string,null | optional, max length 10 characters | The customer's date of birth in YYYY-MM-DD format. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 ### Response
 
@@ -132,15 +140,19 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
     "type": "customers",
     "attributes": {
       "fullName": "John Doe",
+      "companyName": "Doe Enterprises",
       "taxNumber": "123456789",
       "email": "john.doe@mews.com",
       "address1": "123 Main St.",
-      "city": "Anytown",
+      "address2": "Apt. 123",
+      "city": "Palo Alto",
       "state": "CA",
       "postalCode": "12345",
       "country": "US",
+      "notes": "This is a note about this customer.",
       "phone": "1234567890",
-      "companyName": "Doe Enterprises",
+      "mobile": "3334567890",
+      "countrySpecificCode": "332118889",
       "dateOfBirth": "1970-01-01",
       "createdAt": "2024-10-16T14:30:00Z",
       "updatedAt": "2024-10-19T14:30:00Z"
@@ -165,5 +177,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `notes` | string,null | optional, max length 500 characters | Additional notes about the customer. |
 | `phone` | string,null | optional, max length 20 characters | The customer's phone number. |
 | `mobile` | string,null | optional, max length 20 characters | The customer's mobile phone number. |
-| `countrySpecificCode` | string,null | optional, max length 50 characters | A unique country specific code assigned to the customer. Lottery code for example in Italy. |
+| `countrySpecificCode` | string,null | optional, max length 50 characters | A unique country specific code assigned to the customer. Lottery code, for example, in Italy. |
 | `dateOfBirth` | string,null | optional, max length 10 characters | The customer's date of birth in YYYY-MM-DD format. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |

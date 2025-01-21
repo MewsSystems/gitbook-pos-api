@@ -259,3 +259,7 @@ types:
     file: bookings.md
     anchor: booking_pagination_links
     tag: Bookings
+  Orders_order_attributes:
+    file: orders.md
+    anchor: order_attributes
+    tag: Orders

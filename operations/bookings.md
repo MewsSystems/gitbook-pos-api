@@ -46,11 +46,11 @@ This operation updates a booking.
 | `status` | string | required | The initial status of the booking. |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
-| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
-| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
-| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
-| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
-| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `duration` | integer | required | Represents the length of the booking in minutes. |
+| `notes` | string | required, max length 10000 characters | Additional notes for the booking. |
+| `roomNumber` | string | required, max length 100 characters | The room number of the booking's customer. |
+| `promotions` | string | required, max length 100 characters | The promotions of the booking. |
+| `bookingReference` | string | required, max length 255 characters | A reference code or identifier associated with the booking. |
 
 ### Response
 
@@ -103,11 +103,11 @@ Below is a list of all possible fields this endpoint can return including relati
 | `status` | string | required | The initial status of the booking. |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
-| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
-| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
-| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
-| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
-| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `duration` | integer | required | Represents the length of the booking in minutes. |
+| `notes` | string | required, max length 10000 characters | Additional notes for the booking. |
+| `roomNumber` | string | required, max length 100 characters | The room number of the booking's customer. |
+| `promotions` | string | required, max length 100 characters | The promotions of the booking. |
+| `bookingReference` | string | required, max length 255 characters | A reference code or identifier associated with the booking. |
 
 #### booking_relationships
 
@@ -115,6 +115,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | :-- | :-- | :-- | :-- |
 | `tables` | object | required | Details of the table associated with the booking. |
 | `customer` | object | required | Details of the customer associated with the booking. |
+| `order` | object | required | Details of the order associated with the booking. |
 
 ## Get bookings
 
@@ -185,11 +186,11 @@ Below is a list of all possible fields this endpoint can return including relati
 | `status` | string | required | The initial status of the booking. |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
-| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
-| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
-| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
-| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
-| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `duration` | integer | required | Represents the length of the booking in minutes. |
+| `notes` | string | required, max length 10000 characters | Additional notes for the booking. |
+| `roomNumber` | string | required, max length 100 characters | The room number of the booking's customer. |
+| `promotions` | string | required, max length 100 characters | The promotions of the booking. |
+| `bookingReference` | string | required, max length 255 characters | A reference code or identifier associated with the booking. |
 
 #### booking_pagination_links
 
@@ -242,11 +243,11 @@ A booking represents a reservation made by a booking for goods or services, such
 | `status` | string | required | The initial status of the booking. |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
-| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
-| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
-| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
-| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
-| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `duration` | integer | required | Represents the length of the booking in minutes. |
+| `notes` | string | required, max length 10000 characters | Additional notes for the booking. |
+| `roomNumber` | string | required, max length 100 characters | The room number of the booking's customer. |
+| `promotions` | string | required, max length 100 characters | The promotions of the booking. |
+| `bookingReference` | string | required, max length 255 characters | A reference code or identifier associated with the booking. |
 
 ### Response
 
@@ -293,8 +294,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `status` | string | required | The initial status of the booking. |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
-| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
-| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
-| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
-| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
-| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `duration` | integer | required | Represents the length of the booking in minutes. |
+| `notes` | string | required, max length 10000 characters | Additional notes for the booking. |
+| `roomNumber` | string | required, max length 100 characters | The room number of the booking's customer. |
+| `promotions` | string | required, max length 100 characters | The promotions of the booking. |
+| `bookingReference` | string | required, max length 255 characters | A reference code or identifier associated with the booking. |
