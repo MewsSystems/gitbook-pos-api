@@ -24,3 +24,4 @@
   * [Tables](operations/tables.md)
 * [Deprecations](deprecations/README.md)
 * [Changelog](changelog/README.md)
+* [Changelog 2024](changelog/changelog2024.md)
