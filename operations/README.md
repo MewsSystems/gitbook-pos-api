@@ -6,8 +6,8 @@ This section describes all endpoints and operations supported by the API.
 | :-- | :-- |
 | [Get invoices](invoices.md#get-invoices) | Returns a list of invoices. |
 | [Get products](products.md#get-products) | Returns a list of products. |
-| [Get registers](registers.md#get-registers) | Returns a register resource. |
-| [Get invoice items](invoiceitems.md#get-invoice-items) | Returns an invoice item resource. |
+| [Get registers](registers.md#get-registers) | Returns a list of registers or terminals. |
+| [Get invoice items](invoiceitems.md#get-invoice-items) | Returns a list of invoice items. |
 | [Get bookings](bookings.md#get-bookings) | Returns a list of bookings. |
 | [Create booking](bookings.md#create-booking) | Create a booking. |
 | [Update booking](bookings.md#update-booking) | Update a booking. |
