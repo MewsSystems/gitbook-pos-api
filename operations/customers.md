@@ -6,7 +6,7 @@
 This operation returns a list of customers
 
 **Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
-
+- [Filters](../guidelines/filtering.md) - `emailEq`, `fullNameEq`
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `customer` query parameter.
 
 ### Request
