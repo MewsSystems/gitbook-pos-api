@@ -9,9 +9,9 @@ This section describes all endpoints and operations supported by the API.
 | [Get registers](registers.md#get-registers) | Returns a register resource. |
 | [Get invoice items](invoiceitems.md#get-invoice-items) | Returns an invoice item resource. |
 | [Get bookings](bookings.md#get-bookings) | Returns a list of bookings. |
-| [Create booking](bookings.md#create-booking) | Create a booking resource. |
-| [Update booking](bookings.md#update-booking) | Update a booking resource. |
+| [Create booking](bookings.md#create-booking) | Create a booking. |
+| [Update booking](bookings.md#update-booking) | Update a booking. |
 | [Get customers](customers.md#get-customers) | Returns a list of customers. |
-| [Create customer](customers.md#create-customer) | Create a customer resource. |
-| [Get orders](orders.md#get-orders) | Returns an order resource. |
+| [Create customer](customers.md#create-customer) | Create a customer. |
+| [Get orders](orders.md#get-orders) | Returns an order. |
 | [Get tables](tables.md#get-tables) | Returns a list of tables. |

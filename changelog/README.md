@@ -3,7 +3,7 @@
 ## 21st January 2025
 * New operations added:
   * [Get bookings](../operations/bookings.md#get-bookings)
-  * [Create bookings](../operations/bookings.md#create-booking)
+  * [Create booking](../operations/bookings.md#create-booking)
   * [Update booking](../operations/bookings.md#update-booking)
   * [Get orders](../operations/orders.md#get-orders)
   * [Get customers](../operations/customers.md#get-customers)
