@@ -39,6 +39,21 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `data` | array of object [table](tables.md#table) | required, max 1000 items | The document's "primary data". |
+| `links` | [table_pagination_links](tables.md#table_pagination_links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
+
+#### table
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [table_attributes](tables.md#table_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### table_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
 | `number` | string | required, max length 255 characters | Number of the table. |
 | `numberOfSeats` | integer | required | Number of seats for the table. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |

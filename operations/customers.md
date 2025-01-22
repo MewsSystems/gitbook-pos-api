@@ -52,6 +52,21 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `data` | array of object [customer](customers.md#customer) | required, max 1000 items | The document's "primary data". |
+| `links` | [customer_pagination_links](customers.md#customer_pagination_links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
+
+#### customer
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [customer_attributes](customers.md#customer_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### customer_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
 | `fullName` | string,null | optional, max length 255 characters | The full name of the customer. This can be either a personal name or a company name. |
 | `companyName` | string,null | optional, max length 255 characters | The name of the company associated with the customer. |
 | `taxNumber` | string,null | optional, max length 40 characters | The customer's tax identification number. |
@@ -113,23 +128,14 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `fullName` | string,null | optional, max length 255 characters | The full name of the customer. This can be either a personal name or a company name. |
-| `companyName` | string,null | optional, max length 255 characters | The name of the company associated with the customer. |
-| `taxNumber` | string,null | optional, max length 40 characters | The customer's tax identification number. |
-| `email` | string,null | optional, max length 320 characters | The customer's email address. |
-| `address1` | string,null | optional, max length 255 characters | The first line of the customer's address. |
-| `address2` | string,null | optional, max length 255 characters | The second line of the customer's address. |
-| `city` | string,null | optional, max length 100 characters | The city of the customer's address. |
-| `state` | string,null | optional, max length 100 characters | The state or province of the customer's address. |
-| `postalCode` | string,null | optional, max length 20 characters | The postal or ZIP code of the customer's address. |
-| `country` | string,null | optional, max length 100 characters | The country of the customer's address. |
-| `notes` | string,null | optional, max length 500 characters | Additional notes about the customer. |
-| `phone` | string,null | optional, max length 20 characters | The customer's phone number. |
-| `mobile` | string,null | optional, max length 20 characters | The customer's mobile phone number. |
-| `countrySpecificCode` | string,null | optional, max length 50 characters | A unique country specific code assigned to the customer. Lottery code, for example, in Italy. |
-| `dateOfBirth` | string,null | optional, max length 10 characters | The customer's date of birth in YYYY-MM-DD format. |
-| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
-| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `data` | [customer_create](customers.md#customer_create) | required | The document's "primary data". |
+
+#### customer_create
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [customer_attributes](customers.md#customer_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
 
 ### Response
 
@@ -164,20 +170,4 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `fullName` | string,null | optional, max length 255 characters | The full name of the customer. This can be either a personal name or a company name. |
-| `companyName` | string,null | optional, max length 255 characters | The name of the company associated with the customer. |
-| `taxNumber` | string,null | optional, max length 40 characters | The customer's tax identification number. |
-| `email` | string,null | optional, max length 320 characters | The customer's email address. |
-| `address1` | string,null | optional, max length 255 characters | The first line of the customer's address. |
-| `address2` | string,null | optional, max length 255 characters | The second line of the customer's address. |
-| `city` | string,null | optional, max length 100 characters | The city of the customer's address. |
-| `state` | string,null | optional, max length 100 characters | The state or province of the customer's address. |
-| `postalCode` | string,null | optional, max length 20 characters | The postal or ZIP code of the customer's address. |
-| `country` | string,null | optional, max length 100 characters | The country of the customer's address. |
-| `notes` | string,null | optional, max length 500 characters | Additional notes about the customer. |
-| `phone` | string,null | optional, max length 20 characters | The customer's phone number. |
-| `mobile` | string,null | optional, max length 20 characters | The customer's mobile phone number. |
-| `countrySpecificCode` | string,null | optional, max length 50 characters | A unique country specific code assigned to the customer. Lottery code, for example, in Italy. |
-| `dateOfBirth` | string,null | optional, max length 10 characters | The customer's date of birth in YYYY-MM-DD format. |
-| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
-| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `data` | [customer](customers.md#customer) | required | The document's "primary data". |

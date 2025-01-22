@@ -164,5 +164,6 @@ function prepareTemplateData(tagName, oasOperations, pageContext) {
         ).sort(compareSchemas),
       };
     })
+    .sort(compareOperations);
   return { resourceName: tagName, operations: templateOperations };
 }

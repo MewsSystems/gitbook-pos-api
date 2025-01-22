@@ -66,6 +66,22 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `data` | [invoice_item](invoiceitems.md#invoice_item) | required | The document's "primary data". |
+| `included` | array of object [invoice_item_modifier](invoiceitems.md#invoice_item_modifier) | optional, max 1000 items | Details of the invoiceItemModifiers to which the invoiceItem is associated. |
+
+#### invoice_item
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [invoice_item_attributes](invoiceitems.md#invoice_item_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `relationships` | [invoice_item_relationships](invoiceitems.md#invoice_item_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
+
+#### invoice_item_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
 | `productName` | string | required, max length 255 characters | The name of the product or item being invoiced. |
 | `unitPriceInclTax` | string | required, max length 255 characters | The price of the product per unit, including applicable taxes. |
 | `quantity` | string | required, max length 255 characters | The number of units of the product being purchased. |
@@ -91,6 +107,14 @@ Below is a list of all possible fields this endpoint can return including relati
 | `product` | object | required | Details of the product associated with the invoiceItem. |
 | `productVariant` | object | required | Details of the productVariant associated with the invoiceItem. |
 | `invoiceItemModifiers` | object | required | Details of the items associated with the invoiceItem. |
+
+#### invoice_item_modifier
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [invoice_item_modifiers_attributes](invoiceitems.md#invoice_item_modifiers_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
 
 #### invoice_item_modifiers_attributes
 

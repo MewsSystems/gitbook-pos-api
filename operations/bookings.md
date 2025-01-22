@@ -43,14 +43,7 @@ This operation updates a booking.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `status` | string | required | The initial status of the booking. |
-| `partySize` | integer | required | Represents the number of people included in the booking. |
-| `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
-| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
-| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
-| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
-| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
-| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `data` | [booking](bookings.md#booking) | required | The document's "primary data". |
 
 ### Response
 
@@ -100,7 +93,22 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `status` | string | required | The initial status of the booking. |
+| `data` | [booking](bookings.md#booking) | required | The document's "primary data". |
+
+#### booking
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [booking_attributes](bookings.md#booking_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `relationships` | [booking_relationships](bookings.md#booking_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
+
+#### booking_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `status` | string,null | optional | The initial status of the booking. |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
 | `duration` | integer,null | optional | Represents the length of the booking in minutes. |
@@ -183,14 +191,8 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `status` | string | required | The initial status of the booking. |
-| `partySize` | integer | required | Represents the number of people included in the booking. |
-| `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
-| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
-| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
-| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
-| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
-| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `data` | array of object [booking](bookings.md#booking) | required, max 1000 items | The document's "primary data". |
+| `links` | [booking_pagination_links](bookings.md#booking_pagination_links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
 
 #### booking_pagination_links
 
@@ -240,14 +242,15 @@ A booking represents a reservation made by a booking for goods or services, such
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `status` | string | required | The initial status of the booking. |
-| `partySize` | integer | required | Represents the number of people included in the booking. |
-| `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
-| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
-| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
-| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
-| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
-| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `data` | [booking_create](bookings.md#booking_create) | required | The document's "primary data". |
+
+#### booking_create
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [booking_attributes](bookings.md#booking_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `relationships` | object | required | An [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) representing associations with other resources. |
 
 ### Response
 
@@ -291,11 +294,4 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `status` | string | required | The initial status of the booking. |
-| `partySize` | integer | required | Represents the number of people included in the booking. |
-| `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
-| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
-| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
-| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
-| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
-| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `data` | [booking](bookings.md#booking) | required | The document's "primary data". |

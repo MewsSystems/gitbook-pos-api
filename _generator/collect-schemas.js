@@ -33,7 +33,6 @@ export function collectSchemas(schema, path, accumulator) {
     accumulator.add(schemaId, schema);
     nestedPath.push(schemaId);
   }
-
   if (schema.type === 'object' || schema.properties?.discriminator) {
     for (const key in schema.properties) {
       collectSchemas(schema.properties[key], [...nestedPath, key], accumulator);
