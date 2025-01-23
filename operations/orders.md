@@ -1,7 +1,7 @@
 <!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Orders
 
-## Get orders
+## Get order
 
 An order represents a single set of items that was ordered by a customer. Each order is uniquely identified and can be associated with an invoice item.
 
