@@ -6,12 +6,12 @@ This section describes all endpoints and operations supported by the API.
 | :-- | :-- |
 | [Get invoices](invoices.md#get-invoices) | Returns a list of invoices. |
 | [Get products](products.md#get-products) | Returns a list of products. |
-| [Get registers](registers.md#get-registers) | Returns a list of registers or terminals. |
-| [Get invoice items](invoiceitems.md#get-invoice-items) | Returns a list of invoice items. |
+| [Get register](registers.md#get-registers) | Returns details for a register (POS terminal). |
+| [Get invoice item](invoiceitems.md#get-invoice-items) | Returns details for an invoice item. |
 | [Get bookings](bookings.md#get-bookings) | Returns a list of bookings. |
 | [Create booking](bookings.md#create-booking) | Create a booking. |
 | [Update booking](bookings.md#update-booking) | Update a booking. |
 | [Get customers](customers.md#get-customers) | Returns a list of customers. |
 | [Create customer](customers.md#create-customer) | Create a customer. |
-| [Get orders](orders.md#get-orders) | Returns an order. |
+| [Get order](orders.md#get-orders) | Returns details for an order. |
 | [Get tables](tables.md#get-tables) | Returns a list of tables. |

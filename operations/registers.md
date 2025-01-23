@@ -1,7 +1,7 @@
 <!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Registers
 
-## Get registers
+## Get register
 
 A register represents a terminal or cash register within an outlet, used to issue invoices. Each register is uniquely identified within its outlet and can either be physical or virtual.
 

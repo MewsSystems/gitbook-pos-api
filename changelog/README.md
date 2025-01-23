@@ -9,6 +9,7 @@
   * [Get customers](../operations/customers.md#get-customers)
   * [Create customer](../operations/customers.md#create-customer)
   * [Get tables](../operations/tables.md#get-tables)
+* Updated operations list to match proper inflections.
 
 | Changelog by year |
 | :-- |
