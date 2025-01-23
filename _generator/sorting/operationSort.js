@@ -40,7 +40,7 @@ function getOperationPath(operation) {
 function getOperationPriority(operation) {
   const sortKey = getSortKey(operation);
   let priority = sortPriority[sortKey];
-  if (!priority && sortKey.startsWith('get')) {
+  if (!priority && sortKey?.startsWith('get')) {
     priority = sortPriority.get;
   }
   return priority || sortPriority.fallback;

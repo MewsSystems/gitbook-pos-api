@@ -15,22 +15,6 @@ types:
     file: invoices.md
     anchor: invoice_relationships
     tag: Invoices
-  Invoices_invoice_user_attributes:
-    file: invoices.md
-    anchor: invoice_user_attributes
-    tag: Invoices
-  Invoices_invoice_register_attributes:
-    file: invoices.md
-    anchor: invoice_register_attributes
-    tag: Invoices
-  Invoices_invoice_original_attributes:
-    file: invoices.md
-    anchor: invoice_original_attributes
-    tag: Invoices
-  Invoices_invoice_items_attributes:
-    file: invoices.md
-    anchor: invoice_items_attributes
-    tag: Invoices
   Invoices_invoice_item:
     file: invoices.md
     anchor: invoice_item
@@ -39,9 +23,17 @@ types:
     file: invoices.md
     anchor: invoice_item_attributes
     tag: Invoices
+  Invoices_invoice_item_relationships:
+    file: invoices.md
+    anchor: invoice_item_relationships
+    tag: Invoices
   Invoices_user:
     file: invoices.md
     anchor: user
+    tag: Invoices
+  Invoices_user_attributes:
+    file: invoices.md
+    anchor: user_attributes
     tag: Invoices
   Invoices_register:
     file: invoices.md
@@ -54,26 +46,6 @@ types:
   Invoices_register_relationships:
     file: invoices.md
     anchor: register_relationships
-    tag: Invoices
-  Invoices_relationship_attributes:
-    file: invoices.md
-    anchor: relationship_attributes
-    tag: Invoices
-  Invoices_product_variant:
-    file: invoices.md
-    anchor: product_variant
-    tag: Invoices
-  Invoices_product_variant_attributes:
-    file: invoices.md
-    anchor: product_variant_attributes
-    tag: Invoices
-  Invoices_invoice_item_modifier:
-    file: invoices.md
-    anchor: invoice_item_modifier
-    tag: Invoices
-  Invoices_invoice_item_modifiers_attributes:
-    file: invoices.md
-    anchor: invoice_item_modifiers_attributes
     tag: Invoices
   Invoices_invoice_pagination_links:
     file: invoices.md
@@ -94,10 +66,6 @@ types:
   Registers_register_relationships:
     file: registers.md
     anchor: register_relationships
-    tag: Registers
-  Registers_relationship_attributes:
-    file: registers.md
-    anchor: relationship_attributes
     tag: Registers
   Registers_outlet:
     file: registers.md
@@ -122,10 +90,6 @@ types:
   Products_product_relationships:
     file: products.md
     anchor: product_relationships
-    tag: Products
-  Products_product_relationships_attributes:
-    file: products.md
-    anchor: product_relationships_attributes
     tag: Products
   Products_product_type:
     file: products.md
@@ -155,30 +119,6 @@ types:
     file: products.md
     anchor: product_pagination_links
     tag: Products
-  Invoices_invoice_relationships_attributes:
-    file: invoices.md
-    anchor: invoice_relationships_attributes
-    tag: Invoices
-  Invoices_register_relationships_attributes:
-    file: invoices.md
-    anchor: register_relationships_attributes
-    tag: Invoices
-  Registers_register_relationships_attributes:
-    file: registers.md
-    anchor: register_relationships_attributes
-    tag: Registers
-  Invoices_user_attributes:
-    file: invoices.md
-    anchor: user_attributes
-    tag: Invoices
-  Invoices_invoices_response:
-    file: invoices.md
-    anchor: invoices_response
-    tag: Invoices
-  Invoices_invoice_item_relationships:
-    file: invoices.md
-    anchor: invoice_item_relationships
-    tag: Invoices
   InvoiceItems_invoice_item_response:
     file: invoiceitems.md
     anchor: invoice_item_response
@@ -203,3 +143,135 @@ types:
     file: invoiceitems.md
     anchor: invoice_item_modifiers_attributes
     tag: InvoiceItems
+  Tables_table_pagination_response:
+    file: tables.md
+    anchor: table_pagination_response
+    tag: Tables
+  Tables_table:
+    file: tables.md
+    anchor: table
+    tag: Tables
+  Tables_table_attributes:
+    file: tables.md
+    anchor: table_attributes
+    tag: Tables
+  Tables_table_pagination_links:
+    file: tables.md
+    anchor: table_pagination_links
+    tag: Tables
+  Orders_order_response:
+    file: orders.md
+    anchor: order_response
+    tag: Orders
+  Orders_order:
+    file: orders.md
+    anchor: order
+    tag: Orders
+  Orders_order_attributes:
+    file: orders.md
+    anchor: order_attributes
+    tag: Orders
+  Orders_order_relationships:
+    file: orders.md
+    anchor: order_relationships
+    tag: Orders
+  Orders_invoice:
+    file: orders.md
+    anchor: invoice
+    tag: Orders
+  Orders_invoice_attributes:
+    file: orders.md
+    anchor: invoice_attributes
+    tag: Orders
+  Orders_invoice_relationships:
+    file: orders.md
+    anchor: invoice_relationships
+    tag: Orders
+  Orders_table:
+    file: orders.md
+    anchor: table
+    tag: Orders
+  Orders_table_attributes:
+    file: orders.md
+    anchor: table_attributes
+    tag: Orders
+  Orders_booking:
+    file: orders.md
+    anchor: booking
+    tag: Orders
+  Orders_booking_attributes:
+    file: orders.md
+    anchor: booking_attributes
+    tag: Orders
+  Orders_booking_relationships:
+    file: orders.md
+    anchor: booking_relationships
+    tag: Orders
+  Orders_customer:
+    file: orders.md
+    anchor: customer
+    tag: Orders
+  Orders_customer_attributes:
+    file: orders.md
+    anchor: customer_attributes
+    tag: Orders
+  Customers_booking_response:
+    file: customers.md
+    anchor: booking_response
+    tag: Customers
+  Customers_customer:
+    file: customers.md
+    anchor: customer
+    tag: Customers
+  Customers_customer_attributes:
+    file: customers.md
+    anchor: customer_attributes
+    tag: Customers
+  Customers_customer_pagination_links:
+    file: customers.md
+    anchor: customer_pagination_links
+    tag: Customers
+  Customers_customer_response:
+    file: customers.md
+    anchor: customer_response
+    tag: Customers
+  Customers_customer_create_request:
+    file: customers.md
+    anchor: customer_create_request
+    tag: Customers
+  Customers_customer_create:
+    file: customers.md
+    anchor: customer_create
+    tag: Customers
+  Bookings_booking_payload:
+    file: bookings.md
+    anchor: booking_payload
+    tag: Bookings
+  Bookings_booking:
+    file: bookings.md
+    anchor: booking
+    tag: Bookings
+  Bookings_booking_attributes:
+    file: bookings.md
+    anchor: booking_attributes
+    tag: Bookings
+  Bookings_booking_relationships:
+    file: bookings.md
+    anchor: booking_relationships
+    tag: Bookings
+  Bookings_bookings_response:
+    file: bookings.md
+    anchor: bookings_response
+    tag: Bookings
+  Bookings_booking_pagination_links:
+    file: bookings.md
+    anchor: booking_pagination_links
+    tag: Bookings
+  Bookings_booking_create_request:
+    file: bookings.md
+    anchor: booking_create_request
+    tag: Bookings
+  Bookings_booking_create:
+    file: bookings.md
+    anchor: booking_create
+    tag: Bookings

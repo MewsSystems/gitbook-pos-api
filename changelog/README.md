@@ -1,13 +1,15 @@
 # Changelog
 
-## 9th December 2024
-* Updates made to operations pages. Documentation-only, no changes to API.
+## 21st January 2025
+* New operations added:
+  * [Get bookings](../operations/bookings.md#get-bookings)
+  * [Create booking](../operations/bookings.md#create-booking)
+  * [Update booking](../operations/bookings.md#update-booking)
+  * [Get orders](../operations/orders.md#get-orders)
+  * [Get customers](../operations/customers.md#get-customers)
+  * [Create customer](../operations/customers.md#create-customer)
+  * [Get tables](../operations/tables.md#get-tables)
 
-## 5th December 2024
-* Changes made to page architecture, and [Requests](../guidelines/requests.md) page rewritten. Documentation-only, no changes to API.
-
-## 28th November 2024
-* Added `registerIdEq` filter to [Invoices](../operations/invoices.md).
-
-## 26th September 2024
-* First draft of documentation published
+| Changelog by year |
+| :-- |
+| [Changelog 2024](changelog2024.md) |
