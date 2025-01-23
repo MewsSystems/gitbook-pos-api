@@ -1,6 +1,6 @@
 # Changelog
 
-## 21st January 2025
+## 23st January 2025
 * New operations added:
   * [Get bookings](../operations/bookings.md#get-bookings)
   * [Create booking](../operations/bookings.md#create-booking)
