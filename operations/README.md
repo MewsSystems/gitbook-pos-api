@@ -13,5 +13,5 @@ This section describes all endpoints and operations supported by the API.
 | [Update booking](bookings.md#update-booking) | Update a booking. |
 | [Get customers](customers.md#get-customers) | Returns a list of customers. |
 | [Create customer](customers.md#create-customer) | Create a customer. |
-| [Get orders](orders.md#get-orders) | Returns details for an order. |
+| [Get order](orders.md#get-orders) | Returns details for an order. |
 | [Get tables](tables.md#get-tables) | Returns a list of tables. |
