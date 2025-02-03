@@ -11,6 +11,9 @@
   * [Get tables](../operations/tables.md#get-tables)
 * Updated operations list to match proper inflections.
 
+## 4th February 2025
+* Invoice filtering guideline update
+
 | Changelog by year |
 | :-- |
 | [Changelog 2024](changelog2024.md) |
