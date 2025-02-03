@@ -1,4 +1,6 @@
 # Changelog
+## 4th February 2025
+* Extended [list of supported filters](../guidelines/filtering.md).
 
 ## 23rd January 2025
 * New operations added:
@@ -11,8 +13,6 @@
   * [Get tables](../operations/tables.md#get-tables)
 * Updated operations list to match proper inflections.
 
-## 4th February 2025
-* Invoice filtering guideline update
 
 | Changelog by year |
 | :-- |
