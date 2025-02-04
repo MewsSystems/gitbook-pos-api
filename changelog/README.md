@@ -1,6 +1,8 @@
 # Changelog
+
 ## 5th February 2025
 * Extended [list of supported filters](../guidelines/filtering.md).
+* Fixed [list of supported filters on invoices page](../operations/invoices.md)
 
 ## 23rd January 2025
 * New operations added:

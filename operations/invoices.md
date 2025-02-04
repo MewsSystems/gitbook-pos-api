@@ -8,7 +8,7 @@ This operation returns a list of invoices.
 **Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
 - [Relationships](../guidelines/relationships.md) - `invoiceItems`, `user`, `register`, `originalInvoice` using `include` query parameter.
-- [Filters](../guidelines/filtering.md) - `createdAtGt`, `createdAtGteq`, `createdAtLt`, `createdAtLteq`
+- [Filters](../guidelines/filtering.md) - `createdAtGt`, `createdAtGteq`, `createdAtLt`, `createdAtLteq`, `registerIdEq`
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `invoices` and related resources with `fields` query parameter.
 
 ### Request
