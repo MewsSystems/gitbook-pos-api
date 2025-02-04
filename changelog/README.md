@@ -1,5 +1,5 @@
 # Changelog
-## 4th February 2025
+## 5th February 2025
 * Extended [list of supported filters](../guidelines/filtering.md).
 
 ## 23rd January 2025
