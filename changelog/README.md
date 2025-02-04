@@ -2,7 +2,7 @@
 
 ## 4th February 2025
 * Extended [list of supported filters](../guidelines/filtering.md).
-* Fixed [list of supported filters on invoices page](../operations/invoices.md)
+* [Get invoices](../operations/invoices.md#get-invoices): Extended Filters to include `registerIdEq`.
 
 ## 23rd January 2025
 * New operations added:
