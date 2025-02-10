@@ -17,7 +17,7 @@ This operation updates a booking.
     "type": "bookings",
     "id": "83f93e1c-b6e1-4040-90cf-3274b6f3c82d",
     "attributes": {
-      "status": "booked",
+      "status": "confirmed",
       "partySize": 6,
       "bookingDatetime": "2024-10-24T08:44:45.409Z"
     },
@@ -53,7 +53,7 @@ This operation updates a booking.
     "id": "83f93e1c-b6e1-4040-90cf-3274b6f3c82d",
     "type": "bookings",
     "attributes": {
-      "status": "booked",
+      "status": "confirmed",
       "bookingDatetime": "2024-10-24T08:44:45.409Z",
       "duration": 90,
       "partySize": 6,
@@ -65,7 +65,7 @@ This operation updates a booking.
       "updatedAt": "2024-10-24T08:44:45.409Z"
     },
     "relationships": {
-      "order": {
+      "orders": {
         "data": {
           "id": "5efa8b3c-b930-4b31-918d-95ab0e212e65",
           "type": "orders"
@@ -121,9 +121,9 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `tables` | object | required | Details of the table associated with the booking. |
+| `tables` | object | required | Details of the tables associated with the booking. |
 | `customer` | object | required | Details of the customer associated with the booking. |
-| `order` | object | required | Details of the order associated with the booking. |
+| `orders` | object | required | Details of the orders associated with the booking. |
 
 ## Get bookings
 
@@ -131,6 +131,8 @@ This operation returns a list of bookings.
 
 **Note**: This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
+- [Relationships](../guidelines/relationships.md) - `customer`, `orders`, `tables` using `include` query parameter.
+- [Filters](../guidelines/filtering.md) - `createdAtGt`, `createdAtGteq`, `createdAtLt`, `createdAtLteq`, `updatedAtGt`, `updatedAtGteq`, `updatedAtLt`, `updatedAtLteq`
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `booking` query parameter.
 
 ### Request
@@ -146,7 +148,7 @@ This operation returns a list of bookings.
       "id": "31b14937-2524-491f-b0a0-dc0a7393ff33",
       "type": "bookings",
       "attributes": {
-        "status": "booked",
+        "status": "confirmed",
         "bookingDatetime": "2024-10-24T08:44:45.409Z",
         "duration": 60,
         "partySize": 2,
@@ -158,11 +160,13 @@ This operation returns a list of bookings.
         "updatedAt": "2024-10-24T08:44:45.409Z"
       },
       "relationships": {
-        "order": {
-          "data": {
-            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e65",
-            "type": "orders"
-          }
+        "orders": {
+          "data": [
+            {
+              "id": "5efa8b3c-b930-4b31-918d-95ab0e212e65",
+              "type": "orders"
+            }
+          ]
         },
         "customer": {
           "data": {
@@ -216,7 +220,7 @@ A booking represents a reservation made by a booking for goods or services, such
   "data": {
     "type": "bookings",
     "attributes": {
-      "status": "booked",
+      "status": "confirmed",
       "partySize": 5,
       "bookingDatetime": "2024-10-24T08:44:45.409Z"
     },
@@ -260,7 +264,7 @@ A booking represents a reservation made by a booking for goods or services, such
     "id": "83f93e1c-b6e1-4040-90cf-3274b6f3c82d",
     "type": "bookings",
     "attributes": {
-      "status": "booked",
+      "status": "confirmed",
       "bookingDatetime": "2024-10-24T08:44:45.409Z",
       "duration": 60,
       "partySize": 2,

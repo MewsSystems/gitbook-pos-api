@@ -275,3 +275,19 @@ types:
     file: bookings.md
     anchor: booking_create
     tag: Bookings
+  WebhookEndpoints_webhook_endpoint_payload:
+    file: webhookendpoints.md
+    anchor: webhook_endpoint_payload
+    tag: WebhookEndpoints
+  WebhookEndpoints_webhook_endpoint_attributes:
+    file: webhookendpoints.md
+    anchor: webhook_endpoint_attributes
+    tag: WebhookEndpoints
+  WebhookEndpoints_webhook_endpoint_create_request:
+    file: webhookendpoints.md
+    anchor: webhook_endpoint_create_request
+    tag: WebhookEndpoints
+  WebhookEndpoints_webhook_endpoint_create:
+    file: webhookendpoints.md
+    anchor: webhook_endpoint_create
+    tag: WebhookEndpoints

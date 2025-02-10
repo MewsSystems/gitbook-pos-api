@@ -178,9 +178,9 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `tables` | object | required | Details of the table associated with the booking. |
+| `tables` | object | required | Details of the tables associated with the booking. |
 | `customer` | object | required | Details of the customer associated with the booking. |
-| `order` | object | required | Details of the order associated with the booking. |
+| `orders` | object | required | Details of the orders associated with the booking. |
 
 #### customer
 
