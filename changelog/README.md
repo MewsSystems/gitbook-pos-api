@@ -1,5 +1,11 @@
 # Changelog
 
+## 10th February 2025
+* Added create webhooks endpoint endpoint.
+* Booking status change.
+* Bookings are now connected to multiple orders rather than only one. [Multiple orders](../operations/bookings.md#booking_relationships)
+* Extended [list of supported filters](../guidelines/filtering.md).
+
 ## 4th February 2025
 * Extended [list of supported filters](../guidelines/filtering.md).
 * [Get invoices](../operations/invoices.md#get-invoices): Extended Filters to include `registerIdEq`.
