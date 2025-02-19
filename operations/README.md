@@ -15,3 +15,4 @@ This section describes all endpoints and operations supported by the API.
 | [Create customer](customers.md#create-customer) | Create a customer. |
 | [Get order](orders.md#get-orders) | Returns details for an order. |
 | [Get tables](tables.md#get-tables) | Returns a list of tables. |
+| [Create webhook endpoint](webhookendpoints.md#create-webhook-endpoint) | Register a Webhook to receive API events. |

@@ -1,9 +1,12 @@
 # Changelog
 
+## 20th February 2025
+* Added [API Events](../events/README.md), [Webhooks](../events/webhooks.md) and [Webhook security](../events/wh-security.md)
+
 ## 17th February 2025
-* Added create webhooks endpoint endpoint.
-* Booking status change.
-* Bookings are now connected to multiple orders rather than only one. [Multiple orders](../operations/bookings.md#booking_relationships)
+* Added new API operation [Create webhook endpoint](../operations/webhookendpoints.md#create-webhook-endpoint).
+* Corrected booking status in JSON samples in [Bookings](../operations/bookings.md).
+* Bookings are now connected to [multiple orders](../operations/bookings.md#booking_relationships) rather than only one.
 * Extended [list of supported filters](../guidelines/filtering.md).
 
 ## 4th February 2025
@@ -20,7 +23,6 @@
   * [Create customer](../operations/customers.md#create-customer)
   * [Get tables](../operations/tables.md#get-tables)
 * Updated operations list to match proper inflections.
-
 
 | Changelog by year |
 | :-- |
