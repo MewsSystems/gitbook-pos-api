@@ -68,7 +68,7 @@ To implement Webhooks:
 | `status` | string | required | The new status of the booking, e.g. `seated`. |
 | `updated_at` | string | required | Timestamp of when the booking was updated. |
 
-### **Example Scenario:**
+## **Example scenario**
 
 - If a booking is **seated**, a `booking.status.updated` event is triggered.
 - If the same booking is later **cancelled**, another `booking.status.updated` event is triggered.
