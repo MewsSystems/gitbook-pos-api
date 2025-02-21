@@ -291,3 +291,11 @@ types:
     file: webhookendpoints.md
     anchor: webhook_endpoint_create
     tag: WebhookEndpoints
+  Tables_area_relationships:
+    file: tables.md
+    anchor: area_relationships
+    tag: Tables
+  Orders_area_relationships:
+    file: orders.md
+    anchor: area_relationships
+    tag: Orders

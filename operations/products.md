@@ -101,7 +101,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `description` | string | required, max length 10000 characters | Description of the product. |
 | `sku` | string | required, max length 255 characters | SKU of the product. |
 | `barcode` | string | required, max length 255 characters | Barcode of the product. |
-| `status` | string | required | Status of the product. |
+| `status` | string | required | Status of the product. Possible values are "active" and "inactive". |
 | `tax` | string | required, max length 255 characters | Tax of the product. |
 | `retailPriceExclTax` | string | required, max length 255 characters | Retail price excluding tax. |
 | `retailPriceInclTax` | string | required, max length 255 characters | Retail price including tax. |
@@ -147,7 +147,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `name` | string | required, max length 255 characters | Name of the modifier set. |
-| `selection` | string | required | Modifier set selection type. |
+| `selection` | string | required | Modifier set selection type. Possible values are "single" and "multiple". |
 | `maximumCount` | integer | required | Maximum number of modifiers that can be selected. |
 | `minimumCount` | integer | required | Minimum number of modifiers that must be selected. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |

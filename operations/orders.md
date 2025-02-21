@@ -87,7 +87,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `notes` | string,null | optional, max length 500 characters | Notes about the order. |
 | `covers` | undefined | required | How many people are seated at the table. |
 | `depositAmount` | string,null | optional, max length 255 characters | The amount of discount applied to the invoice. |
-| `tableStatus` | string,null | optional | Status of the table. |
+| `tableStatus` | string,null | optional | Status of the table. Possible values are "noTable", "seated", "cleaning", and "free". |
 | `createdAt` | string | required, max length 25 characters | Order created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Order updated at timestamp in RFC 3339 format. |
 
@@ -142,6 +142,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
 | `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 | `attributes` | [table_attributes](orders.md#table_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `relationships` | [area_relationships](orders.md#area_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
 
 #### table_attributes
 
@@ -151,6 +152,12 @@ Below is a list of all possible fields this endpoint can return including relati
 | `numberOfSeats` | integer | required | Number of seats for the table. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+
+#### area_relationships
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `area` | object | required | Details of the table area. |
 
 #### booking
 
@@ -165,7 +172,7 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `status` | string,null | optional | The initial status of the booking. |
+| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
 | `duration` | integer,null | optional | Represents the length of the booking in minutes. |
@@ -173,6 +180,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
 | `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
 | `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `isWalkIn` | boolean | required | Indicates if the booking is a walk-in. |
+| `depositAmount` | string,null | optional, max length 255 characters | The amount of the deposit. |
 
 #### booking_relationships
 

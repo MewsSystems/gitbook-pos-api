@@ -66,10 +66,12 @@ This operation updates a booking.
     },
     "relationships": {
       "orders": {
-        "data": {
-          "id": "5efa8b3c-b930-4b31-918d-95ab0e212e65",
-          "type": "orders"
-        }
+        "data": [
+          {
+            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e65",
+            "type": "orders"
+          }
+        ]
       },
       "customer": {
         "data": {
@@ -108,7 +110,7 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `status` | string,null | optional | The initial status of the booking. |
+| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
 | `duration` | integer,null | optional | Represents the length of the booking in minutes. |
@@ -116,6 +118,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
 | `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
 | `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `isWalkIn` | boolean | required | Indicates if the booking is a walk-in. |
+| `depositAmount` | string,null | optional, max length 255 characters | The amount of the deposit. |
 
 #### booking_relationships
 
@@ -132,7 +136,7 @@ This operation returns a list of bookings.
 **Note**: This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
 - [Relationships](../guidelines/relationships.md) - `customer`, `orders`, `tables` using `include` query parameter.
-- [Filters](../guidelines/filtering.md) - `createdAtGt`, `createdAtGteq`, `createdAtLt`, `createdAtLteq`, `updatedAtGt`, `updatedAtGteq`, `updatedAtLt`, `updatedAtLteq`
+- [Filters](../guidelines/filtering.md) - `createdAtGt`, `createdAtGteq`, `createdAtLt`, `createdAtLteq`, `updatedAtGt`, `updatedAtGteq`, `updatedAtLt`, `updatedAtLteq`, `bookingDatetimeGt`, `bookingDatetimeGteq`, `bookingDatetimeLt`, `bookingDatetimeLteq`
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `booking` query parameter.
 
 ### Request
