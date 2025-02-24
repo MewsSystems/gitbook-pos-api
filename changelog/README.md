@@ -1,13 +1,21 @@
 # Changelog
 
 ## 21st February 2025
-* Get bookings - updated booking [relationship](../operations/bookings.md#booking_relationships) with orders (multiple orders now related to booking instead of one).
-* Get bookings - added list of [booking statuses.](../operations/bookings.md#booking_attributes)
-* Get bookings - added two new fields, `depositAmount` and `isWalkIn`, for [booking attributes.](../operations/bookings.md#booking_attributes)
-* Get bookings - updated bookings list endpoint [filters.](../operations/bookings.md#get_bookings)
-* Get products - updated product status [enum list.](../operations/products.md#product_attributes)
-* Get tables - updated tables relationships, now it is related to `area`.
-* Create webhook endpoint - general improvements for webhook endpoint[ documentation page.](../operations/webhookendpoints.md)
+* [Get bookings:](../operations/bookings.md#get_bookings)
+  * Correcting booking JSON example response.
+  * Added list of [booking statuses.](../operations/bookings.md#booking_attributes)
+  * Extended [booking attributes](../operations/bookings.md#booking_attributes) with `depositAmount` and `isWalkIn`.
+  * Extended bookings [filters](../operations/bookings.md#get_bookings) with  `bookingDatetimeGt`, `bookingDatetimeGteq`, `bookingDatetimeLt`, `bookingDatetimeLteq`.
+* [Create booking:](../operations/bookings.md#create_booking)
+  * Extended [booking attributes](../operations/bookings.md#booking_attributes) with `depositAmount` and `isWalkIn`.
+* [Update booking:](../operations/bookings.md#update_booking)
+  * Extended [booking attributes](../operations/bookings.md#booking_attributes) with `depositAmount` and `isWalkIn`.
+* [Get products:](../operations/products.md#get_products)
+  * Corrected product status list [enum list.](../operations/products.md#product_attributes)
+* [Get tables:](../operations/tables.md#get_tables)
+  * Extended tables relationships, now it is related to `area`.
+* [Create webhook endpoint:](../operations/webhookendpoints.md)
+  * General improvements to [webhook endpoints page.](../operations/webhookendpoints.md) Documentation-only, no changes to API.
 
 ## 20th February 2025
 * Added [API Events](../events/README.md), [Webhooks](../events/webhooks.md) and [Webhook security](../events/wh-security.md)
