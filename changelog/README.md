@@ -1,13 +1,13 @@
 # Changelog
 
 ## 21st February 2025
-* Updated booking [relationship](../operations/bookings.md#Response) with orders (multiple orders now related to booking instead of one).
-* Added list of [booking statuses.](../operations/bookings.md#booking_attributes)
-* Added two new fields, `depositAmount` and `isWalkIn`, for [booking attributes.](../operations/bookings.md#booking_attributes)
-* Updated bookings list endpoint [filters.](../operations/bookings.md#get_bookings)
-* Updated product status [enum list.](../operations/products.md#product_attributes)
-* Update tables relationships, now it is related to `area`.
-* General improvements for webhook endpoint[ documentation page.](../operations/webhookendpoints.md)
+* Get bookings - updated booking [relationship](../operations/bookings.md#booking_relationships) with orders (multiple orders now related to booking instead of one).
+* Get bookings - added list of [booking statuses.](../operations/bookings.md#booking_attributes)
+* Get bookings - added two new fields, `depositAmount` and `isWalkIn`, for [booking attributes.](../operations/bookings.md#booking_attributes)
+* Get bookings - updated bookings list endpoint [filters.](../operations/bookings.md#get_bookings)
+* Get products - updated product status [enum list.](../operations/products.md#product_attributes)
+* Get tables - updated tables relationships, now it is related to `area`.
+* Create webhook endpoint - general improvements for webhook endpoint[ documentation page.](../operations/webhookendpoints.md)
 
 ## 20th February 2025
 * Added [API Events](../events/README.md), [Webhooks](../events/webhooks.md) and [Webhook security](../events/wh-security.md)
