@@ -65,10 +65,13 @@ To implement Webhooks:
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `status` | string | required | The new status of the booking, e.g. `seated`. |
+| `status` | string [Booking status](#booking-status) | required | The new status of the booking, e.g. `seated`. |
 | `updated_at` | string | required | Timestamp of when the booking was updated. |
 
-## **Example scenario**
+#### Booking status
 
-- If a booking is **seated**, a `booking.status.updated` event is triggered.
-- If the same booking is later **cancelled**, another `booking.status.updated` event is triggered.
+* `confirmed` – The booking has been made and confirmed.
+* `seated` – The customer has arrived and the party is seated.
+* `completed` – The booking has finished.
+* `cancelled` – The customer has cancelled the booking.
+* `noShow` – The customer did not show up and the booking has been registered by the staff as a 'no show'.
