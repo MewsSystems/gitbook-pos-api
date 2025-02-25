@@ -23,6 +23,7 @@
   * [Registers](operations/registers.md)
   * [Tables](operations/tables.md)
   * [Webhook endpoints](operations/webhookendpoints.md)
+  * [Areas](operations/areas.md)
 * [API Events](events/README.md)
   * [Webhooks](events/webhooks.md)
   * [Webhook security](events/wh-security.md)

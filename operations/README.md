@@ -16,3 +16,4 @@ This section describes all endpoints and operations supported by the API.
 | [Get order](orders.md#get-orders) | Returns details for an order. |
 | [Get tables](tables.md#get-tables) | Returns a list of tables. |
 | [Create webhook endpoint](webhookendpoints.md#create-webhook-endpoint) | Register a Webhook to receive API events. |
+| [Get areas](areas.md#get-areas) | Returns a list of table areas. |
