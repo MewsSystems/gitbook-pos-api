@@ -67,6 +67,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | :-- | :-- | :-- | :-- |
 | `name` | string | required, max length 10000 characters | Name for the Area. |
 | `isActive` | boolean | required | Indicates whether the Area is active or not. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### area_relationships
 

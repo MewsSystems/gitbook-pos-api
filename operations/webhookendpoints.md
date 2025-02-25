@@ -1,5 +1,5 @@
 <!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
-# WebhookEndpoints
+# Webhook endpoints
 
 ## Create Webhook endpoint
 
