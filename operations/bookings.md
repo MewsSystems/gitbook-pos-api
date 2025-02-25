@@ -110,6 +110,9 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `required` | undefined | required |  |
 | `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
@@ -257,8 +260,26 @@ A booking represents a reservation made by a booking for goods or services, such
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
-| `attributes` | [booking_attributes](bookings.md#booking_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `attributes` | [booking_create_attributes](bookings.md#booking_create_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
 | `relationships` | object | required | An [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) representing associations with other resources. |
+
+#### booking_create_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `required` | undefined | required |  |
+| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
+| `partySize` | integer | required | Represents the number of people included in the booking. |
+| `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
+| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
+| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
+| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
+| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
+| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `isWalkIn` | boolean | required | Indicates if the booking is a walk-in. |
+| `depositAmount` | string,null | optional, max length 255 characters | The amount of the deposit. |
 
 ### Response
 

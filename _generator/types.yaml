@@ -155,6 +155,10 @@ types:
     file: tables.md
     anchor: table_attributes
     tag: Tables
+  Tables_table_relationships:
+    file: tables.md
+    anchor: table_relationships
+    tag: Tables
   Tables_table_pagination_links:
     file: tables.md
     anchor: table_pagination_links
@@ -194,6 +198,10 @@ types:
   Orders_table_attributes:
     file: orders.md
     anchor: table_attributes
+    tag: Orders
+  Orders_table_relationships:
+    file: orders.md
+    anchor: table_relationships
     tag: Orders
   Orders_booking:
     file: orders.md
@@ -275,10 +283,10 @@ types:
     file: bookings.md
     anchor: booking_create
     tag: Bookings
-  WebhookEndpoints_webhook_endpoint_payload:
-    file: webhookendpoints.md
-    anchor: webhook_endpoint_payload
-    tag: WebhookEndpoints
+  Bookings_booking_create_attributes:
+    file: bookings.md
+    anchor: booking_create_attributes
+    tag: Bookings
   WebhookEndpoints_webhook_endpoint_attributes:
     file: webhookendpoints.md
     anchor: webhook_endpoint_attributes
@@ -291,11 +299,23 @@ types:
     file: webhookendpoints.md
     anchor: webhook_endpoint_create
     tag: WebhookEndpoints
-  Tables_area_relationships:
-    file: tables.md
+  Areas_areas_response:
+    file: areas.md
+    anchor: areas_response
+    tag: Areas
+  Areas_area:
+    file: areas.md
+    anchor: area
+    tag: Areas
+  Areas_area_attributes:
+    file: areas.md
+    anchor: area_attributes
+    tag: Areas
+  Areas_area_relationships:
+    file: areas.md
     anchor: area_relationships
-    tag: Tables
-  Orders_area_relationships:
-    file: orders.md
-    anchor: area_relationships
-    tag: Orders
+    tag: Areas
+  Areas_area_pagination_links:
+    file: areas.md
+    anchor: area_pagination_links
+    tag: Areas

@@ -14,8 +14,11 @@
   * Corrected product status list [enum list.](../operations/products.md#product_attributes)
 * [Get tables:](../operations/tables.md#get_tables)
   * Extended tables relationships, now it is related to `area`.
+  * Renamed `number` field to `name`.
 * [Create webhook endpoint:](../operations/webhookendpoints.md)
   * General improvements to [webhook endpoints page.](../operations/webhookendpoints.md) Documentation-only, no changes to API.
+* [Get areas:](../operations/areas.md)
+  * New operation added.
 
 ## 20th February 2025
 * Added [API Events](../events/README.md), [Webhooks](../events/webhooks.md) and [Webhook security](../events/wh-security.md)
