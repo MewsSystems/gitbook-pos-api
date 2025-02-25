@@ -11,7 +11,7 @@
 * [Update booking:](../operations/bookings.md#update_booking)
   * Extended [booking attributes](../operations/bookings.md#booking_attributes) with `depositAmount` and `isWalkIn`.
 * [Get products:](../operations/products.md#get_products)
-  * Corrected product status list [enum list.](../operations/products.md#product_attributes)
+  * Added permitted values for [product_attributes status](../operations/products.md#product_attributes) and [modifier_set_attributes selection](../operations/products.md#product_attributes).
 * [Get tables:](../operations/tables.md#get_tables)
   * Extended tables relationships, now it is related to `area`.
   * Renamed `number` field to `name`.
