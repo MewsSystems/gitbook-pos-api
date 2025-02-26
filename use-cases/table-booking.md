@@ -28,6 +28,9 @@ First call [Get tables](../operations/tables.md#get-tables) to get information o
 GET [PlatformAddress]/api/v2/tables
 ```
 
+> **Areas**: 
+If you want to work with restaurant areas, e.g. "terrace", you can also fetch information about Areas, see [Do you support restaurant areas?](#do-you-support-restaurant-areas)
+
 ### 2. Get bookings
 Call [Get bookings](../operations/bookings.md#get-bookings) and filter by the desired booking period, to get the set of all bookings for that period, and the tables they are linked to.
 Tables with no bookings are free to book. Note that this API Operation supports pagination, to manage requests in case of large amounts of data.
@@ -252,6 +255,7 @@ _Is there a way to express customer preferences such as table preferences or die
 _Do you support a level of organization between restaurant and table?_
 
 * __Answer__: Yes, a table can be linked to an area and an area can be linked to one or more tables. To see all areas, use [Get areas](../operations/areas.md).
+When calling [Get areas](../operations/areas.md), you can use [the include query parameter](../guidelines/relationships.md#the-include-query-parameter) to also fetch information about related tables using the same API Operation. This can replace the call to [Get tables](../operations/tables.md#get-tables) in Step 1 of [Checking availability](#checking-availability).
 
 ## Additional help
 
