@@ -112,7 +112,6 @@ Below is a list of all possible fields this endpoint can return including relati
 | :-- | :-- | :-- | :-- |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
-| `required` | undefined | required |  |
 | `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
@@ -269,7 +268,6 @@ A booking represents a reservation made by a booking for goods or services, such
 | :-- | :-- | :-- | :-- |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
-| `required` | undefined | required |  |
 | `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
