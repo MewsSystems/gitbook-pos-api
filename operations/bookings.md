@@ -57,7 +57,7 @@ This operation updates a booking.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `isWalkIn` | boolean, | required | Indicates if the booking is a walk-in. |
+| `isWalkIn` | boolean,null | optional | Indicates if the booking is a walk-in. |
 | `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
@@ -84,6 +84,7 @@ This operation updates a booking.
       "promotions": "Dinner - 4 courses INC",
       "roomNumber": "11",
       "bookingReference": "R43RdhQ",
+      "isWalkIn": false,
       "createdAt": "2024-10-24T08:44:45.409Z",
       "updatedAt": "2024-10-24T08:44:45.409Z"
     },
@@ -185,6 +186,7 @@ This operation returns a list of bookings.
         "promotions": "Dinner - 4 courses INC",
         "roomNumber": "11",
         "bookingReference": "R43RdhQ",
+        "isWalkIn": false,
         "createdAt": "2024-10-24T08:44:45.409Z",
         "updatedAt": "2024-10-24T08:44:45.409Z"
       },
@@ -316,6 +318,7 @@ A booking represents a reservation made by a booking for goods or services, such
       "promotions": "Dinner - 4 courses INC",
       "roomNumber": "11",
       "bookingReference": "R43RdhQ",
+      "isWalkIn": false,
       "createdAt": "2024-10-24T08:44:45.409Z",
       "updatedAt": "2024-10-24T08:44:45.409Z"
     },
