@@ -172,6 +172,7 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
+| `isWalkIn` | boolean | required | Indicates if the booking is a walk-in. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 | `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
@@ -182,7 +183,6 @@ Below is a list of all possible fields this endpoint can return including relati
 | `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
 | `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
 | `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
-| `isWalkIn` | boolean | required | Indicates if the booking is a walk-in. |
 | `depositAmount` | string,null | optional, max length 255 characters | The amount of the deposit. |
 
 #### booking_relationships

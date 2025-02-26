@@ -319,3 +319,15 @@ types:
     file: areas.md
     anchor: area_pagination_links
     tag: Areas
+  Bookings_booking_update_request:
+    file: bookings.md
+    anchor: booking_update_request
+    tag: Bookings
+  Bookings_booking_update:
+    file: bookings.md
+    anchor: booking_update
+    tag: Bookings
+  Bookings_booking_update_attributes:
+    file: bookings.md
+    anchor: booking_update_attributes
+    tag: Bookings
