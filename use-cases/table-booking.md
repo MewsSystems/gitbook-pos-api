@@ -251,7 +251,7 @@ _Is there a way to express customer preferences such as table preferences or die
 ### Do you support restaurant areas?
 _Do you support a level of organization between restaurant and table?_
 
-* __Answer__: This is not currently supported, but may be added as we develop the API.
+* __Answer__: Yes, a table can be linked to an area and an area can be linked to one or more tables. To see all areas, use [Get areas](../operations/areas.md).
 
 ## Additional help
 

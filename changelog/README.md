@@ -1,6 +1,6 @@
 # Changelog
 
-## 25th February 2025
+## 26th February 2025
 * Added [Table booking](../use-cases/table-booking.md) use case.
 * Added [Booking status](../events/webhooks.md#booking-status) values to [Webhooks](../events/webhooks.md).
 
