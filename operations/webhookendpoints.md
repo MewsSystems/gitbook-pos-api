@@ -1,12 +1,12 @@
 <!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Webhook endpoints
 
-## Create webhook endpoint
+## Create Webhook endpoint
 
-A webhook endpoint represents a URL configured by a merchant to receive notifications for specific events. 
-Merchants can subscribe to various events and provide a target URL where the system will send event data.
+Use this operation to register a Webhook with Mews to receive notification events that you subscribed to.
+For more information, including details about supported events, see [API Events](../events/README.md).
 
-**Note:** This operation needs [Authentication](../essential-guide/authentication.md).
+**Note:** This operation needs [Authentication](../guidelines/authentication.md).
 
 ### Request
 
@@ -54,11 +54,7 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `data` | [webhook_endpoint_attributes](webhookendpoints.md#webhook_endpoint_attributes) | required | The document's "primary data". |
-
-#### webhook_endpoint_attributes
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `targetUrl` | string | required, max length 100 characters | A URL configured by a merchant to receive notifications for specific events. |
+| `targetUrl` | string | required, max length 100 characters | The Webhook URL configured to receive event notifications from Mews. |
 | `secret` | string | required, max length 100 characters | A string generated to ensure the authenticity of the webhook. It is used to verify that the webhook request comes from a trusted source. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |

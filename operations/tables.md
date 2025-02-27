@@ -22,10 +22,18 @@ This operation returns a list of restaurant tables.
       "id": "286ef74f-e37f-477f-bcda-77f8fbfd13ea",
       "type": "tables",
       "attributes": {
-        "number": "Table number 1",
+        "name": "Table number 1",
         "numberOfSeats": 4,
         "createdAt": "2024-11-13T11:29:00Z",
         "updatedAt": "2024-11-15T11:29:00Z"
+      },
+      "relationships": {
+        "area": {
+          "data": {
+            "id": "c53372e2-9aa1-452a-8965-2ea3fa514fb2",
+            "type": "areas"
+          }
+        }
       }
     }
   ],
@@ -49,15 +57,22 @@ Below is a list of all possible fields this endpoint can return including relati
 | `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
 | `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 | `attributes` | [table_attributes](tables.md#table_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `relationships` | [table_relationships](tables.md#table_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
 
 #### table_attributes
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `number` | string | required, max length 255 characters | Number of the table. |
-| `numberOfSeats` | integer | required | Number of seats for the table. |
+| `name` | string | required, max length 255 characters | The name of the table. |
+| `numberOfSeats` | integer | required | Number of people that can be seated at this table. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+
+#### table_relationships
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `area` | object | required | Details of the table area. |
 
 #### table_pagination_links
 

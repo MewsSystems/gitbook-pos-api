@@ -1,6 +1,24 @@
 # Changelog
 
-## 26th February 2025
+## 27st February 2025
+* [Get bookings:](../operations/bookings.md#get_bookings)
+  * Correcting booking JSON example response.
+  * Added list of [booking statuses.](../operations/bookings.md#booking_attributes)
+  * Extended [booking attributes](../operations/bookings.md#booking_attributes) with `depositAmount` and `isWalkIn`.
+  * Extended bookings [filters](../operations/bookings.md#get_bookings) with  `bookingDatetimeGt`, `bookingDatetimeGteq`, `bookingDatetimeLt`, `bookingDatetimeLteq`.
+* [Create booking:](../operations/bookings.md#create_booking)
+  * Extended [booking attributes](../operations/bookings.md#booking_attributes) with `depositAmount` and `isWalkIn`.
+* [Update booking:](../operations/bookings.md#update_booking)
+  * Extended [booking attributes](../operations/bookings.md#booking_attributes) with `depositAmount` and `isWalkIn`.
+* [Get products:](../operations/products.md#get_products)
+  * Added permitted values for [product_attributes status](../operations/products.md#product_attributes) and [modifier_set_attributes selection](../operations/products.md#product_attributes).
+* [Get tables:](../operations/tables.md#get_tables)
+  * Extended tables relationships, now it is related to `area`.
+  * Renamed `number` field to `name`.
+* [Create webhook endpoint:](../operations/webhookendpoints.md)
+  * General improvements to [webhook endpoints page.](../operations/webhookendpoints.md) Documentation-only, no changes to API.
+* [Get areas:](../operations/areas.md)
+  * New operation added.
 * Added [Table booking](../use-cases/table-booking.md) use case.
 * Added [Booking status](../events/webhooks.md#booking-status) values to [Webhooks](../events/webhooks.md).
 

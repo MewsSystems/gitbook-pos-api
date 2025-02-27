@@ -155,6 +155,10 @@ types:
     file: tables.md
     anchor: table_attributes
     tag: Tables
+  Tables_table_relationships:
+    file: tables.md
+    anchor: table_relationships
+    tag: Tables
   Tables_table_pagination_links:
     file: tables.md
     anchor: table_pagination_links
@@ -194,6 +198,10 @@ types:
   Orders_table_attributes:
     file: orders.md
     anchor: table_attributes
+    tag: Orders
+  Orders_table_relationships:
+    file: orders.md
+    anchor: table_relationships
     tag: Orders
   Orders_booking:
     file: orders.md
@@ -275,19 +283,51 @@ types:
     file: bookings.md
     anchor: booking_create
     tag: Bookings
-  WebhookEndpoints_webhook_endpoint_payload:
-    file: webhookendpoints.md
-    anchor: webhook_endpoint_payload
-    tag: WebhookEndpoints
-  WebhookEndpoints_webhook_endpoint_attributes:
+  Bookings_booking_create_attributes:
+    file: bookings.md
+    anchor: booking_create_attributes
+    tag: Bookings
+  Webhook endpoints_webhook_endpoint_attributes:
     file: webhookendpoints.md
     anchor: webhook_endpoint_attributes
-    tag: WebhookEndpoints
-  WebhookEndpoints_webhook_endpoint_create_request:
+    tag: Webhook endpoints
+  Webhook endpoints_webhook_endpoint_create_request:
     file: webhookendpoints.md
     anchor: webhook_endpoint_create_request
-    tag: WebhookEndpoints
-  WebhookEndpoints_webhook_endpoint_create:
+    tag: Webhook endpoints
+  Webhook endpoints_webhook_endpoint_create:
     file: webhookendpoints.md
     anchor: webhook_endpoint_create
-    tag: WebhookEndpoints
+    tag: Webhook endpoints
+  Areas_areas_response:
+    file: areas.md
+    anchor: areas_response
+    tag: Areas
+  Areas_area:
+    file: areas.md
+    anchor: area
+    tag: Areas
+  Areas_area_attributes:
+    file: areas.md
+    anchor: area_attributes
+    tag: Areas
+  Areas_area_relationships:
+    file: areas.md
+    anchor: area_relationships
+    tag: Areas
+  Areas_area_pagination_links:
+    file: areas.md
+    anchor: area_pagination_links
+    tag: Areas
+  Bookings_booking_update_request:
+    file: bookings.md
+    anchor: booking_update_request
+    tag: Bookings
+  Bookings_booking_update:
+    file: bookings.md
+    anchor: booking_update
+    tag: Bookings
+  Bookings_booking_update_attributes:
+    file: bookings.md
+    anchor: booking_update_attributes
+    tag: Bookings
