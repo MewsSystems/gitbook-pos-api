@@ -21,7 +21,7 @@ This use case is aimed at Restaurant Table Booking Systems, and it describes how
 You can check availability at the POS level by correlating active bookings with tables.
 
 ### 1. Get tables
-First call [Get tables](../operations/tables.md#get-tables) to get information on restaurant tables, including table numbers and quantity of seats.
+First call [Get tables](../operations/tables.md#get-tables) to get information on restaurant tables, including table names and quantity of seats.
 
 #### Example request:
 ```
@@ -73,7 +73,7 @@ See the API Operation description for a full list of parameters. You must specif
 * Party size
 * Table (linked through `booking_relationships`)
 
-In addition, it is helpful to also specify the duration, otherwise we will apply a default value, for example 90 minutes.
+In addition, it is helpful to also specify the duration, otherwise we will apply a default value of 90 minutes.
 * Duration
 
 #### Example request:
@@ -217,12 +217,9 @@ PATCH [PlatformAddress]/api/v2/bookings/31b14937-2524-491f-b0a0-dc0a739
 
 > **Scenario:** A customer arrives without a prior booking and requests a table on-site.
 
-Walk-ins can be created either in the Table Booking System or in __Mews POS__.
+Walk-ins can be created either in the Table Booking System or in __Mews POS__. A walk-in booking is identified by the `isWalkIn` flag in [booking_attributes](../operations/bookings.md#booking_attributes). Use this field if creating a walk-in booking.
 
-* If the restaurant has a host managing table allocations, the walk-in booking is created in the Table Booking System.
-* If there is no host, the waiter seats the walk-in guest and opens an order directly from the table plan in __Mews POS__. This automatically creates a walk-in booking linked to the order.
-
-A walk-in booking is identified by the `isWalkIn` flag in [booking_attributes](../operations/bookings.md#booking_attributes). Use this field if creating a walk-in booking. Walk-ins created through __Mews POS__ have the value "pos" for `bookingReference`, otherwise this field contains the booking reference from the Table Booking System. Note that walk-in bookings always have the initial booking status `seated`.
+Walk-ins created through __Mews POS__ have the value "pos" for `bookingReference`, otherwise this field contains the booking reference from the Table Booking System. Note that walk-ins created through __Mews POS__ always have the initial booking status `seated`.
 
 ## Getting status changes
 
@@ -238,13 +235,13 @@ Normally, a `Booking` will be linked to a single `Order` and a single `Invoice`,
 ## Frequently Asked Questions
 
 * [How do I know if there is a no-show?](#how-do-i-know-if-there-is-a-no-show)
-* [Do you handle customer preferences?](#do-you-handle-customer-preferences)
+* [Is there a way to specify customer preferences?](#is-there-a-way-to-specify-customer-preferences)
 * [Do you support restaurant areas?](#do-you-support-restaurant-areas)
 
 ### How do I know if there is a no-show?
 _How can I be notified of a no-show, where the customer does not turn up for their booking?_
 
-* __Answer__: Look at the booking status within the `Booking` record. To be notified of changes to booking status, use [API Events]().
+* __Answer__: Look at the booking status within the `Booking` record. To be notified of changes to booking status, use [API Events](../events/README.md).
 
 ### Is there a way to specify customer preferences?
 _Is there a way to express customer preferences such as table preferences or dietary requirements?_
@@ -264,4 +261,3 @@ You may find these additional resources helpful when working with __Mews POS__ i
 > **Help Guides**:
 > * [Managing table orders in Mews POS](https://help.mews.com/s/article/managing-table-orders)
 > * [How to move an open order to a new table in Mews POS if guests switch tables](https://help.mews.com/s/article/How-to-move-an-open-order-to-a-new-table-in-Mews-POS-if-guests-switch-tables)
-> * [Table statuses in Mews POS](https://help.mews.com/s/article/table-statuses)
