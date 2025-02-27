@@ -43,7 +43,30 @@ This operation updates a booking.
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `data` | [booking](bookings.md#booking) | required | The document's "primary data". |
+| `data` | [booking_update](bookings.md#booking_update) | required | The document's "primary data". |
+
+#### booking_update
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [booking_update_attributes](bookings.md#booking_update_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `relationships` | object | required | An [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) representing associations with other resources. |
+
+#### booking_update_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `isWalkIn` | boolean,null | optional | Indicates if the booking is a walk-in. |
+| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
+| `partySize` | integer | required | Represents the number of people included in the booking. |
+| `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
+| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
+| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
+| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
+| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
+| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `depositAmount` | string,null | optional, max length 255 characters | The amount of the deposit. |
 
 ### Response
 
@@ -61,15 +84,18 @@ This operation updates a booking.
       "promotions": "Dinner - 4 courses INC",
       "roomNumber": "11",
       "bookingReference": "R43RdhQ",
+      "isWalkIn": false,
       "createdAt": "2024-10-24T08:44:45.409Z",
       "updatedAt": "2024-10-24T08:44:45.409Z"
     },
     "relationships": {
       "orders": {
-        "data": {
-          "id": "5efa8b3c-b930-4b31-918d-95ab0e212e65",
-          "type": "orders"
-        }
+        "data": [
+          {
+            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e65",
+            "type": "orders"
+          }
+        ]
       },
       "customer": {
         "data": {
@@ -108,7 +134,10 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `status` | string,null | optional | The initial status of the booking. |
+| `isWalkIn` | boolean | required | Indicates if the booking is a walk-in. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
 | `duration` | integer,null | optional | Represents the length of the booking in minutes. |
@@ -116,6 +145,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
 | `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
 | `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `depositAmount` | string,null | optional, max length 255 characters | The amount of the deposit. |
 
 #### booking_relationships
 
@@ -132,7 +162,7 @@ This operation returns a list of bookings.
 **Note**: This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
 - [Relationships](../guidelines/relationships.md) - `customer`, `orders`, `tables` using `include` query parameter.
-- [Filters](../guidelines/filtering.md) - `createdAtGt`, `createdAtGteq`, `createdAtLt`, `createdAtLteq`, `updatedAtGt`, `updatedAtGteq`, `updatedAtLt`, `updatedAtLteq`
+- [Filters](../guidelines/filtering.md) - `createdAtGt`, `createdAtGteq`, `createdAtLt`, `createdAtLteq`, `updatedAtGt`, `updatedAtGteq`, `updatedAtLt`, `updatedAtLteq`, `bookingDatetimeGt`, `bookingDatetimeGteq`, `bookingDatetimeLt`, `bookingDatetimeLteq`
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `booking` query parameter.
 
 ### Request
@@ -156,6 +186,7 @@ This operation returns a list of bookings.
         "promotions": "Dinner - 4 courses INC",
         "roomNumber": "11",
         "bookingReference": "R43RdhQ",
+        "isWalkIn": false,
         "createdAt": "2024-10-24T08:44:45.409Z",
         "updatedAt": "2024-10-24T08:44:45.409Z"
       },
@@ -253,8 +284,23 @@ A booking represents a reservation made by a booking for goods or services, such
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
-| `attributes` | [booking_attributes](bookings.md#booking_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `attributes` | [booking_create_attributes](bookings.md#booking_create_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
 | `relationships` | object | required | An [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) representing associations with other resources. |
+
+#### booking_create_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `isWalkIn` | boolean,null | optional | Indicates if the booking is a walk-in. Defaults to `false`. |
+| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
+| `partySize` | integer | required | Represents the number of people included in the booking. |
+| `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
+| `duration` | integer,null | optional | Represents the length of the booking in minutes. |
+| `notes` | string,null | optional, max length 10000 characters | Additional notes for the booking. |
+| `roomNumber` | string,null | optional, max length 100 characters | The room number of the booking's customer. |
+| `promotions` | string,null | optional, max length 100 characters | The promotions of the booking. |
+| `bookingReference` | string,null | optional, max length 255 characters | A reference code or identifier associated with the booking. |
+| `depositAmount` | string,null | optional, max length 255 characters | The amount of the deposit. |
 
 ### Response
 
@@ -272,6 +318,7 @@ A booking represents a reservation made by a booking for goods or services, such
       "promotions": "Dinner - 4 courses INC",
       "roomNumber": "11",
       "bookingReference": "R43RdhQ",
+      "isWalkIn": false,
       "createdAt": "2024-10-24T08:44:45.409Z",
       "updatedAt": "2024-10-24T08:44:45.409Z"
     },

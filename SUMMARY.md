@@ -14,6 +14,7 @@
 * [Use cases](use-cases/README.md)
   * [Inventory management](use-cases/inventory.md)
 * [API Operations](operations/README.md)
+  * [Areas](operations/areas.md)
   * [Bookings](operations/bookings.md)
   * [Customers](operations/customers.md)
   * [Invoices](operations/invoices.md)
