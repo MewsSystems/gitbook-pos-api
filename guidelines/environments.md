@@ -27,8 +27,6 @@ To get latest __Android build__ download the __Mews__ app from the following lin
 
 * __POS__ - `https://mews-pos-builds.s3.eu-west-1.amazonaws.com/release/demo/mews-pos-demo.apk`
 
-* __KDS__ - `https://mews-pos-builds.s3.eu-west-1.amazonaws.com/release/demo/mews-kds-demo.apk`
-
 ### Connected Mews PMS account ###
 __Connected PMS account__:  `Styrn Hotel`
 * __ClientToken__ - `8F9296CEE7FF4FC3AD55AEB400EA916E-05652C5153CF2AEFC9A405BFF6E8912`

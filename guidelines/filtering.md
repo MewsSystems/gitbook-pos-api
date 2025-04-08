@@ -26,11 +26,11 @@ Please note that support for filters is endpoint-specific. Visit the documentati
 
 In the example request, we will query the `/invoices` endpoint with filter:
 
-`GET` `[PlatformAddress]/api/v2/invoices?filter[createdAtGt]=2024-07-25T16%3A29%3A35%2B00%3A00`
+`GET` `[PlatformAddress]/v1/invoices?filter[createdAtGt]=2024-07-25T16%3A29%3A35%2B00%3A00`
 
 It is also possible to combine two filters:
 
-`GET` `[PlatformAddress]/api/v2/invoices?filter[createdAtGt]=2024-07-25T16%3A29%3A35%2B00%3A00&filter[registerIdEq]=f35693cb-cc0c-4c6f-bf16-eb0547444642`
+`GET` `[PlatformAddress]/v1/invoices?filter[createdAtGt]=2024-07-25T16%3A29%3A35%2B00%3A00&filter[registerIdEq]=f35693cb-cc0c-4c6f-bf16-eb0547444642`
 
 #### Response
 
@@ -80,8 +80,8 @@ It is also possible to combine two filters:
         }
     ],
     "links": {
-        "prev": "[PlatformAddress]/api/v2/invoices?page[before]=OTMzMw&page[size]=1",
-        "next": "[PlatformAddress]/api/v2/invoices?page[after]=OTMzMw&page[size]=1"
+        "prev": "[PlatformAddress]/v1/invoices?page[before]=OTMzMw&page[size]=1",
+        "next": "[PlatformAddress]/v1/invoices?page[after]=OTMzMw&page[size]=1"
     }
 }
 ```
