@@ -1,7 +1,13 @@
 # Environments
 
-## Mews POS Demo environments ##
-These login credentials can be used to access __Mews POS Demo environments__.
+## Mews POS Production environment ##
+
+### Platform addresses ###
+
+* __PlatformAddress__ - `https://api.mews.com/pos`
+
+## Mews POS Demo environment ##
+These login credentials can be used to access __Mews POS Demo environment__.
 
 ### Platform addresses ###
 These addresses should be used for testing and development of client applications:
@@ -21,6 +27,8 @@ These addresses should be used for testing and development of client application
 
 * __Open API Demo token__ - `sk_test_bae7115405656f156ca6ca`
 
+### Request limits ###
+* 200 requests per `token` within 15 minutes
 
 ### Mews POS Android app ###
 To get latest __Android build__ download the __Mews__ app from the following links:
