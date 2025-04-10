@@ -1,4 +1,10 @@
 # Changelog
+## 11st April 2025
+* Change PlatformAddress from https://pos.mews.com/api to https://api.mews.com/pos
+* Change API versioning from v2 to v1
+* [Environments:](../guidelines/environments.md)
+  * Add demo accounts credentials for backend, Open API, connected PMS and Android app
+  * Add production PlatformAddress
 
 ## 27st February 2025
 * [Get bookings:](../operations/bookings.md#get_bookings)

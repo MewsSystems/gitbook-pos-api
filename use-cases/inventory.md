@@ -12,7 +12,7 @@ This use case is aimed at external Inventory Management Systems, and it describe
 
 ## Product synchronization
 
-In order to synchronize products with Mews POS, use the [Get products](../operations/products.md#get-products) endpoint. You can call this API operation periodically to refresh the product catalogue and make sure it is in sync with your system. The product attributes in the response include, but are not limited to, name, description, [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit), barcode, and price information.
+In order to synchronize products with Mews POS, use the [Get products](../operations/products.md#get-products) endpoint `GET /v1/products`. You can call this API operation periodically to refresh the product catalogue and make sure it is in sync with your system. The product attributes in the response include, but are not limited to, name, description, [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit), barcode, and price information.
 
 #### Example request:
 
