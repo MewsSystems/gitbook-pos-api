@@ -3,7 +3,7 @@
 * Change PlatformAddress from https://pos.mews.com/api to https://api.mews.com/pos
 * Change API versioning from v2 to v1
 * [Environments:](../guidelines/environments.md)
-  * Add demo accounts credentials for backend, Open API, connected PMS and Android app
+  * Add demo account credentials for POS backend, POS Open API, connected PMS account and POS Android app
   * Add production PlatformAddress
 
 ## 27st February 2025
