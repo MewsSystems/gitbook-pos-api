@@ -1,10 +1,11 @@
 # Changelog
-## 11st April 2025
-* Change PlatformAddress from https://pos.mews.com/api to https://api.mews.com/pos
-* Change API versioning from v2 to v1
-* [Environments:](../guidelines/environments.md)
-  * Add demo account credentials for POS backend, POS Open API, connected PMS account and POS Android app
-  * Add production PlatformAddress
+## 15th April 2025
+* **IMPORTANT!** Changed platform address and API version number from https://pos.mews.com/api/v2 to https://api.mews.com/pos/v1.
+* Updated [Environments:](../guidelines/environments.md) page, including:
+  * Production environment platform address.
+  * Demo environment platform address, API tokens and Mews POS application credentials.
+  * Demo environment API tokens for linked Mews Operations (PMS) account.
+  * Environment request limits.
 
 ## 27st February 2025
 * [Get bookings:](../operations/bookings.md#get_bookings)
