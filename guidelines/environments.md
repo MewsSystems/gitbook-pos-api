@@ -1,42 +1,69 @@
 # Environments
 
-## Mews POS Production environment ##
+Mews POS API supports two distinct environments:
 
-### Platform addresses ###
+- [Demo environment](#demo-environment) – For development, integration testing, and sandbox experimentation.
+- [Production environment](#production-environment) – The live platform used by active businesses.
 
-* __PlatformAddress__ - `https://api.mews.com/pos`
+## Demo environment
 
-## Mews POS Demo environment ##
-These login credentials can be used to access __Mews POS Demo environment__.
+The Demo environment is intended for development and testing purposes. It simulates the behavior of the live Mews POS API, while also allowing access to the Mews POS web and Android applications, and a linked demo property in Mews Operations (PMS).
 
-### Platform addresses ###
-These addresses should be used for testing and development of client applications:
+### Platform base address
 
-* __PlatformAddress__ - `https://api.mews-demo.com/pos`
+Use this base address when making API requests in the Demo environment:
 
-### Mews POS credentials ### 
-* __POS Demo Web Application Address__ - `https://pos.mews-demo.com/`
+* **PlatformAddress** - `https://api.mews-demo.com/pos`
 
-* __Email__ - `pos-api-demo@mews.com`
+### API authentication
 
-* __Password__ - `pos-API-2024`
+Use the following token and identifier when authenticating requests to the Demo environment:
 
+* **Mews POS API Demo account** - `POS Open API`
+* **Mews POS API Demo token** - `sk_test_bae7115405656f156ca6ca`
 
-### Mews POS API token ###
-* __Open API Demo account__ - `POS Open API`
+> **Demo-only**: This token is only valid in the Demo environment and must **not** be used in Production.
 
-* __Open API Demo token__ - `sk_test_bae7115405656f156ca6ca`
+### Request throttling
 
-### Request limits ###
-* 200 requests per `token` within 15 minutes
+To maintain system performance, the following rate limits apply:
 
-### Mews POS Android app ###
-To get latest __Android build__ download the __Mews__ app from the following links:
+- 200 requests per token per 15-minute window
 
-* __POS__ - `https://mews-pos-builds.s3.eu-west-1.amazonaws.com/release/demo/mews-pos-demo.apk`
+### Mews POS application
 
-### Connected Mews PMS account ###
-__Connected PMS account__:  `Styrn Hotel`
-* __ClientToken__ - `8F9296CEE7FF4FC3AD55AEB400EA916E-05652C5153CF2AEFC9A405BFF6E8912`
+You can log into the Mews POS application using the following credentials:
 
-* __AccessToken__ - `87835B7178CC47A8A648B23300F17B30-8A5AEDDDC7E0B190879D788CA1A96A6`
+* **Mews POS Demo web address** - `https://pos.mews-demo.com/`
+* **Email** - `pos-api-demo@mews.com`
+* **Password** - `pos-API-2024`
+
+### Mews POS Android app
+
+Download the latest Android build of the Mews POS app from the following link. The Android app is useful for end-to-end testing of POS device workflows and integration scenarios.
+
+* **Android** - [`Download APK`](https://mews-pos-builds.s3.eu-west-1.amazonaws.com/release/demo/mews-pos-demo.apk)
+
+### Mews Operations (PMS)
+
+The Mews POS Demo environment is linked to a demo property `Styrn Hotel` in the Mews Operations (PMS) Demo environment, for testing connected property-level workflows. You can access the demo property via the [Mews Connector API](https://mews-systems.gitbook.io/connector-api) using these credentials:
+
+* **ClientToken** - `8F9296CEE7FF4FC3AD55AEB400EA916E-05652C5153CF2AEFC9A405BFF6E8912`
+* **AccessToken** - `87835B7178CC47A8A648B23300F17B30-8A5AEDDDC7E0B190879D788CA1A96A6`
+* **Property Name** - `Styrn Hotel`
+
+## Production environment
+
+Use this environment for live transactions and integrations with real customer data. Only use verified credentials and production-issued tokens here.
+
+### Platform base address
+
+Use this base address when making API requests in the Production environment:
+
+* **PlatformAddress** - `https://api.mews.com/pos`
+
+## Notes
+
+- Do **not** mix Demo and Production credentials or endpoints.
+- Tokens and credentials in the Demo environment may be reset periodically.
+- For security and privacy, never share Production tokens publicly.
