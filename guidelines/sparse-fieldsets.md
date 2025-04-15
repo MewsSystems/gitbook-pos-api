@@ -9,7 +9,7 @@ Please note that support for fieldsets is endpoint-specific. Visit the documenta
 
 In the example request, we will query the `/invoices` endpoint with only a subset of fields:
 
-`GET` `[PlatformAddress]/api/v2/invoices?fields[invoices]=total,subtotal,tax,createdAt,updatedAt`
+`GET` `[PlatformAddress]/v1/invoices?fields[invoices]=total,subtotal,tax,createdAt,updatedAt`
 
 #### Response
 
@@ -31,8 +31,8 @@ In the example request, we will query the `/invoices` endpoint with only a subse
         }
     ],
     "links": {
-        "prev": "[PlatformAddress]/api/v2/invoices?page[before]=OTMzMw&page[size]=1",
-        "next": "[PlatformAddress]/api/v2/invoices?page[after]=OTMzMw&page[size]=1"
+        "prev": "[PlatformAddress]/v1/invoices?page[before]=OTMzMw&page[size]=1",
+        "next": "[PlatformAddress]/v1/invoices?page[after]=OTMzMw&page[size]=1"
     }
 }
 ```

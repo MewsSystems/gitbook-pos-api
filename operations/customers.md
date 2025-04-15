@@ -11,7 +11,7 @@ This operation returns a list of customers
 
 ### Request
 
-`GET` `[PlatformAddress]/api/v2/customers`
+`GET` `[PlatformAddress]/v1/customers`
 
 ### Response
 
@@ -43,8 +43,8 @@ This operation returns a list of customers
     }
   ],
   "links": {
-    "prev": "https://pos.mews-demo.com/api/v2/customers?page%5Bbefore%5D=NA&page%5Bsize%5D=1",
-    "next": "https://pos.mews-demo.com/api/v2/customers?page%5Bafter%5D=NA&page%5Bsize%5D=1"
+    "prev": "https://api.mews-demo.com/pos/v1/customers?page%5Bbefore%5D=NA&page%5Bsize%5D=1",
+    "next": "https://api.mews-demo.com/pos/v1/customers?page%5Bafter%5D=NA&page%5Bsize%5D=1"
   }
 }
 ```
@@ -99,7 +99,7 @@ Note: This operation needs [Authentication](../essential-guide/authentication.md
 
 ### Request
 
-`POST` `[PlatformAddress]/api/v2/customers`
+`POST` `[PlatformAddress]/v1/customers`
 
 ```javascript
 {

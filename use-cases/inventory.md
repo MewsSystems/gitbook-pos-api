@@ -12,12 +12,12 @@ This use case is aimed at external Inventory Management Systems, and it describe
 
 ## Product synchronization
 
-In order to synchronize products with Mews POS, use the [Get products](../operations/products.md#get-products) endpoint `GET /api/v2/products`. You can call this API operation periodically to refresh the product catalogue and make sure it is in sync with your system. The product attributes in the response include, but are not limited to, name, description, [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit), barcode, and price information.
+In order to synchronize products with Mews POS, use the [Get products](../operations/products.md#get-products) endpoint `GET /v1/products`. You can call this API operation periodically to refresh the product catalogue and make sure it is in sync with your system. The product attributes in the response include, but are not limited to, name, description, [SKU](https://en.wikipedia.org/wiki/Stock_keeping_unit), barcode, and price information.
 
 #### Example request:
 
 ```
-GET [PlatformAddress]/api/v2/products
+GET [PlatformAddress]/v1/products
 ```
 
 Further detail can be obtained via linked entities such as `productType` (e.g. food or beverage), `modifierSets` (product qualifiers, such as pizza toppings) and `productVariants`. These can be included in the response by using the same request but specifying the relevant include query parameters – see [Essential guide > Relationships](../essential-guide/relationships.md).
@@ -25,7 +25,7 @@ Further detail can be obtained via linked entities such as `productType` (e.g. f
 #### Example request:
 
 ```
-GET [PlatformAddress]/api/v2/products?include=productType,modifierSets,productVariants
+GET [PlatformAddress]/v1/products?include=productType,modifierSets,productVariants
 ```
 
 ### Pagination
@@ -34,12 +34,12 @@ The response is paginated using cursor pagination. Use the `next` link to reques
 
 ## Fetching sales data
 
-Use the [Get invoices](../operations/invoices.md#get-invoices) endpoint `GET /api/v2/invoices` to fetch invoices, containing order item data. Invoice attributes in the response include a description field and information about amounts, including `tax`, `total`, `subtotal`, `discount` and `tipAmount`. See [Get invoices](../operations/invoices.md#get-invoices) for the full set of supported attributes.
+Use the [Get invoices](../operations/invoices.md#get-invoices) endpoint `GET /v1/invoices` to fetch invoices, containing order item data. Invoice attributes in the response include a description field and information about amounts, including `tax`, `total`, `subtotal`, `discount` and `tipAmount`. See [Get invoices](../operations/invoices.md#get-invoices) for the full set of supported attributes.
 
 #### Example request:
 
 ```
-GET [PlatformAddress]/api/v2/invoices
+GET [PlatformAddress]/v1/invoices
 ```
 
 Filter the invoices by date using the `filter` query parameter – see [Essential guide > Filtering](../essential-guide/filtering.md).
@@ -47,7 +47,7 @@ Filter the invoices by date using the `filter` query parameter – see [Essentia
 #### Example request:
 
 ```
-GET [PlatformAddress]/api/v2/invoices?filter%createdAtGt%5D=2024-07-25T16%3A29%3A35%2B00%3A00
+GET [PlatformAddress]/v1/invoices?filter%createdAtGt%5D=2024-07-25T16%3A29%3A35%2B00%3A00
 ```
 
 Linked to the invoice entity are:
@@ -62,7 +62,7 @@ These can be selectively included in the response by using the same request but 
 #### Example request:
 
 ```
-GET [PlatformAddress]/api/v2/invoices?include=invoiceItems,user,register
+GET [PlatformAddress]/v1/invoices?include=invoiceItems,user,register
 ```
 
 #### Example response:
@@ -166,13 +166,13 @@ GET [PlatformAddress]/api/v2/invoices?include=invoiceItems,user,register
                 }
             },
             "links": {
-                "self": "[PlatformAddress]/api/v2/registers/f35693cb-cc0c-4c6f-bf16-eb0547444642"
+                "self": "[PlatformAddress]/v1/registers/f35693cb-cc0c-4c6f-bf16-eb0547444642"
             }
         }
     ],
     "links": {
-        "prev": "[PlatformAddress]/api/v2/invoices?page[before]=OTMzMw&page[size]=1",
-        "next": "[PlatformAddress]/api/v2/invoices?page[after]=OTMzMw&page[size]=1"
+        "prev": "[PlatformAddress]/v1/invoices?page[before]=OTMzMw&page[size]=1",
+        "next": "[PlatformAddress]/v1/invoices?page[after]=OTMzMw&page[size]=1"
     }
 }
 ```
@@ -194,22 +194,22 @@ To obtain the outlet for an invoice, follow these steps:
 
 ### 1. Fetch the invoice, including related register information
 
-To fetch the invoice and register, use `GET /api/v2/invoices?include=register`. The register information returned will include the register resource in the `self` field.
+To fetch the invoice and register, use `GET /v1/invoices?include=register`. The register information returned will include the register resource in the `self` field.
 
 #### Example request:
 
 ```
-GET [PlatformAddress]/api/v2/invoices?include=register
+GET [PlatformAddress]/v1/invoices?include=register
 ```
 
 ### 2. Fetch the register, including related outlet information
 
-Use the register identifier to obtain the register and outlet, e.g. `GET /api/v2/registers/eef23c03-49b9-432b-b1a3-955ea1501557?include=outlet`.
+Use the register identifier to obtain the register and outlet, e.g. `GET /v1/registers/eef23c03-49b9-432b-b1a3-955ea1501557?include=outlet`.
 
 #### Example request:
 
 ```
-GET [PlatformAddress]/api/v2/registers/eef23c03-49b9-432b-b1a3-955ea1501557?include=outlet
+GET [PlatformAddress]/v1/registers/eef23c03-49b9-432b-b1a3-955ea1501557?include=outlet
 ```
 
 ## Frequently Asked Questions

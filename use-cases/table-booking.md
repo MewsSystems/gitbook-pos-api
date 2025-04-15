@@ -25,7 +25,7 @@ First call [Get tables](../operations/tables.md#get-tables) to get information o
 
 #### Example request:
 ```
-GET [PlatformAddress]/api/v2/tables
+GET [PlatformAddress]/v1/tables
 ```
 
 > **Areas**: 
@@ -53,7 +53,7 @@ Check the booking status to see if the booking is active or not. The supported s
 
 #### Example request:
 ```
-GET [PlatformAddress]/api/v2/bookings?filter[bookingDatetimeGt]=2024-07-25T16%3A29%3A35%2B00%3A00&filter[bookingDatetimeLt]=2024-07-26T16%3A29%3A35%2B00%3A00
+GET [PlatformAddress]/v1/bookings?filter[bookingDatetimeGt]=2024-07-25T16%3A29%3A35%2B00%3A00&filter[bookingDatetimeLt]=2024-07-26T16%3A29%3A35%2B00%3A00
 ```
 
 The response will tell you:
@@ -79,7 +79,7 @@ In addition, it is helpful to also specify the duration, otherwise we will apply
 #### Example request:
 
 ```
-POST [PlatformAddress]/api/v2/bookings
+POST [PlatformAddress]/v1/bookings
 ```
 ```json
 {
@@ -112,7 +112,7 @@ If you wish to attach a named customer to a booking, you can do this by adding a
 #### Example request:
 
 ```
-POST [PlatformAddress]/api/v2/bookings
+POST [PlatformAddress]/v1/bookings
 ```
 ```json
 {
@@ -149,7 +149,7 @@ Note that an exact match is required, so care is needed to ensure the search str
 
 #### Example request:
 ```
-GET [PlatformAddress]/api/v2/customers?filter[emailEq]=john.doe@mews.com
+GET [PlatformAddress]/v1/customers?filter[emailEq]=john.doe@mews.com
 ```
 
 If no customer profile exists for the customer, you can create one with [Create customer](../operations/customers.md#create-customer).
@@ -163,7 +163,7 @@ To amend an existing booking, use [Update booking](../operations/bookings.md#upd
 #### Example request:
 
 ```
-PATCH [PlatformAddress]/api/v2/bookings/31b14937-2524-491f-b0a0-dc0a739
+PATCH [PlatformAddress]/v1/bookings/31b14937-2524-491f-b0a0-dc0a739
 ```
 
 ### Canceling a table booking
@@ -181,7 +181,7 @@ The table assignment is made through the [relationship](../guidelines/relationsh
 #### Example request:
 
 ```
-PATCH [PlatformAddress]/api/v2/bookings/31b14937-2524-491f-b0a0-dc0a739
+PATCH [PlatformAddress]/v1/bookings/31b14937-2524-491f-b0a0-dc0a739
 ```
 ```json
 {

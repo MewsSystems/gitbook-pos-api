@@ -10,7 +10,7 @@ For more information, including details about supported events, see [API Events]
 
 ### Request
 
-`POST` `[PlatformAddress]/api/v2/webhook-endpoints`
+`POST` `[PlatformAddress]/v1/webhook-endpoints`
 
 ```javascript
 {

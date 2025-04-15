@@ -11,7 +11,7 @@ This operation returns a list of areas.
 
 ### Request
 
-`GET` `[PlatformAddress]/api/v2/areas`
+`GET` `[PlatformAddress]/v1/areas`
 
 ### Response
 
@@ -40,8 +40,8 @@ This operation returns a list of areas.
     }
   ],
   "links": {
-    "prev": "https://pos.mews-demo.com/api/v2/areas?page%5Bbefore%5D=NA&page%5Bsize%5D=1",
-    "next": "https://pos.mews-demo.com/api/v2/areas?page%5Bafter%5D=NA&page%5Bsize%5D=1"
+    "prev": "https://api.mews-demo.com/pos/v1/areas?page%5Bbefore%5D=NA&page%5Bsize%5D=1",
+    "next": "https://api.mews-demo.com/pos/v1/areas?page%5Bafter%5D=NA&page%5Bsize%5D=1"
   }
 }
 ```

@@ -12,7 +12,7 @@ A register represents a terminal or cash register within an outlet, used to issu
 
 ### Request
 
-`GET` `[PlatformAddress]/api/v2/registers/{id}`
+`GET` `[PlatformAddress]/v1/registers/{id}`
 
 ### Response
 
@@ -38,7 +38,7 @@ A register represents a terminal or cash register within an outlet, used to issu
       }
     },
     "links": {
-      "self": "https://pos.mews-demo/com/api/v2/registers/31b14937-2524-491f-b0a0-dc0a7393ff3f"
+      "self": "https://api.mews-demo.com/pos/v1/registers/31b14937-2524-491f-b0a0-dc0a7393ff3f"
     }
   }
 }

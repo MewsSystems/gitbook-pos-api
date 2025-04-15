@@ -12,7 +12,7 @@ This operation returns a list of products.
 
 ### Request
 
-`GET` `[PlatformAddress]/api/v2/products`
+`GET` `[PlatformAddress]/v1/products`
 
 ### Response
 
@@ -71,8 +71,8 @@ This operation returns a list of products.
     }
   ],
   "links": {
-    "prev": "https://pos.mews-demo.com/api/v2/products?page%5Bbefore%5D=NA&page%5Bsize%5D=1",
-    "next": "https://pos.mews-demo.com/api/v2/products?page%5Bafter%5D=NA&page%5Bsize%5D=1"
+    "prev": "https://api.mews-demo.com/pos/v1/products?page%5Bbefore%5D=NA&page%5Bsize%5D=1",
+    "next": "https://api.mews-demo.com/pos/v1/products?page%5Bafter%5D=NA&page%5Bsize%5D=1"
   }
 }
 ```

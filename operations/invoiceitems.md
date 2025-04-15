@@ -12,7 +12,7 @@ An invoice item is an individual order item that is part of an invoice.
 
 ### Request
 
-`GET` `[PlatformAddress]/api/v2/invoice-items/{id}`
+`GET` `[PlatformAddress]/v1/invoice-items/{id}`
 
 ### Response
 

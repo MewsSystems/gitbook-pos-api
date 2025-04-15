@@ -21,7 +21,7 @@ The API client can request the inclusion of related resources in the response, u
 
 In the example request, we will query the `/invoices` endpoint with include parameters:
 
-`GET` `[PlatformAddress]/api/v2/invoices?include=invoiceItems,user,register`
+`GET` `[PlatformAddress]/v1/invoices?include=invoiceItems,user,register`
 
 #### Response
 
@@ -125,13 +125,13 @@ In the example request, we will query the `/invoices` endpoint with include para
                 }
             },
             "links": {
-                "self": "[PlatformAddress]/api/v2/registers/f35693cb-cc0c-4c6f-bf16-eb0547444642"
+                "self": "[PlatformAddress]/v1/registers/f35693cb-cc0c-4c6f-bf16-eb0547444642"
             }
         }
     ],
     "links": {
-        "prev": "[PlatformAddress]/api/v2/invoices?page[before]=OTMzMw&page[size]=1",
-        "next": "[PlatformAddress]/api/v2/invoices?page[after]=OTMzMw&page[size]=1"
+        "prev": "[PlatformAddress]/v1/invoices?page[before]=OTMzMw&page[size]=1",
+        "next": "[PlatformAddress]/v1/invoices?page[after]=OTMzMw&page[size]=1"
     }
 }
 ```
