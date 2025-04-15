@@ -1,6 +1,6 @@
 # Changelog
 
-## 27st February 2025
+## 27th February 2025
 * [Get bookings:](../operations/bookings.md#get_bookings)
   * Correcting booking JSON example response.
   * Added list of [booking statuses.](../operations/bookings.md#booking_attributes)
