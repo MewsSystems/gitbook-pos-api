@@ -1,5 +1,5 @@
 # Changelog
-## 15th April 2025
+## 26th June 2025
 * **IMPORTANT!** Changed platform address and API version number from https://pos.mews.com/api/v2 to https://api.mews.com/pos/v1.
 * Updated [Environments](../guidelines/environments.md) page, including:
   * Production environment platform address
