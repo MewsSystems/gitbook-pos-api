@@ -9,7 +9,7 @@ This operation updates a booking.
 
 ### Request
 
-`PATCH` `[PlatformAddress]/api/v2/bookings/{id}`
+`PATCH` `[PlatformAddress]/v1/bookings/{id}`
 
 ```javascript
 {
@@ -167,7 +167,7 @@ This operation returns a list of bookings.
 
 ### Request
 
-`GET` `[PlatformAddress]/api/v2/bookings`
+`GET` `[PlatformAddress]/v1/bookings`
 
 ### Response
 
@@ -217,8 +217,8 @@ This operation returns a list of bookings.
     }
   ],
   "links": {
-    "prev": "https://pos.mews-demo.com/api/v2/bookings?page%5Bbefore%5D=NA&page%5Bsize%5D=1",
-    "next": "https://pos.mews-demo.com/api/v2/bookings?page%5Bafter%5D=NA&page%5Bsize%5D=1"
+    "prev": "https://api.mews-demo.com/pos/v1/bookings?page%5Bbefore%5D=NA&page%5Bsize%5D=1",
+    "next": "https://api.mews-demo.com/pos/v1/bookings?page%5Bafter%5D=NA&page%5Bsize%5D=1"
   }
 }
 ```
@@ -244,7 +244,7 @@ A booking represents a reservation made by a booking for goods or services, such
 
 ### Request
 
-`POST` `[PlatformAddress]/api/v2/bookings`
+`POST` `[PlatformAddress]/v1/bookings`
 
 ```javascript
 {

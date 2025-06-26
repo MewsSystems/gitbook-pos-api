@@ -12,7 +12,7 @@ An order represents a single set of items that was ordered by a customer. Each o
 
 ### Request
 
-`GET` `[PlatformAddress]/api/v2/orders/{id}`
+`GET` `[PlatformAddress]/v1/orders/{id}`
 
 ### Response
 
@@ -58,7 +58,7 @@ An order represents a single set of items that was ordered by a customer. Each o
       }
     },
     "links": {
-      "self": "https://pos.mews-demo/com/api/v2/orders/2496b6bd-a326-4a5a-95c8-359c943dcee8"
+      "self": "https://api.mews-demo.com/pos/v1/orders/2496b6bd-a326-4a5a-95c8-359c943dcee8"
     }
   }
 }
