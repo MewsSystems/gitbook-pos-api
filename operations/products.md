@@ -32,9 +32,7 @@ This operation returns a list of products.
         "updatedAt": "2022-10-19T11:29:00Z",
         "tax": "2.00",
         "retailPriceInclTax": "10.00",
-        "retailPriceExclTax": "8.00",
-        "regularRetailPrice": "10.00",
-        "unitPrice": "10.00"
+        "retailPriceExclTax": "8.00"
       },
       "relationships": {
         "productType": {
@@ -103,10 +101,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `barcode` | string | required, max length 255 characters | Barcode of the product. |
 | `status` | string | required | Status of the product. Possible values are "active" and "inactive". |
 | `tax` | string | required, max length 255 characters | Tax of the product. |
-| `retailPriceExclTax` | string | required, max length 255 characters | Retail price excluding tax. |
-| `retailPriceInclTax` | string | required, max length 255 characters | Retail price including tax. |
-| `regularRetailPrice` | string | required, max length 255 characters | Regular retail price. |
-| `unitPrice` | string | required, max length 255 characters | Unit price of the product. |
+| `retailPriceExclTax` | string | required, max length 255 characters | Product price excluding tax. |
+| `retailPriceInclTax` | string | required, max length 255 characters | Product price including applicable taxes. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
@@ -165,9 +161,8 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `retailPriceExclTax` | string | required, max length 255 characters | Retail price excluding tax. |
-| `retailPriceInclTax` | string | required, max length 255 characters | Retail price including tax. |
-| `regularRetailPrice` | string | required, max length 255 characters | Regular retail price. |
+| `retailPriceExclTax` | string | required, max length 255 characters | Product price excluding tax. |
+| `retailPriceInclTax` | string | required, max length 255 characters | Product price including applicable taxes. |
 | `sku` | string | required, max length 255 characters | SKU of the variant. |
 | `barcode` | string | required, max length 255 characters | Barcode of the variant. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
@@ -178,4 +173,4 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `prev` | string | required, max length 1024 characters | The link to the previous page of results. |
-| `next` | string | required, max length 1024 characters | The link to the next page of results. |
+| `next` | string,null | optional, max length 1024 characters | The link to the next page of results. |

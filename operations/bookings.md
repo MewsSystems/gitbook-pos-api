@@ -234,7 +234,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `prev` | string | required, max length 1024 characters | The link to the previous page of results. |
-| `next` | string | required, max length 1024 characters | The link to the next page of results. |
+| `next` | string,null | optional, max length 1024 characters | The link to the next page of results. |
 
 ## Create booking
 

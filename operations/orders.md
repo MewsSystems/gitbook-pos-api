@@ -131,6 +131,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `user` | object | required | Details of the user associated with the invoice. |
+| `order` | object | required | Details of the order associated with the invoice. |
 | `registers` | object | required | Details of the register associated with the invoice. |
 | `originalInvoice` | object | required | Details of the original invoice associated with the invoice. |
 | `items` | object | required | Details of the items associated with the invoice. |
