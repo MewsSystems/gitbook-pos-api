@@ -1,4 +1,11 @@
 # Changelog
+
+## 11th July 2025
+* [Get invoices:](../operations/invoices.md#get-invoices)
+  * Extended [invoice relations](../operations/invoices.md#invoice_relationships) with `order`
+  * [Update webhook endpoint](../operations/webhookendpoints.md#update-webhook-endpoint)
+  * Introduced table [filter](../operations/tables.md) - `orderIdEq`
+
 ## 26th June 2025
 * **IMPORTANT!** Changed platform address and API version number from https://pos.mews.com/api/v2 to https://api.mews.com/pos/v1.
 * Updated [Environments](../guidelines/environments.md) page, including:
