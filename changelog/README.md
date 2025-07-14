@@ -1,6 +1,6 @@
 # Changelog
 
-## 11th July 2025
+## 14th July 2025
 * [Get invoices:](../operations/invoices.md#get-invoices)
   * Extended [invoice relations](../operations/invoices.md#invoice_relationships) with `order`
   * [Update webhook endpoint](../operations/webhookendpoints.md#update-webhook-endpoint)
