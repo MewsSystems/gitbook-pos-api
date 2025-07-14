@@ -7,6 +7,7 @@ This operation returns a list of restaurant tables.
 
 **Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
+- [Filters](../guidelines/filtering.md) - `orderIdEq`
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `table` with `fields` query parameter.
 
 ### Request
@@ -79,4 +80,4 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `prev` | string | required, max length 1024 characters | The link to the previous page of results. |
-| `next` | string | required, max length 1024 characters | The link to the next page of results. |
+| `next` | string,null | optional, max length 1024 characters | The link to the next page of results. |

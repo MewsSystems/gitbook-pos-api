@@ -7,7 +7,7 @@ This operation returns a list of invoices.
 
 **Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
-- [Relationships](../guidelines/relationships.md) - `invoiceItems`, `user`, `register`, `originalInvoice` using `include` query parameter.
+- [Relationships](../guidelines/relationships.md) - `invoiceItems`, `user`, `register`, `originalInvoice`, `order` using `include` query parameter.
 - [Filters](../guidelines/filtering.md) - `createdAtGt`, `createdAtGteq`, `createdAtLt`, `createdAtLteq`, `registerIdEq`
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `invoices` and related resources with `fields` query parameter.
 
@@ -44,6 +44,12 @@ This operation returns a list of invoices.
             "type": "users"
           }
         },
+        "order": {
+          "data": {
+            "id": "f51fd61c-c618-4b05-acad-5ee96961acf9",
+            "type": "orders"
+          }
+        },
         "originalInvoices": {
           "data": null
         },
@@ -75,7 +81,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | array of object [invoice](invoices.md#invoice) | required, max 1000 items | The document's "primary data". |
-| `included` | array of object [invoice_item](invoices.md#invoice_item),[user](invoices.md#user),[register](invoices.md#register) | optional, max 1000 items | Details of the objects to which the invoice is related. |
+| `included` | array of object [invoice_item](invoices.md#invoice_item),[user](invoices.md#user),[register](invoices.md#register),[order](invoices.md#order),[invoice](invoices.md#invoice) | optional, max 1000 items | Details of the objects to which the invoice is related. |
 | `links` | [invoice_pagination_links](invoices.md#invoice_pagination_links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
 
 #### invoice
@@ -109,6 +115,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `user` | object | required | Details of the user associated with the invoice. |
+| `order` | object | required | Details of the order associated with the invoice. |
 | `registers` | object | required | Details of the register associated with the invoice. |
 | `originalInvoice` | object | required | Details of the original invoice associated with the invoice. |
 | `items` | object | required | Details of the items associated with the invoice. |
@@ -193,9 +200,39 @@ Below is a list of all possible fields this endpoint can return including relati
 | :-- | :-- | :-- | :-- |
 | `outlet` | object | required | Details of the outlet to which the register is associated. |
 
+#### order
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [order_attributes](invoices.md#order_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `links` | object | required | A [links object](https://jsonapi.org/format/#document-resource-object-links) containing links related to the resource. |
+| `relationships` | [order_relationships](invoices.md#order_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
+
+#### order_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `notes` | string,null | optional, max length 500 characters | Notes about the order. |
+| `covers` | undefined | required | How many people are seated at the table. |
+| `depositAmount` | string,null | optional, max length 255 characters | The amount of discount applied to the invoice. |
+| `tableStatus` | string,null | optional | Status of the table. Possible values are "noTable", "seated", "cleaning", and "free". |
+| `createdAt` | string | required, max length 25 characters | Order created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Order updated at timestamp in RFC 3339 format. |
+
+#### order_relationships
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `invoice` | object | required | Details of the invoice associated with the order. |
+| `customer` | object | required | Details of the customer associated with the order. |
+| `booking` | object | required | Details of the booking associated with the order. |
+| `tables` | object | required | Details of the tables associated with the order. |
+
 #### invoice_pagination_links
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `prev` | string | required, max length 1024 characters | The link to the previous page of results. |
-| `next` | string | required, max length 1024 characters | The link to the next page of results. |
+| `next` | string,null | optional, max length 1024 characters | The link to the next page of results. |

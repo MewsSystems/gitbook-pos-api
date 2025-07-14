@@ -331,3 +331,27 @@ types:
     file: bookings.md
     anchor: booking_update_attributes
     tag: Bookings
+  Invoices_order:
+    file: invoices.md
+    anchor: order
+    tag: Invoices
+  Invoices_order_attributes:
+    file: invoices.md
+    anchor: order_attributes
+    tag: Invoices
+  Invoices_order_relationships:
+    file: invoices.md
+    anchor: order_relationships
+    tag: Invoices
+  Webhook endpoints_webhook_endpoint_update_request:
+    file: webhookendpoints.md
+    anchor: webhook_endpoint_update_request
+    tag: Webhook endpoints
+  Webhook endpoints_webhook_endpoint_update:
+    file: webhookendpoints.md
+    anchor: webhook_endpoint_update
+    tag: Webhook endpoints
+  Webhook endpoints_webhook_endpoint_update_attributes:
+    file: webhookendpoints.md
+    anchor: webhook_endpoint_update_attributes
+    tag: Webhook endpoints
