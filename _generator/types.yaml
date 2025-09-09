@@ -455,3 +455,35 @@ types:
     file: orders.md
     anchor: promo_code_attributes
     tag: Orders
+  Outlets_outlets_response:
+    file: outlets.md
+    anchor: outlets_response
+    tag: Outlets
+  Outlets_outlet:
+    file: outlets.md
+    anchor: outlet
+    tag: Outlets
+  Outlets_outlet_attributes:
+    file: outlets.md
+    anchor: outlet_attributes
+    tag: Outlets
+  Outlets_links:
+    file: outlets.md
+    anchor: links
+    tag: Outlets
+  RevenueCenters_revenue_centers_response:
+    file: revenuecenters.md
+    anchor: revenue_centers_response
+    tag: RevenueCenters
+  RevenueCenters_revenue_center:
+    file: revenuecenters.md
+    anchor: revenue_center
+    tag: RevenueCenters
+  RevenueCenters_revenue_center_attributes:
+    file: revenuecenters.md
+    anchor: revenue_center_attributes
+    tag: RevenueCenters
+  RevenueCenters_links:
+    file: revenuecenters.md
+    anchor: links
+    tag: RevenueCenters
