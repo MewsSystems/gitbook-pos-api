@@ -1,13 +1,135 @@
 <!-- AUTOMATICALLY GENERATED, DO NOT MODIFY -->
 # Orders
 
+## Get orders
+
+This operation returns a list of orders.
+
+**Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
+
+- [Relationships](../guidelines/relationships.md) - `invoice`, `customer`, `booking`, `tables`, `promoCode` using `include` query parameter.
+- [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `order` and related resources with `fields` query parameter.
+
+### Request
+
+`GET` `[PlatformAddress]/v1/orders`
+
+### Response
+
+```javascript
+{
+  "data": [
+    {
+      "id": "5624013b-5293-48b1-a07a-e7ee01cbde6a",
+      "type": "orders",
+      "attributes": {
+        "notes": "Please make sure the food is not too spicy.",
+        "covers": 12,
+        "createdAt": "2021-06-29T08:00:00Z",
+        "updatedAt": "2021-06-29T08:00:00Z",
+        "tableStatus": "seated",
+        "status": "open",
+        "depositAmount": "20.00"
+      },
+      "relationships": {
+        "invoice": {
+          "data": {
+            "id": "4014e105-57d6-4b12-a4fc-164601ec53e9",
+            "type": "invoices"
+          }
+        },
+        "customer": {
+          "data": {
+            "id": "4014e105-57d6-4b12-a4fc-164601ec53e9",
+            "type": "customers"
+          }
+        },
+        "booking": {
+          "data": {
+            "id": "4014e105-57d6-4b12-a4fc-164601ec53e9",
+            "type": "bookings"
+          }
+        },
+        "tables": {
+          "data": [
+            {
+              "id": "dcd9718c-abb0-4ba2-83c5-ae01505a5391",
+              "type": "tables"
+            }
+          ]
+        },
+        "promoCode": {
+          "data": {
+            "id": "167beb82-e6a7-453b-8048-cfa25d3ce467",
+            "type": "promoCodes"
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.mews-demo.com/pos/v1/orders/5624013b-5293-48b1-a07a-e7ee01cbde6a"
+      }
+    }
+  ],
+  "links": {
+    "prev": "https://api.mews-demo.com/pos/v1/orders?page%5Bbefore%5D=NA&page%5Bsize%5D=1",
+    "next": "https://api.mews-demo.com/pos/v1/orders?page%5Bafter%5D=NA&page%5Bsize%5D=1"
+  }
+}
+```
+Below is a list of all possible fields this endpoint can return including relationships fields fetched with include query parameter.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | array of object [order](orders.md#order) | required, max 1000 items | The document's "primary data". |
+| `links` | [links](orders.md#links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
+
+#### order
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [order_attributes](orders.md#order_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `links` | object | required | A [links object](https://jsonapi.org/format/#document-resource-object-links) containing links related to the resource. |
+| `relationships` | [order_relationships](orders.md#order_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
+
+#### order_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `notes` | string,null | optional, max length 500 characters | Notes about the order. |
+| `covers` | undefined | required | How many people are seated at the table. |
+| `depositAmount` | string,null | optional, max length 255 characters | The amount of discount applied to the invoice. |
+| `tableStatus` | string,null | optional | Status of the table. Possible values are "noTable", "seated", "cleaning", and "free". |
+| `createdAt` | string | required, max length 25 characters | Order created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Order updated at timestamp in RFC 3339 format. |
+
+#### order_relationships
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `invoice` | object | required | Details of the invoice associated with the order. |
+| `customer` | object | required | Details of the customer associated with the order. |
+| `booking` | object | required | Details of the booking associated with the order. |
+| `tables` | object | required | Details of the tables associated with the order. |
+| `promoCode` | object | required | Details of the promo codes associated with the order. |
+| `outlet` | object | required | Details of the outlet associated with the order. |
+| `revenueCenter` | object | required | Details of the revenue center associated with the order. |
+
+#### links
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `prev` | string,null | optional, max length 1024 characters | The link to the previous page of results. |
+| `next` | string,null | optional, max length 1024 characters | The link to the next page of results. |
+
 ## Get order
 
 An order represents a single set of items that was ordered by a customer. Each order is uniquely identified and can be associated with an invoice item.
 
 **Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
-- [Relationships](../guidelines/relationships.md) - `invoice`, `customer`, `booking`, `tables` using `include` query parameter.
+- [Relationships](../guidelines/relationships.md) - `invoice`, `customer`, `booking`, `tables`, `promoCode` using `include` query parameter.
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `order` and related resources with `fields` query parameter.
 
 ### Request
@@ -55,6 +177,12 @@ An order represents a single set of items that was ordered by a customer. Each o
             "type": "tables"
           }
         ]
+      },
+      "promoCode": {
+        "data": {
+          "id": "167beb82-e6a7-453b-8048-cfa25d3ce467",
+          "type": "promoCodes"
+        }
       }
     },
     "links": {
@@ -68,37 +196,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | [order](orders.md#order) | required | The document's "primary data". |
-| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer) | optional, max 100 items | Details of the objects to which the order is associated. |
-
-#### order
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
-| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
-| `attributes` | [order_attributes](orders.md#order_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
-| `links` | object | required | A [links object](https://jsonapi.org/format/#document-resource-object-links) containing links related to the resource. |
-| `relationships` | [order_relationships](orders.md#order_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
-
-#### order_attributes
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `notes` | string,null | optional, max length 500 characters | Notes about the order. |
-| `covers` | undefined | required | How many people are seated at the table. |
-| `depositAmount` | string,null | optional, max length 255 characters | The amount of discount applied to the invoice. |
-| `tableStatus` | string,null | optional | Status of the table. Possible values are "noTable", "seated", "cleaning", and "free". |
-| `createdAt` | string | required, max length 25 characters | Order created at timestamp in RFC 3339 format. |
-| `updatedAt` | string | required, max length 25 characters | Order updated at timestamp in RFC 3339 format. |
-
-#### order_relationships
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `invoice` | object | required | Details of the invoice associated with the order. |
-| `customer` | object | required | Details of the customer associated with the order. |
-| `booking` | object | required | Details of the booking associated with the order. |
-| `tables` | object | required | Details of the tables associated with the order. |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code) | optional, max 100 items | Details of the objects to which the order is associated. |
 
 #### invoice
 
@@ -135,6 +233,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `registers` | object | required | Details of the register associated with the invoice. |
 | `originalInvoice` | object | required | Details of the original invoice associated with the invoice. |
 | `items` | object | required | Details of the items associated with the invoice. |
+| `promoCode` | object | required | Details of the promo codes associated with the invoice. |
+| `revenueCenter` | object | required | Details of the revenue center associated with the invoice. |
 
 #### table
 
@@ -223,3 +323,27 @@ Below is a list of all possible fields this endpoint can return including relati
 | `dateOfBirth` | string,null | optional, max length 10 characters | The customer's date of birth in YYYY-MM-DD format. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+
+#### promo_code
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [promo_code_attributes](orders.md#promo_code_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### promo_code_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `discountType` | string | required | Specifies whether the discount is a fixed amount, a percentage, or free shipping. |
+| `amount` | string,null | optional, max length 19 characters | The value of the discount. Required for absolute and percent discount types. |
+| `channel` | string | required | The sales channel where the discount is applicable. |
+| `code` | string | required, max length 255 characters | The unique identifier code for the promo code. |
+| `active` | boolean | required | A boolean indicating if the promo code is currently active. |
+| `description` | string,null | optional, max length 1000 characters | A description of the promo code. |
+| `maxUsages` | integer,null | optional | Maximum number of times this promo code can be used. |
+| `startsAt` | string,null | optional, max length 25 characters | Date and time when the promo code becomes valid in RFC 3339 format. |
+| `endsAt` | string,null | optional, max length 25 characters | Date and time when the promo code expires in RFC 3339 format. |
+| `createdAt` | string | required, max length 25 characters | Promo code created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Promo code updated at timestamp in RFC 3339 format. |

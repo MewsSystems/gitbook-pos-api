@@ -28,6 +28,7 @@ This operation returns a list of products.
         "sku": "ABC-123-HR-K",
         "status": "active",
         "barcode": "1234567890",
+        "isAvailable": true,
         "createdAt": "2022-10-16T11:29:00Z",
         "updatedAt": "2022-10-19T11:29:00Z",
         "tax": "2.00",
@@ -50,6 +51,18 @@ This operation returns a list of products.
             {
               "id": "e727124a-d2bb-4002-98bd-81af6d788666",
               "type": "modifierSets"
+            }
+          ]
+        },
+        "modifiers": {
+          "data": [
+            {
+              "id": "0907e6d2-62c1-44cd-a886-f403ce9c7145",
+              "type": "modifiers"
+            },
+            {
+              "id": "0d4e4ec6-118f-47a6-9040-b68abbec0575",
+              "type": "modifiers"
             }
           ]
         },
@@ -79,7 +92,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | array of object [product](products.md#product) | required, max 1000 items | The document's "primary data". |
-| `included` | array of object [product_type](products.md#product_type),[modifier_set](products.md#modifier_set),[product_variant](products.md#product_variant) | optional, max 1000 items | Details of the objects to which the product is related. |
+| `included` | array of object [product_type](products.md#product_type),[modifier_set](products.md#modifier_set),[modifier](products.md#modifier),[product_variant](products.md#product_variant) | optional, max 1000 items | Details of the objects to which the product is related. |
 | `links` | [product_pagination_links](products.md#product_pagination_links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
 
 #### product
@@ -98,6 +111,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `name` | string | required, max length 255 characters | Name of the product. |
 | `description` | string | required, max length 10000 characters | Description of the product. |
 | `sku` | string | required, max length 255 characters | SKU of the product. |
+| `isAvailable` | boolean | required | Whether the product is available. |
 | `barcode` | string | required, max length 255 characters | Barcode of the product. |
 | `status` | string | required | Status of the product. Possible values are "active" and "inactive". |
 | `tax` | string | required, max length 255 characters | Tax of the product. |
@@ -112,6 +126,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | :-- | :-- | :-- | :-- |
 | `productType` | object | required | Details of the product type associated with the product. |
 | `modifierSets` | object | required | Details of the modifier sets associated with the product. |
+| `modifiers` | object | required | Details of the modifiers associated with the product. |
 | `productVariants` | object | required | Details of the product variants associated with the product. |
 
 #### product_type
@@ -137,6 +152,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
 | `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 | `attributes` | [modifier_set_attributes](products.md#modifier_set_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `links` | object | required | A [links object](https://jsonapi.org/format/#document-resource-object-links) containing links related to the resource. |
+| `relationships` | [modifier_set_relationships](products.md#modifier_set_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
 
 #### modifier_set_attributes
 
@@ -146,6 +163,29 @@ Below is a list of all possible fields this endpoint can return including relati
 | `selection` | string | required | Modifier set selection type. Possible values are "single" and "multiple". |
 | `maximumCount` | integer | required | Maximum number of modifiers that can be selected. |
 | `minimumCount` | integer | required | Minimum number of modifiers that must be selected. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+
+#### modifier_set_relationships
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `modifiers` | object | required | Details of the modifiers associated with the modifier set. |
+
+#### modifier
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [modifier_attributes](products.md#modifier_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### modifier_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `name` | string | required, max length 255 characters | Name of the modifier. |
+| `price` | string | required, max length 255 characters | Price of the modifier. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
@@ -164,6 +204,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `retailPriceExclTax` | string | required, max length 255 characters | Product price excluding tax. |
 | `retailPriceInclTax` | string | required, max length 255 characters | Product price including applicable taxes. |
 | `sku` | string | required, max length 255 characters | SKU of the variant. |
+| `selector` | object | required | Arbitrary key/value JSON object for product variant selector. |
 | `barcode` | string | required, max length 255 characters | Barcode of the variant. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |

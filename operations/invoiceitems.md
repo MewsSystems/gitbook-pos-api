@@ -7,7 +7,7 @@ An invoice item is an individual order item that is part of an invoice.
 
 **Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
-- [Relationships](../guidelines/relationships.md) - `invoiceItemsModifiers`, `include` query parameter.
+- [Relationships](../guidelines/relationships.md) - `invoiceItemsModifiers`, `revenueCenter` using `include` query parameter.
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `invoiceItem` and related resources with `fields` query parameter.
 
 ### Request
@@ -57,6 +57,12 @@ An invoice item is an individual order item that is part of an invoice.
             "type": "invoiceItemModifiers"
           }
         ]
+      },
+      "revenueCenter": {
+        "data": {
+          "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+          "type": "revenueCenters"
+        }
       }
     }
   }
@@ -67,7 +73,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | [invoice_item](invoiceitems.md#invoice_item) | required | The document's "primary data". |
-| `included` | array of object [invoice_item_modifier](invoiceitems.md#invoice_item_modifier) | optional, max 1000 items | Details of the invoiceItemModifiers to which the invoiceItem is associated. |
+| `included` | array of object [invoice_item_modifier](invoiceitems.md#invoice_item_modifier),[revenue_center](invoiceitems.md#revenue_center) | optional, max 1000 items | Details of the invoiceItemModifiers to which the invoiceItem is associated. |
 
 #### invoice_item
 
@@ -107,6 +113,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `product` | object | required | Details of the product associated with the invoiceItem. |
 | `productVariant` | object | required | Details of the productVariant associated with the invoiceItem. |
 | `invoiceItemModifiers` | object | required | Details of the items associated with the invoiceItem. |
+| `revenueCenter` | object | required | Details of the revenue center associated with the invoiceItem. |
 
 #### invoice_item_modifier
 
@@ -122,3 +129,20 @@ Below is a list of all possible fields this endpoint can return including relati
 | :-- | :-- | :-- | :-- |
 | `name` | string | required, max length 255 characters | Name of the modifier item. |
 | `price` | string | required, max length 255 characters | Price of the modifier item. |
+
+#### revenue_center
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [revenue_center_attributes](invoiceitems.md#revenue_center_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### revenue_center_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `name` | string | required, max length 255 characters | Name of the revenue center. |
+| `isActive` | boolean | required | Indicates whether the revenue center is active. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |

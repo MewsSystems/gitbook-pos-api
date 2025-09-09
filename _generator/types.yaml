@@ -355,3 +355,103 @@ types:
     file: webhookendpoints.md
     anchor: webhook_endpoint_update_attributes
     tag: Webhook endpoints
+  Invoices_promo_code:
+    file: invoices.md
+    anchor: promo_code
+    tag: Invoices
+  Invoices_promo_code_attributes:
+    file: invoices.md
+    anchor: promo_code_attributes
+    tag: Invoices
+  Invoices_revenue_center:
+    file: invoices.md
+    anchor: revenue_center
+    tag: Invoices
+  Invoices_revenue_center_attributes:
+    file: invoices.md
+    anchor: revenue_center_attributes
+    tag: Invoices
+  Registers_registers_response:
+    file: registers.md
+    anchor: registers_response
+    tag: Registers
+  Registers_links:
+    file: registers.md
+    anchor: links
+    tag: Registers
+  Products_modifier_set_relationships:
+    file: products.md
+    anchor: modifier_set_relationships
+    tag: Products
+  Products_modifier:
+    file: products.md
+    anchor: modifier
+    tag: Products
+  Products_modifier_attributes:
+    file: products.md
+    anchor: modifier_attributes
+    tag: Products
+  PromoCodes_promo_codes_response:
+    file: promocodes.md
+    anchor: promo_codes_response
+    tag: PromoCodes
+  PromoCodes_promo_code:
+    file: promocodes.md
+    anchor: promo_code
+    tag: PromoCodes
+  PromoCodes_promo_code_attributes:
+    file: promocodes.md
+    anchor: promo_code_attributes
+    tag: PromoCodes
+  PromoCodes_links:
+    file: promocodes.md
+    anchor: links
+    tag: PromoCodes
+  ModifierSets_modifier_sets_pagination_response:
+    file: modifiersets.md
+    anchor: modifier_sets_pagination_response
+    tag: ModifierSets
+  ModifierSets_modifier_set:
+    file: modifiersets.md
+    anchor: modifier_set
+    tag: ModifierSets
+  ModifierSets_modifier_set_attributes:
+    file: modifiersets.md
+    anchor: modifier_set_attributes
+    tag: ModifierSets
+  ModifierSets_modifier_set_relationships:
+    file: modifiersets.md
+    anchor: modifier_set_relationships
+    tag: ModifierSets
+  ModifierSets_links:
+    file: modifiersets.md
+    anchor: links
+    tag: ModifierSets
+  ModifierSets_modifier_set_single_response:
+    file: modifiersets.md
+    anchor: modifier_set_single_response
+    tag: ModifierSets
+  InvoiceItems_revenue_center:
+    file: invoiceitems.md
+    anchor: revenue_center
+    tag: InvoiceItems
+  InvoiceItems_revenue_center_attributes:
+    file: invoiceitems.md
+    anchor: revenue_center_attributes
+    tag: InvoiceItems
+  Orders_orders_response:
+    file: orders.md
+    anchor: orders_response
+    tag: Orders
+  Orders_links:
+    file: orders.md
+    anchor: links
+    tag: Orders
+  Orders_promo_code:
+    file: orders.md
+    anchor: promo_code
+    tag: Orders
+  Orders_promo_code_attributes:
+    file: orders.md
+    anchor: promo_code_attributes
+    tag: Orders

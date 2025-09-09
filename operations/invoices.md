@@ -7,7 +7,7 @@ This operation returns a list of invoices.
 
 **Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
-- [Relationships](../guidelines/relationships.md) - `invoiceItems`, `user`, `register`, `originalInvoice`, `order` using `include` query parameter.
+- [Relationships](../guidelines/relationships.md) - `invoiceItems`, `user`, `register`, `originalInvoice`, `order`, `promoCode`, `revenueCenter` using `include` query parameter.
 - [Filters](../guidelines/filtering.md) - `createdAtGt`, `createdAtGteq`, `createdAtLt`, `createdAtLteq`, `registerIdEq`
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `invoices` and related resources with `fields` query parameter.
 
@@ -66,6 +66,18 @@ This operation returns a list of invoices.
               "type": "invoiceItems"
             }
           ]
+        },
+        "promoCode": {
+          "data": {
+            "id": "167beb82-e6a7-453b-8048-cfa25d3ce467",
+            "type": "promoCodes"
+          }
+        },
+        "revenueCenter": {
+          "data": {
+            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+            "type": "revenueCenters"
+          }
         }
       }
     }
@@ -81,7 +93,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | array of object [invoice](invoices.md#invoice) | required, max 1000 items | The document's "primary data". |
-| `included` | array of object [invoice_item](invoices.md#invoice_item),[user](invoices.md#user),[register](invoices.md#register),[order](invoices.md#order),[invoice](invoices.md#invoice) | optional, max 1000 items | Details of the objects to which the invoice is related. |
+| `included` | array of object [invoice_item](invoices.md#invoice_item),[user](invoices.md#user),[register](invoices.md#register),[order](invoices.md#order),[invoice](invoices.md#invoice),[promo_code](invoices.md#promo_code),[revenue_center](invoices.md#revenue_center) | optional, max 1000 items | Details of the objects to which the invoice is related. |
 | `links` | [invoice_pagination_links](invoices.md#invoice_pagination_links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
 
 #### invoice
@@ -119,6 +131,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `registers` | object | required | Details of the register associated with the invoice. |
 | `originalInvoice` | object | required | Details of the original invoice associated with the invoice. |
 | `items` | object | required | Details of the items associated with the invoice. |
+| `promoCode` | object | required | Details of the promo codes associated with the invoice. |
+| `revenueCenter` | object | required | Details of the revenue center associated with the invoice. |
 
 #### invoice_item
 
@@ -158,6 +172,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `product` | object | required | Details of the product associated with the invoiceItem. |
 | `productVariant` | object | required | Details of the productVariant associated with the invoiceItem. |
 | `invoiceItemModifiers` | object | required | Details of the items associated with the invoiceItem. |
+| `revenueCenter` | object | required | Details of the revenue center associated with the invoiceItem. |
 
 #### user
 
@@ -229,6 +244,50 @@ Below is a list of all possible fields this endpoint can return including relati
 | `customer` | object | required | Details of the customer associated with the order. |
 | `booking` | object | required | Details of the booking associated with the order. |
 | `tables` | object | required | Details of the tables associated with the order. |
+| `promoCode` | object | required | Details of the promo codes associated with the order. |
+| `outlet` | object | required | Details of the outlet associated with the order. |
+| `revenueCenter` | object | required | Details of the revenue center associated with the order. |
+
+#### promo_code
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [promo_code_attributes](invoices.md#promo_code_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### promo_code_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `discountType` | string | required | Specifies whether the discount is a fixed amount, a percentage, or free shipping. |
+| `amount` | string,null | optional, max length 19 characters | The value of the discount. Required for absolute and percent discount types. |
+| `channel` | string | required | The sales channel where the discount is applicable. |
+| `code` | string | required, max length 255 characters | The unique identifier code for the promo code. |
+| `active` | boolean | required | A boolean indicating if the promo code is currently active. |
+| `description` | string,null | optional, max length 1000 characters | A description of the promo code. |
+| `maxUsages` | integer,null | optional | Maximum number of times this promo code can be used. |
+| `startsAt` | string,null | optional, max length 25 characters | Date and time when the promo code becomes valid in RFC 3339 format. |
+| `endsAt` | string,null | optional, max length 25 characters | Date and time when the promo code expires in RFC 3339 format. |
+| `createdAt` | string | required, max length 25 characters | Promo code created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Promo code updated at timestamp in RFC 3339 format. |
+
+#### revenue_center
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [revenue_center_attributes](invoices.md#revenue_center_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### revenue_center_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `name` | string | required, max length 255 characters | Name of the revenue center. |
+| `isActive` | boolean | required | Indicates whether the revenue center is active. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
 #### invoice_pagination_links
 
