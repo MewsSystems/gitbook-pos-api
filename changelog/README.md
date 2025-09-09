@@ -16,6 +16,10 @@
   * Updated operation to return list of registers instead of single register.
 * [Get modifier sets:](../operations/modifiersets.md#get-modifier-sets)
   * New operation added.
+* [Get outlets:](../operations/outlets.md#get-outlets)
+  * New operation added.
+* [Get revenue centers:](../operations/revenuecenters.md#get-revenue-centers)
+  * New operation added.
 
 ## 14th July 2025
 * [Get invoices:](../operations/invoices.md#get-invoices)
