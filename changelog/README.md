@@ -1,5 +1,26 @@
 # Changelog
 
+## 10th September 2025
+* [Get promo codes:](../operations/promocodes.md#get-promo-codes)
+  * New operation added.
+* [Get invoices:](../operations/invoices.md#get-invoices)
+  * Extended [invoice relationships](../operations/invoices.md#invoice_relationships) with `promoCode` and `revenueCenter`.
+* [Get invoice items:](../operations/invoiceitems.md#get-invoice-items)
+  * Extended [invoice item relationships](../operations/invoiceitems.md#invoice_item_relationships) with `revenueCenter`.
+* [Get products:](../operations/products.md#get-products)
+  * Extended [product attributes](../operations/products.md#product_attributes) with `isAvailable`.
+  * Extended [product relationships](../operations/products.md#product_relationships) with `modifiers`.
+* [Get orders:](../operations/orders.md#get-orders)
+  * Extended [order relationships](../operations/orders.md#order_relationships) with `invoice`, `customer`, `booking`, `tables`, and `promoCode`.
+* [Get registers:](../operations/registers.md#get-registers)
+  * Updated operation to return list of registers instead of single register.
+* [Get modifier sets:](../operations/modifiersets.md#get-modifier-sets)
+  * New operation added.
+* [Get outlets:](../operations/outlets.md#get-outlets)
+  * New operation added.
+* [Get revenue centers:](../operations/revenuecenters.md#get-revenue-centers)
+  * New operation added.
+
 ## 14th July 2025
 * [Get invoices:](../operations/invoices.md#get-invoices)
   * Extended [invoice relations](../operations/invoices.md#invoice_relationships) with `order`
