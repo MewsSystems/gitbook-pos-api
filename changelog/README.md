@@ -1,6 +1,6 @@
 # Changelog
 
-## 9th September 2025
+## 10th September 2025
 * [Get promo codes:](../operations/promocodes.md#get-promo-codes)
   * New operation added.
 * [Get invoices:](../operations/invoices.md#get-invoices)
