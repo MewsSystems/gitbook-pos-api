@@ -7,7 +7,7 @@ This operation returns a list of orders.
 
 **Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
-- [Relationships](../guidelines/relationships.md) - `invoice`, `customer`, `booking`, `tables`, `promoCode` using `include` query parameter.
+- [Relationships](../guidelines/relationships.md) - `invoice`, `customer`, `booking`, `tables`, `promoCode`, `outlet`, `revenueCenter` using `include` query parameter.
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `order` and related resources with `fields` query parameter.
 
 ### Request
@@ -81,6 +81,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | array of object [order](orders.md#order) | required, max 1000 items | The document's "primary data". |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center) | optional, max 100 items | Details of the objects to which the order is associated. |
 | `links` | [links](orders.md#links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
 
 #### order
@@ -115,88 +116,6 @@ Below is a list of all possible fields this endpoint can return including relati
 | `promoCode` | object | required | Details of the promo codes associated with the order. |
 | `outlet` | object | required | Details of the outlet associated with the order. |
 | `revenueCenter` | object | required | Details of the revenue center associated with the order. |
-
-#### links
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `prev` | string,null | optional, max length 1024 characters | The link to the previous page of results. |
-| `next` | string,null | optional, max length 1024 characters | The link to the next page of results. |
-
-## Get order
-
-An order represents a single set of items that was ordered by a customer. Each order is uniquely identified and can be associated with an invoice item.
-
-**Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
-
-- [Relationships](../guidelines/relationships.md) - `invoice`, `customer`, `booking`, `tables`, `promoCode` using `include` query parameter.
-- [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `order` and related resources with `fields` query parameter.
-
-### Request
-
-`GET` `[PlatformAddress]/v1/orders/{id}`
-
-### Response
-
-```javascript
-{
-  "data": {
-    "id": "2496b6bd-a326-4a5a-95c8-359c943dcee8",
-    "type": "orders",
-    "attributes": {
-      "covers": 1,
-      "tableStatus": "seated",
-      "notes": "Please make it quick",
-      "depositAmount": "20.00",
-      "createdAt": "2021-06-29T08:00:00Z",
-      "updatedAt": "2021-06-29T08:00:00Z"
-    },
-    "relationships": {
-      "invoice": {
-        "data": {
-          "id": "4014e105-57d6-4b12-a4fc-164601ec53e9",
-          "type": "invoices"
-        }
-      },
-      "customer": {
-        "data": {
-          "id": "4014e105-57d6-4b12-a4fc-164601ec53e9",
-          "type": "customers"
-        }
-      },
-      "register": {
-        "data": {
-          "id": "a0312dc4-e0bf-4a27-837d-a6cf41f54464",
-          "type": "bookings"
-        }
-      },
-      "invoiceItems": {
-        "data": [
-          {
-            "id": "dcd9718c-abb0-4ba2-83c5-ae01505a5391",
-            "type": "tables"
-          }
-        ]
-      },
-      "promoCode": {
-        "data": {
-          "id": "167beb82-e6a7-453b-8048-cfa25d3ce467",
-          "type": "promoCodes"
-        }
-      }
-    },
-    "links": {
-      "self": "https://api.mews-demo.com/pos/v1/orders/2496b6bd-a326-4a5a-95c8-359c943dcee8"
-    }
-  }
-}
-```
-Below is a list of all possible fields this endpoint can return including relationships fields fetched with include query parameter.
-
-| Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `data` | [order](orders.md#order) | required | The document's "primary data". |
-| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code) | optional, max 100 items | Details of the objects to which the order is associated. |
 
 #### invoice
 
@@ -347,3 +266,124 @@ Below is a list of all possible fields this endpoint can return including relati
 | `endsAt` | string,null | optional, max length 25 characters | Date and time when the promo code expires in RFC 3339 format. |
 | `createdAt` | string | required, max length 25 characters | Promo code created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Promo code updated at timestamp in RFC 3339 format. |
+
+#### outlet
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [outlet_attributes](orders.md#outlet_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### outlet_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `name` | string | required, max length 255 characters | The name of the outlet, representing the business or location. |
+| `address1` | string,null | optional, max length 255 characters | The first line of the outlet's street address, typically including the street number and name. |
+| `address2` | string,null | optional, max length 255 characters | The second line of outlet's address. |
+| `city` | string,null | optional, max length 86 characters | The city where the outlet is located. |
+| `state` | string,null | optional, max length 54 characters | The state or region where the outlet is located. |
+| `postalCode` | string,null | optional, max length 10 characters | The postal or ZIP code for outlet's location. |
+| `index` | integer | required | A unique sequential number representing the outlet number within the establishment. |
+| `createdAt` | string | required, max length 25 characters | Outlet created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Outlet updated at timestamp in RFC 3339 format. |
+
+#### revenue_center
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [revenue_center_attributes](orders.md#revenue_center_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### revenue_center_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `name` | string | required, max length 255 characters | Name of the revenue center. |
+| `isActive` | boolean | required | Indicates whether the revenue center is active. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+
+#### links
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `prev` | string,null | optional, max length 1024 characters | The link to the previous page of results. |
+| `next` | string,null | optional, max length 1024 characters | The link to the next page of results. |
+
+## Get order
+
+An order represents a single set of items that was ordered by a customer. Each order is uniquely identified and can be associated with an invoice item.
+
+**Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
+
+- [Relationships](../guidelines/relationships.md) - `invoice`, `customer`, `booking`, `tables`, `promoCode`, `outlet`, `revenueCenter` using `include` query parameter.
+- [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `order` and related resources with `fields` query parameter.
+
+### Request
+
+`GET` `[PlatformAddress]/v1/orders/{id}`
+
+### Response
+
+```javascript
+{
+  "data": {
+    "id": "2496b6bd-a326-4a5a-95c8-359c943dcee8",
+    "type": "orders",
+    "attributes": {
+      "covers": 1,
+      "tableStatus": "seated",
+      "notes": "Please make it quick",
+      "depositAmount": "20.00",
+      "createdAt": "2021-06-29T08:00:00Z",
+      "updatedAt": "2021-06-29T08:00:00Z"
+    },
+    "relationships": {
+      "invoice": {
+        "data": {
+          "id": "4014e105-57d6-4b12-a4fc-164601ec53e9",
+          "type": "invoices"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "4014e105-57d6-4b12-a4fc-164601ec53e9",
+          "type": "customers"
+        }
+      },
+      "register": {
+        "data": {
+          "id": "a0312dc4-e0bf-4a27-837d-a6cf41f54464",
+          "type": "bookings"
+        }
+      },
+      "invoiceItems": {
+        "data": [
+          {
+            "id": "dcd9718c-abb0-4ba2-83c5-ae01505a5391",
+            "type": "tables"
+          }
+        ]
+      },
+      "promoCode": {
+        "data": {
+          "id": "167beb82-e6a7-453b-8048-cfa25d3ce467",
+          "type": "promoCodes"
+        }
+      }
+    },
+    "links": {
+      "self": "https://api.mews-demo.com/pos/v1/orders/2496b6bd-a326-4a5a-95c8-359c943dcee8"
+    }
+  }
+}
+```
+Below is a list of all possible fields this endpoint can return including relationships fields fetched with include query parameter.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | [order](orders.md#order) | required | The document's "primary data". |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center) | optional, max 100 items | Details of the objects to which the order is associated. |

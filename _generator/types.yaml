@@ -487,3 +487,19 @@ types:
     file: revenuecenters.md
     anchor: links
     tag: RevenueCenters
+  Orders_outlet:
+    file: orders.md
+    anchor: outlet
+    tag: Orders
+  Orders_outlet_attributes:
+    file: orders.md
+    anchor: outlet_attributes
+    tag: Orders
+  Orders_revenue_center:
+    file: orders.md
+    anchor: revenue_center
+    tag: Orders
+  Orders_revenue_center_attributes:
+    file: orders.md
+    anchor: revenue_center_attributes
+    tag: Orders
