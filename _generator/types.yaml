@@ -503,3 +503,35 @@ types:
     file: orders.md
     anchor: revenue_center_attributes
     tag: Orders
+  Products_tax:
+    file: products.md
+    anchor: tax
+    tag: Products
+  Products_tax_attributes:
+    file: products.md
+    anchor: tax_attributes
+    tag: Products
+  Orders_tax:
+    file: orders.md
+    anchor: tax
+    tag: Orders
+  Orders_tax_attributes:
+    file: orders.md
+    anchor: tax_attributes
+    tag: Orders
+  PaymentMethods_payment_methods_response:
+    file: paymentmethods.md
+    anchor: payment_methods_response
+    tag: PaymentMethods
+  PaymentMethods_payment_method:
+    file: paymentmethods.md
+    anchor: payment_method
+    tag: PaymentMethods
+  PaymentMethods_payment_method_attributes:
+    file: paymentmethods.md
+    anchor: payment_method_attributes
+    tag: PaymentMethods
+  PaymentMethods_links:
+    file: paymentmethods.md
+    anchor: links
+    tag: PaymentMethods
