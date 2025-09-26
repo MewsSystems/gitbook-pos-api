@@ -10,8 +10,6 @@
 * [Get invoices:](../operations/invoices.md#get-invoices)
   * Extended [invoice relationships](../operations/invoices.md#invoice_relationships) with `taxes`.
 
-
-
 ## 10th September 2025
 * [Get promo codes:](../operations/promocodes.md#get-promo-codes)
   * New operation added.
