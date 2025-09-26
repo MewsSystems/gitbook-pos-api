@@ -247,6 +247,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `promoCode` | object | required | Details of the promo codes associated with the order. |
 | `outlet` | object | required | Details of the outlet associated with the order. |
 | `revenueCenter` | object | required | Details of the revenue center associated with the order. |
+| `taxes` | object | required | Details of the taxes associated with the product. |
 
 #### promo_code
 

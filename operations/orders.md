@@ -63,6 +63,14 @@ This operation returns a list of orders.
             "id": "167beb82-e6a7-453b-8048-cfa25d3ce467",
             "type": "promoCodes"
           }
+        },
+        "taxes": {
+          "data": [
+            {
+              "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+              "type": "taxes"
+            }
+          ]
         }
       },
       "links": {
@@ -81,7 +89,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | array of object [order](orders.md#order) | required, max 1000 items | The document's "primary data". |
-| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center) | optional, max 100 items | Details of the objects to which the order is associated. |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax) | optional, max 100 items | Details of the objects to which the order is associated. |
 | `links` | [links](orders.md#links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
 
 #### order
@@ -116,6 +124,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `promoCode` | object | required | Details of the promo codes associated with the order. |
 | `outlet` | object | required | Details of the outlet associated with the order. |
 | `revenueCenter` | object | required | Details of the revenue center associated with the order. |
+| `taxes` | object | required | Details of the taxes associated with the product. |
 
 #### invoice
 
@@ -306,6 +315,27 @@ Below is a list of all possible fields this endpoint can return including relati
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
 
+#### tax
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [tax_attributes](orders.md#tax_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### tax_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `name` | string | required, max length 255 characters | Name of the tax. |
+| `rate` | string | required, max length 255 characters | Tax rate as a decimal. |
+| `taxType` | string | required | Type of the tax. |
+| `isActive` | boolean | required | Whether the tax is active. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `label` | string,null | optional, max length 255 characters | Label of the tax. |
+| `ratePercent` | string | required, max length 7 characters | Tax rate as a percentage. |
+
 #### links
 
 | Property | Type | Contract | Description |
@@ -373,6 +403,14 @@ An order represents a single set of items that was ordered by a customer. Each o
           "id": "167beb82-e6a7-453b-8048-cfa25d3ce467",
           "type": "promoCodes"
         }
+      },
+      "taxes": {
+        "data": [
+          {
+            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+            "type": "taxes"
+          }
+        ]
       }
     },
     "links": {
@@ -386,4 +424,4 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | [order](orders.md#order) | required | The document's "primary data". |
-| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center) | optional, max 100 items | Details of the objects to which the order is associated. |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax) | optional, max 100 items | Details of the objects to which the order is associated. |

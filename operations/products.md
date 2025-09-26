@@ -42,6 +42,14 @@ This operation returns a list of products.
             "type": "productTypes"
           }
         },
+        "taxes": {
+          "data": [
+            {
+              "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+              "type": "taxes"
+            }
+          ]
+        },
         "modifierSets": {
           "data": [
             {
@@ -92,7 +100,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | array of object [product](products.md#product) | required, max 1000 items | The document's "primary data". |
-| `included` | array of object [product_type](products.md#product_type),[modifier_set](products.md#modifier_set),[modifier](products.md#modifier),[product_variant](products.md#product_variant) | optional, max 1000 items | Details of the objects to which the product is related. |
+| `included` | array of object [product_type](products.md#product_type),[modifier_set](products.md#modifier_set),[modifier](products.md#modifier),[product_variant](products.md#product_variant),[tax](products.md#tax) | optional, max 1000 items | Details of the objects to which the product is related. |
 | `links` | [product_pagination_links](products.md#product_pagination_links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
 
 #### product
@@ -128,6 +136,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `modifierSets` | object | required | Details of the modifier sets associated with the product. |
 | `modifiers` | object | required | Details of the modifiers associated with the product. |
 | `productVariants` | object | required | Details of the product variants associated with the product. |
+| `taxes` | object | required | Details of the taxes associated with the product. |
 
 #### product_type
 
@@ -208,6 +217,27 @@ Below is a list of all possible fields this endpoint can return including relati
 | `barcode` | string | required, max length 255 characters | Barcode of the variant. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+
+#### tax
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [tax_attributes](products.md#tax_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+
+#### tax_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `name` | string | required, max length 255 characters | Name of the tax. |
+| `rate` | string | required, max length 255 characters | Tax rate as a decimal. |
+| `taxType` | string | required | Type of the tax. |
+| `isActive` | boolean | required | Whether the tax is active. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| `label` | string,null | optional, max length 255 characters | Label of the tax. |
+| `ratePercent` | string | required, max length 7 characters | Tax rate as a percentage. |
 
 #### product_pagination_links
 

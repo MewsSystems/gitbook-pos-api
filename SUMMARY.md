@@ -24,6 +24,7 @@
   * [Modifier Sets](operations/modifiersets.md)
   * [Orders](operations/orders.md)
   * [Outlets](operations/outlets.md)
+  * [PaymentMethods](operations/paymentmethods.md)
   * [Products](operations/products.md)
   * [Promo Codes](operations/promocodes.md)
   * [Registers](operations/registers.md)
