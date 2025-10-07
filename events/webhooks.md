@@ -33,7 +33,7 @@ To implement Webhooks:
         "type": "bookings",
         "attributes": {
             "status": "seated",
-            "updated_at": "2025-02-06T09:41:30.465Z"
+            "updatedAt": "2025-02-06T09:41:30.465Z"
         }
     },
     "meta": {
@@ -68,7 +68,7 @@ To implement Webhooks:
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `status` | string [Booking status](#booking-status) | required | The new status of the booking, e.g. `seated`. |
-| `updated_at` | string | required | Timestamp of when the booking was updated. |
+| `updatedAt` | string | required | Timestamp of when the booking was updated. |
 
 #### Booking status
 
@@ -83,7 +83,7 @@ To implement Webhooks:
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `status` | string [Order status](#order-status) | required | The new status of the order, e.g. `paid`. |
-| `updated_at` | string | required | Timestamp of when the order was updated. |
+| `updatedAt` | string | required | Timestamp of when the order was updated. |
 
 #### Order status
 
@@ -101,4 +101,4 @@ To implement Webhooks:
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `isAvailable` | boolean | required | The new availability status of the product. |
-| `updated_at` | string | required | Timestamp of when the product availability was updated. |
+| `updatedAt` | string | required | Timestamp of when the product availability was updated. |
