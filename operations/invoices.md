@@ -232,7 +232,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `notes` | string,null | optional, max length 500 characters | Notes about the order. |
 | `covers` | undefined | required | How many people are seated at the table. |
 | `depositAmount` | string,null | optional, max length 255 characters | The amount of discount applied to the invoice. |
-| `tableStatus` | string,null | optional | Status of the table. Possible values are "noTable", "seated", "cleaning", and "free". |
+| `tableStatus` | string,null | optional | Status of the table. Possible values are "no_table", "seated", "cleaning", and "free". |
 | `createdAt` | string | required, max length 25 characters | Order created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Order updated at timestamp in RFC 3339 format. |
 
@@ -248,6 +248,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `outlet` | object | required | Details of the outlet associated with the order. |
 | `revenueCenter` | object | required | Details of the revenue center associated with the order. |
 | `taxes` | object | required | Details of the taxes associated with the product. |
+| `orderItems` | object | required | Details of the items associated with the order. |
 
 #### promo_code
 

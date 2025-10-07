@@ -58,7 +58,7 @@ This operation updates a booking.
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `isWalkIn` | boolean,null | optional | Indicates if the booking is a walk-in. |
-| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
+| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "no_show". |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
 | `duration` | integer,null | optional | Represents the length of the booking in minutes. |
@@ -137,7 +137,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `isWalkIn` | boolean | required | Indicates if the booking is a walk-in. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
-| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
+| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "no_show". |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
 | `duration` | integer,null | optional | Represents the length of the booking in minutes. |
@@ -292,7 +292,7 @@ A booking represents a reservation made by a booking for goods or services, such
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `isWalkIn` | boolean,null | optional | Indicates if the booking is a walk-in. Defaults to `false`. |
-| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
+| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "no_show". |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
 | `duration` | integer,null | optional | Represents the length of the booking in minutes. |
