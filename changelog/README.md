@@ -13,6 +13,9 @@
   * Extended [invoice relationships](../operations/invoices.md#invoice_relationships) with `taxes`.
 * [Get bookings:](../operations/bookings.md#get-bookings)
   * Updated booking status values from "noShow" to "no_show".
+* [Webhooks:](../events/webhooks.md)
+  * Added `order.status.updated` event for order status changes.
+  * Added `product.availability.updated` event for product availability changes.
 
 ## 10th September 2025
 * [Get promo codes:](../operations/promocodes.md#get-promo-codes)

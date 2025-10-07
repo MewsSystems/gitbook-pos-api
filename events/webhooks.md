@@ -21,6 +21,8 @@ To implement Webhooks:
 | <div style="width:100px">Entity</div> | <div style="width:150px">Event</div> | Description |
 | :-- | :-- | :-- |
 | `bookings` | `booking.status.updated`  | A booking is updated. This includes any modifications to its properties. |
+| `orders` | `order.status.updated`  | An order status is updated. This includes any modifications to order status. |
+| `products` | `product.availability.updated`  | A product availability is updated. This includes any modifications to product availability. |
 
 ## Request body
 
@@ -75,3 +77,28 @@ To implement Webhooks:
 * `completed` – The booking has finished.
 * `cancelled` – The customer has cancelled the booking.
 * `noShow` – The customer did not show up and the booking has been registered by the staff as a 'no show'.
+
+#### order.status.updated properties:
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `status` | string [Order status](#order-status) | required | The new status of the order, e.g. `paid`. |
+| `updated_at` | string | required | Timestamp of when the order was updated. |
+
+#### Order status
+
+* `draft` – The order is in draft state.
+* `sent` – The order has been sent.
+* `paid` – The order has been paid.
+* `discarded` – The order has been discarded.
+* `cart` – The order is in cart state.
+* `pending_payment` – The order is pending payment.
+* `open` – The order is open and can be modified.
+* `open_web` – The order is open for web processing.
+
+#### product.availability.updated properties:
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `isAvailable` | boolean | required | The new availability status of the product. |
+| `updated_at` | string | required | Timestamp of when the product availability was updated. |
