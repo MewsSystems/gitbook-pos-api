@@ -535,3 +535,79 @@ types:
     file: paymentmethods.md
     anchor: links
     tag: PaymentMethods
+  Orders_order_item:
+    file: orders.md
+    anchor: order_item
+    tag: Orders
+  Orders_order_item_attributes:
+    file: orders.md
+    anchor: order_item_attributes
+    tag: Orders
+  Orders_order_item_relationships:
+    file: orders.md
+    anchor: order_item_relationships
+    tag: Orders
+  Orders_order_create_request:
+    file: orders.md
+    anchor: order_create_request
+    tag: Orders
+  Orders_order_create:
+    file: orders.md
+    anchor: order_create
+    tag: Orders
+  Orders_order_create_attributes:
+    file: orders.md
+    anchor: order_create_attributes
+    tag: Orders
+  Orders_order_update_request:
+    file: orders.md
+    anchor: order_update_request
+    tag: Orders
+  Orders_order_update:
+    file: orders.md
+    anchor: order_update
+    tag: Orders
+  Orders_order_update_attributes:
+    file: orders.md
+    anchor: order_update_attributes
+    tag: Orders
+  Orders_order_item_update_attributes:
+    file: orders.md
+    anchor: order_item_update_attributes
+    tag: Orders
+  Orders_order_item_update_relationships:
+    file: orders.md
+    anchor: order_item_update_relationships
+    tag: Orders
+  ProductBundles_product_bundles_response:
+    file: productbundles.md
+    anchor: product_bundles_response
+    tag: ProductBundles
+  ProductBundles_product_bundle:
+    file: productbundles.md
+    anchor: product_bundle
+    tag: ProductBundles
+  ProductBundles_product_bundle_attributes:
+    file: productbundles.md
+    anchor: product_bundle_attributes
+    tag: ProductBundles
+  ProductBundles_product_bundle_relationships:
+    file: productbundles.md
+    anchor: product_bundle_relationships
+    tag: ProductBundles
+  ProductBundles_product_bundle_item:
+    file: productbundles.md
+    anchor: product_bundle_item
+    tag: ProductBundles
+  ProductBundles_product_bundle_item_attributes:
+    file: productbundles.md
+    anchor: product_bundle_item_attributes
+    tag: ProductBundles
+  ProductBundles_product_bundle_item_relationships:
+    file: productbundles.md
+    anchor: product_bundle_item_relationships
+    tag: ProductBundles
+  ProductBundles_links:
+    file: productbundles.md
+    anchor: links
+    tag: ProductBundles

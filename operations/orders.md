@@ -89,7 +89,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | array of object [order](orders.md#order) | required, max 1000 items | The document's "primary data". |
-| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax) | optional, max 100 items | Details of the objects to which the order is associated. |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item) | optional, max 100 items | Details of the objects to which the order is associated. |
 | `links` | [links](orders.md#links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
 
 #### order
@@ -109,7 +109,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `notes` | string,null | optional, max length 500 characters | Notes about the order. |
 | `covers` | undefined | required | How many people are seated at the table. |
 | `depositAmount` | string,null | optional, max length 255 characters | The amount of discount applied to the invoice. |
-| `tableStatus` | string,null | optional | Status of the table. Possible values are "noTable", "seated", "cleaning", and "free". |
+| `tableStatus` | string,null | optional | Status of the table. Possible values are "no_table", "seated", "cleaning", and "free". |
 | `createdAt` | string | required, max length 25 characters | Order created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Order updated at timestamp in RFC 3339 format. |
 
@@ -125,6 +125,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `outlet` | object | required | Details of the outlet associated with the order. |
 | `revenueCenter` | object | required | Details of the revenue center associated with the order. |
 | `taxes` | object | required | Details of the taxes associated with the product. |
+| `orderItems` | object | required | Details of the items associated with the order. |
 
 #### invoice
 
@@ -204,7 +205,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | `isWalkIn` | boolean | required | Indicates if the booking is a walk-in. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
-| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "noShow". |
+| `status` | string,null | optional | The initial status of the booking. Possible values are "confirmed", "seated", "completed", "cancelled", and "no_show". |
 | `partySize` | integer | required | Represents the number of people included in the booking. |
 | `bookingDatetime` | string | required, max length 25 characters | The booking's date. |
 | `duration` | integer,null | optional | Represents the length of the booking in minutes. |
@@ -336,12 +337,257 @@ Below is a list of all possible fields this endpoint can return including relati
 | `label` | string,null | optional, max length 255 characters | Label of the tax. |
 | `ratePercent` | string | required, max length 7 characters | Tax rate as a percentage. |
 
+#### order_item
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [order_item_attributes](orders.md#order_item_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `relationships` | [order_item_relationships](orders.md#order_item_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
+| `links` | object | required | A [links object](https://jsonapi.org/format/#document-resource-object-links) containing links related to the resource. |
+
+#### order_item_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `quantity` | string | required, max length 255 characters | The number of units of the product being ordered. |
+| `unitPriceInclTax` | string | required, max length 255 characters | The price of the product per unit, including applicable taxes. |
+| `subtotal` | string | required, max length 255 characters | The total price of the product before taxes and discounts are applied. |
+| `tax` | string | required, max length 255 characters | The tax amount applicable to the specific item. |
+| `total` | string | required, max length 255 characters | The total price of the item after taxes and discounts have been applied. |
+| `discount` | string,null | optional, max length 255 characters | The percentage or amount of discount applied specifically to this item. |
+| `discountAmount` | string,null | optional, max length 255 characters | The total monetary value of the discount applied to this specific item. |
+| `comp` | boolean | required | Indicates whether the item was provided for free (comped) or not. |
+| `void` | boolean | required | Indicates whether the item has been voided from the order. |
+| `compVoidReason` | string,null | optional, max length 255 characters | The reason provided for voiding the item, if applicable. |
+| `compVoidNotes` | string,null | optional, max length 2048 characters | Additional notes regarding the comping or voiding of the item. |
+| `status` | string | required | The current status of the order item. |
+| `discountType` | string | required | The type of discount applied to the order item. |
+| `discountDescription` | string,null | optional, max length 255 characters | Description of the discount applied to the order item. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+
+#### order_item_relationships
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `product` | object | required | Details of the product associated with the order item. |
+| `productVariant` | object | required | Details of the product variant associated with the order item. |
+| `modifiers` | object | required | Details of the modifiers associated with the order item. |
+| `revenueCenter` | object | required | Details of the revenue center associated with the order item. |
+
 #### links
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `prev` | string,null | optional, max length 1024 characters | The link to the previous page of results. |
 | `next` | string,null | optional, max length 1024 characters | The link to the next page of results. |
+
+## Create order
+
+This operation creates an order.
+
+**Note:** This operation needs [Authentication](../essential-guide/authentication.md) and supports the following JSON:API features:
+
+- [Relationships](../guidelines/relationships.md) - `invoice`, `customer`, `booking`, `tables`, `promoCode`, `outlet`, `revenueCenter`, `taxes`, `orderItems` using `include` query parameter.
+- [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `order` and related resources with `fields` query parameter.
+
+### Request
+
+`POST` `[PlatformAddress]/v1/orders`
+
+```javascript
+{
+  "data": {
+    "type": "orders",
+    "attributes": {
+      "covers": 2,
+      "notes": "Test notes"
+    },
+    "relationships": {
+      "customer": {
+        "data": {
+          "type": "customers",
+          "id": "a393a4bc-14fb-45cf-b980-427627cbfd65"
+        }
+      },
+      "tables": {
+        "data": [
+          {
+            "type": "tables",
+            "id": "dcd9718c-abb0-4ba2-83c5-ae01505a5391"
+          }
+        ]
+      },
+      "outlet": {
+        "data": {
+          "type": "outlets",
+          "id": "5e5c75c0-0adb-4fd9-af97-bdad5397c8a1"
+        }
+      },
+      "revenueCenter": {
+        "data": {
+          "type": "revenue_centers",
+          "id": "bda5d905-5bc3-45a5-adc2-f83854b23d9f"
+        }
+      },
+      "promoCode": {
+        "data": {
+          "type": "promo_codes",
+          "id": "7e526753-b30e-4067-8d01-cc41af7b3ef6"
+        }
+      },
+      "items": {
+        "data": [
+          {
+            "type": "orderItems",
+            "tempId": "order-item-1"
+          },
+          {
+            "type": "productBundleItems",
+            "tempId": "product-bundle-item-1"
+          }
+        ]
+      }
+    },
+    "included": {
+      "items": [
+        {
+          "type": "orderItems",
+          "tempId": "order-item-1",
+          "attributes": {
+            "quantity": "3.00",
+            "total": "18.00",
+            "unitPriceInclTax": "6.00",
+            "tax": "1.00",
+            "subtotal": "17.00",
+            "discount": "10.00",
+            "discountType": "percentage",
+            "discountDescription": "Regular customer"
+          },
+          "relationships": {
+            "product": {
+              "data": {
+                "type": "products",
+                "id": "c8e421ac-dcce-458a-ba7c-6f44b642718e"
+              }
+            },
+            "productVariant": {
+              "data": {
+                "type": "productVariants",
+                "id": "39117180-5203-462a-b325-689427a7029f"
+              }
+            },
+            "modifiers": {
+              "data": [
+                {
+                  "type": "modifiers",
+                  "id": "44582405-1201-427c-9015-153b4b1d724f"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "productBundleItems",
+          "tempId": "product-bundle-item-1"
+        }
+      ]
+    }
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | [order_create](orders.md#order_create) | required | The document's "primary data". |
+
+#### order_create
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [order_create_attributes](orders.md#order_create_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `relationships` | object | required | An [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) representing associations with other resources. |
+| `included` | object | required | An object containing included resource objects that are related to the primary data and/or each other. |
+
+#### order_create_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `notes` | string | required, max length 500 characters | Notes about the order. |
+| `covers` | integer | required | How many people are seated at the table. |
+
+### Response
+
+```javascript
+{
+  "data": {
+    "id": "2496b6bd-a326-4a5a-95c8-359c943dcee8",
+    "type": "orders",
+    "attributes": {
+      "covers": 1,
+      "tableStatus": "seated",
+      "notes": "Please make it quick",
+      "depositAmount": "20.00",
+      "createdAt": "2021-06-29T08:00:00Z",
+      "updatedAt": "2021-06-29T08:00:00Z"
+    },
+    "relationships": {
+      "invoice": {
+        "data": {
+          "id": "4014e105-57d6-4b12-a4fc-164601ec53e9",
+          "type": "invoices"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "4014e105-57d6-4b12-a4fc-164601ec53e9",
+          "type": "customers"
+        }
+      },
+      "register": {
+        "data": {
+          "id": "a0312dc4-e0bf-4a27-837d-a6cf41f54464",
+          "type": "bookings"
+        }
+      },
+      "invoiceItems": {
+        "data": [
+          {
+            "id": "dcd9718c-abb0-4ba2-83c5-ae01505a5391",
+            "type": "tables"
+          }
+        ]
+      },
+      "promoCode": {
+        "data": {
+          "id": "167beb82-e6a7-453b-8048-cfa25d3ce467",
+          "type": "promoCodes"
+        }
+      },
+      "taxes": {
+        "data": [
+          {
+            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+            "type": "taxes"
+          }
+        ]
+      }
+    },
+    "links": {
+      "self": "https://api.mews-demo.com/pos/v1/orders/2496b6bd-a326-4a5a-95c8-359c943dcee8"
+    }
+  }
+}
+```
+Below is a list of all possible fields this endpoint can return including relationships fields fetched with include query parameter.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | [order](orders.md#order) | required | The document's "primary data". |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item) | optional, max 100 items | Details of the objects to which the order is associated. |
 
 ## Get order
 
@@ -424,4 +670,224 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | [order](orders.md#order) | required | The document's "primary data". |
-| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax) | optional, max 100 items | Details of the objects to which the order is associated. |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item) | optional, max 100 items | Details of the objects to which the order is associated. |
+
+## Update order
+
+This operation updates an existing order. You can update order attributes (covers, notes) and relationships (customer, tables, outlet, revenue center, promo code). You can also add new items to the order.
+
+**Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
+
+- [Relationships](../guidelines/relationships.md) - `customer`, `tables`, `outlet`, `revenueCenter`, `promoCode` using relationships in the request body.
+- [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `order` and related resources with `fields` query parameter.
+
+### Request
+
+`PATCH` `[PlatformAddress]/v1/orders/{id}`
+
+```javascript
+{
+  "data": {
+    "type": "orders",
+    "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+    "attributes": {
+      "covers": 4,
+      "notes": "Updated notes for the order"
+    },
+    "relationships": {
+      "customer": {
+        "data": {
+          "type": "customers",
+          "id": "a393a4bc-14fb-45cf-b980-427627cbfd65"
+        }
+      },
+      "tables": {
+        "data": [
+          {
+            "type": "tables",
+            "id": "dcd9718c-abb0-4ba2-83c5-ae01505a5391"
+          }
+        ]
+      },
+      "outlet": {
+        "data": {
+          "type": "outlets",
+          "id": "5e5c75c0-0adb-4fd9-af97-bdad5397c8a1"
+        }
+      },
+      "revenueCenter": {
+        "data": {
+          "type": "revenue_centers",
+          "id": "bda5d905-5bc3-45a5-adc2-f83854b23d9f"
+        }
+      },
+      "promoCode": {
+        "data": {
+          "type": "promo_codes",
+          "id": "7e526753-b30e-4067-8d01-cc41af7b3ef6"
+        }
+      },
+      "items": {
+        "data": [
+          {
+            "type": "orderItems",
+            "tempId": "order-item-2"
+          }
+        ]
+      }
+    },
+    "included": {
+      "items": [
+        {
+          "type": "orderItems",
+          "tempId": "order-item-2",
+          "attributes": {
+            "quantity": "2.00",
+            "total": "12.00",
+            "unitPriceInclTax": "6.00",
+            "tax": "1.00",
+            "subtotal": "11.00",
+            "discount": "0.00",
+            "discountType": "fixed",
+            "discountDescription": "Regular customer discount"
+          },
+          "relationships": {
+            "product": {
+              "data": {
+                "type": "products",
+                "id": "c8e421ac-dcce-458a-ba7c-6f44b642718e"
+              }
+            },
+            "productVariant": {
+              "data": {
+                "type": "productVariants",
+                "id": "39117180-5203-462a-b325-689427a7029f"
+              }
+            },
+            "modifiers": {
+              "data": [
+                {
+                  "type": "modifiers",
+                  "id": "44582405-1201-427c-9015-153b4b1d724f"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | [order_update](orders.md#order_update) | required | The document's "primary data". |
+
+#### order_update
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `id` | string | required, max length 36 characters | Universally unique ID (UUID) that identifies the order. |
+| `attributes` | [order_update_attributes](orders.md#order_update_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `relationships` | object | required | An [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) representing associations with other resources. |
+| `included` | object | required | An object containing included resource objects that are related to the primary data and/or each other. |
+
+#### order_update_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `notes` | string,null | optional, max length 500 characters | Notes about the order. |
+| `covers` | undefined | required | How many people are seated at the table. |
+
+#### order_item_update_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `quantity` | string | required, max length 10 characters | Quantity of the item. |
+| `total` | string | required, max length 10 characters | Total price of the item including tax. |
+| `unitPriceInclTax` | string | required, max length 10 characters | Unit price including tax. |
+| `tax` | string | required, max length 10 characters | Tax amount for the item. |
+| `subtotal` | string | required, max length 10 characters | Subtotal price of the item. |
+| `discount` | string | required, max length 10 characters | Discount amount for the item. |
+| `discountType` | string | required | Type of discount applied. |
+| `discountDescription` | string | required, max length 255 characters | Description of the discount. |
+
+#### order_item_update_relationships
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `product` | object | required |  |
+| `productVariant` | object | required |  |
+| `modifiers` | object | required |  |
+
+### Response
+
+```javascript
+{
+  "data": {
+    "id": "2496b6bd-a326-4a5a-95c8-359c943dcee8",
+    "type": "orders",
+    "attributes": {
+      "covers": 1,
+      "tableStatus": "seated",
+      "notes": "Please make it quick",
+      "depositAmount": "20.00",
+      "createdAt": "2021-06-29T08:00:00Z",
+      "updatedAt": "2021-06-29T08:00:00Z"
+    },
+    "relationships": {
+      "invoice": {
+        "data": {
+          "id": "4014e105-57d6-4b12-a4fc-164601ec53e9",
+          "type": "invoices"
+        }
+      },
+      "customer": {
+        "data": {
+          "id": "4014e105-57d6-4b12-a4fc-164601ec53e9",
+          "type": "customers"
+        }
+      },
+      "register": {
+        "data": {
+          "id": "a0312dc4-e0bf-4a27-837d-a6cf41f54464",
+          "type": "bookings"
+        }
+      },
+      "invoiceItems": {
+        "data": [
+          {
+            "id": "dcd9718c-abb0-4ba2-83c5-ae01505a5391",
+            "type": "tables"
+          }
+        ]
+      },
+      "promoCode": {
+        "data": {
+          "id": "167beb82-e6a7-453b-8048-cfa25d3ce467",
+          "type": "promoCodes"
+        }
+      },
+      "taxes": {
+        "data": [
+          {
+            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+            "type": "taxes"
+          }
+        ]
+      }
+    },
+    "links": {
+      "self": "https://api.mews-demo.com/pos/v1/orders/2496b6bd-a326-4a5a-95c8-359c943dcee8"
+    }
+  }
+}
+```
+Below is a list of all possible fields this endpoint can return including relationships fields fetched with include query parameter.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | [order](orders.md#order) | required | The document's "primary data". |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item) | optional, max 100 items | Details of the objects to which the order is associated. |
