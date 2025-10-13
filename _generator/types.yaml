@@ -611,3 +611,35 @@ types:
     file: productbundles.md
     anchor: links
     tag: ProductBundles
+  Webhook endpoints_webhook_endpoints_response:
+    file: webhookendpoints.md
+    anchor: webhook_endpoints_response
+    tag: Webhook endpoints
+  Webhook endpoints_webhook_endpoint:
+    file: webhookendpoints.md
+    anchor: webhook_endpoint
+    tag: Webhook endpoints
+  Webhook endpoints_links:
+    file: webhookendpoints.md
+    anchor: links
+    tag: Webhook endpoints
+  System_health_check_response:
+    file: system.md
+    anchor: health_check_response
+    tag: System
+  System_health_check:
+    file: system.md
+    anchor: health_check
+    tag: System
+  System_health_check_attributes:
+    file: system.md
+    anchor: health_check_attributes
+    tag: System
+  System_health_check_relationships:
+    file: system.md
+    anchor: health_check_relationships
+    tag: System
+  System_health_check_item:
+    file: system.md
+    anchor: health_check_item
+    tag: System
