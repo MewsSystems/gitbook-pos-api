@@ -1,5 +1,11 @@
 # Changelog
 
+## 13th October 2025
+* [Webhooks:](../events/webhooks.md)
+  * Added `order.status.updated` event for order status changes.
+  * Added `product.availability.updated` event for product availability changes.
+  * Updated field naming from `updated_at` to `updatedAt` for consistency with API conventions.
+
 ## 26th September 2025
 * [Get payment methods:](../operations/paymentmethods.md#get-payment-methods)
   * New operation added.
