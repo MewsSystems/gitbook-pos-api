@@ -643,3 +643,159 @@ types:
     file: system.md
     anchor: health_check_item
     tag: System
+  Invoices_order_item_identifier:
+    file: invoices.md
+    anchor: order_item_identifier
+    tag: Invoices
+  Invoices_resource_identifier:
+    file: invoices.md
+    anchor: resource-identifier
+    tag: Invoices
+  Invoices_order_bundle_item_identifier:
+    file: invoices.md
+    anchor: order_bundle_item_identifier
+    tag: Invoices
+  Orders_order_item_identifier:
+    file: orders.md
+    anchor: order_item_identifier
+    tag: Orders
+  Orders_resource_identifier:
+    file: orders.md
+    anchor: resource-identifier
+    tag: Orders
+  Orders_order_bundle_item_identifier:
+    file: orders.md
+    anchor: order_bundle_item_identifier
+    tag: Orders
+  Orders_relationship_product:
+    file: orders.md
+    anchor: relationship_product
+    tag: Orders
+  Orders_relationship_product_variant:
+    file: orders.md
+    anchor: relationship_product_variant
+    tag: Orders
+  Orders_relationship_modifiers:
+    file: orders.md
+    anchor: relationship_modifiers
+    tag: Orders
+  Orders_relationship_revenue_center:
+    file: orders.md
+    anchor: relationship_revenue_center
+    tag: Orders
+  Orders_order_bundle:
+    file: orders.md
+    anchor: order_bundle
+    tag: Orders
+  Orders_order_bundle_attributes:
+    file: orders.md
+    anchor: order_bundle_attributes
+    tag: Orders
+  Orders_order_bundle_item:
+    file: orders.md
+    anchor: order_bundle_item
+    tag: Orders
+  Orders_order_bundle_item_attributes:
+    file: orders.md
+    anchor: order_bundle_item_attributes
+    tag: Orders
+  Orders_relationship_order_bundle:
+    file: orders.md
+    anchor: relationship_order_bundle
+    tag: Orders
+  Orders_order_bundle_item_create_attributes:
+    file: orders.md
+    anchor: order_bundle_item_create_attributes
+    tag: Orders
+  Orders_order_bundle_item_create_relationships:
+    file: orders.md
+    anchor: order_bundle_item_create_relationships
+    tag: Orders
+  Orders_order_bundle_create_attributes:
+    file: orders.md
+    anchor: order_bundle_create_attributes
+    tag: Orders
+  Orders_order_bundle_create_relationships:
+    file: orders.md
+    anchor: order_bundle_create_relationships
+    tag: Orders
+  Orders_order_bundle_item_update_attributes:
+    file: orders.md
+    anchor: order_bundle_item_update_attributes
+    tag: Orders
+  Orders_order_bundle_item_update_relationships:
+    file: orders.md
+    anchor: order_bundle_item_update_relationships
+    tag: Orders
+  Orders_order_bundle_update_attributes:
+    file: orders.md
+    anchor: order_bundle_update_attributes
+    tag: Orders
+  Payments_payment_response:
+    file: payments.md
+    anchor: payment_response
+    tag: Payments
+  Payments_payment:
+    file: payments.md
+    anchor: payment
+    tag: Payments
+  Payments_payment_attributes:
+    file: payments.md
+    anchor: payment_attributes
+    tag: Payments
+  Payments_payment_relationships:
+    file: payments.md
+    anchor: payment_relationships
+    tag: Payments
+  Payments_order:
+    file: payments.md
+    anchor: order
+    tag: Payments
+  Payments_order_attributes:
+    file: payments.md
+    anchor: order_attributes
+    tag: Payments
+  Payments_order_relationships:
+    file: payments.md
+    anchor: order_relationships
+    tag: Payments
+  Payments_order_item_identifier:
+    file: payments.md
+    anchor: order_item_identifier
+    tag: Payments
+  Payments_resource_identifier:
+    file: payments.md
+    anchor: resource-identifier
+    tag: Payments
+  Payments_order_bundle_item_identifier:
+    file: payments.md
+    anchor: order_bundle_item_identifier
+    tag: Payments
+  Payments_payment_method:
+    file: payments.md
+    anchor: payment_method
+    tag: Payments
+  Payments_payment_method_attributes:
+    file: payments.md
+    anchor: payment_method_attributes
+    tag: Payments
+  Payments_register:
+    file: payments.md
+    anchor: register
+    tag: Payments
+  Payments_register_attributes:
+    file: payments.md
+    anchor: register_attributes
+    tag: Payments
+  Payments_register_relationships:
+    file: payments.md
+    anchor: register_relationships
+    tag: Payments
+  Payments_payment_create_request:
+    file: payments.md
+    anchor: payment_create_request
+    tag: Payments
+  Payments_payment_create:
+    file: payments.md
+    anchor: payment_create
+    tag: Payments

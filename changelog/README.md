@@ -1,5 +1,19 @@
 # Changelog
 
+## 23rd October 2025
+* [Create a payment:](../operations/payments.md#create-a-payment)
+  * New operation added for creating payments.
+* [Idempotency:](../guidelines/idempotency.md)
+  * New guidelines section added for idempotent API requests.
+* [Digital ordering:](../use-cases/digital_ordering.md)
+  * Enhanced use case documentation.
+* [Get orders:](../operations/orders.md#get-orders)
+  * Major updates to order operations and documentation.
+* [Get invoices:](../operations/invoices.md#get-invoices)
+  * Enhanced invoice operations documentation.
+* [Get invoice items:](../operations/invoiceitems.md#get-invoice-items)
+  * Updated invoice items operations.
+
 ## 13th October 2025
 * [Webhooks:](../events/webhooks.md)
   * Added `order.status.updated` event for order status changes.

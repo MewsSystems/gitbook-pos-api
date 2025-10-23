@@ -80,3 +80,45 @@ GET https://api.pos.mews-demo.com/v1/orders?filter[updatedAtGteq]=2025-05-16&fie
   ]
 }
 ```
+
+## Fetch covers for a table at a specific table
+
+### Polling strategy
+
+To retrieve the actual covers (guests seated) for a table, you have to poll the [Get orders](../operations/orders.md#get-orders) and include the `filter[tableIdEq]` query parameter.
+
+#### Example request:
+```
+GET https://api.pos.mews-demo.com/v1/orders?filter[tableIdEq]=6d5e100c-5bf9-4781-85ec-cdf183e9486f
+```
+
+#### Example response:
+```json
+{
+  "data": [
+    {
+      "id": "e194c497-f601-49c7-b952-08f329a5779e",
+      "type": "orders",
+      "attributes": {
+        "notes": null,
+        "createdAt": "2025-09-25T11:23:18.367Z",
+        "updatedAt": "2025-09-25T11:24:24.344Z",
+        "depositAmount": null,
+        "tableStatus": "seated",
+        "status": "paid",
+        "covers": 4
+      },
+      "relationships": {
+        "tables": {
+          "data": [
+            {
+              "id": "6d5e100c-5bf9-4781-85ec-cdf183e9486f",
+              "type": "tables"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
