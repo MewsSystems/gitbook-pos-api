@@ -731,3 +731,71 @@ types:
     file: orders.md
     anchor: order_bundle_update_attributes
     tag: Orders
+  Payments_payment_response:
+    file: payments.md
+    anchor: payment_response
+    tag: Payments
+  Payments_payment:
+    file: payments.md
+    anchor: payment
+    tag: Payments
+  Payments_payment_attributes:
+    file: payments.md
+    anchor: payment_attributes
+    tag: Payments
+  Payments_payment_relationships:
+    file: payments.md
+    anchor: payment_relationships
+    tag: Payments
+  Payments_order:
+    file: payments.md
+    anchor: order
+    tag: Payments
+  Payments_order_attributes:
+    file: payments.md
+    anchor: order_attributes
+    tag: Payments
+  Payments_order_relationships:
+    file: payments.md
+    anchor: order_relationships
+    tag: Payments
+  Payments_order_item_identifier:
+    file: payments.md
+    anchor: order_item_identifier
+    tag: Payments
+  Payments_resource_identifier:
+    file: payments.md
+    anchor: resource-identifier
+    tag: Payments
+  Payments_order_bundle_item_identifier:
+    file: payments.md
+    anchor: order_bundle_item_identifier
+    tag: Payments
+  Payments_payment_method:
+    file: payments.md
+    anchor: payment_method
+    tag: Payments
+  Payments_payment_method_attributes:
+    file: payments.md
+    anchor: payment_method_attributes
+    tag: Payments
+  Payments_register:
+    file: payments.md
+    anchor: register
+    tag: Payments
+  Payments_register_attributes:
+    file: payments.md
+    anchor: register_attributes
+    tag: Payments
+  Payments_register_relationships:
+    file: payments.md
+    anchor: register_relationships
+    tag: Payments
+  Payments_payment_create_request:
+    file: payments.md
+    anchor: payment_create_request
+    tag: Payments
+  Payments_payment_create:
+    file: payments.md
+    anchor: payment_create
+    tag: Payments
