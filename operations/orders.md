@@ -89,7 +89,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | array of object [order](orders.md#order) | required, max 1000 items | The document's "primary data". |
-| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item) | optional, max 100 items | Details of the objects to which the order is associated. |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item),[order_bundle](orders.md#order_bundle),[order_bundle_item](orders.md#order_bundle_item) | optional, max 100 items | Details of the objects to which the order is associated. |
 | `links` | [links](orders.md#links) | required | A [links object](https://jsonapi.org/profiles/ethanresnick/cursor-pagination/#auto-id-links) describing cursor pagination links. |
 
 #### order
@@ -110,6 +110,12 @@ Below is a list of all possible fields this endpoint can return including relati
 | `covers` | undefined | required | How many people are seated at the table. |
 | `depositAmount` | string,null | optional, max length 255 characters | The amount of discount applied to the invoice. |
 | `tableStatus` | string,null | optional | Status of the table. Possible values are "no_table", "seated", "cleaning", and "free". |
+| `surcharge` | string,null | optional, max length 10 characters | The surcharge amount applied to the order. |
+| `surchargeType` | string,null | optional | The type of surcharge applied to the order. |
+| `surchargeDescription` | string,null | optional, max length 255 characters | Description of the surcharge applied to the order. |
+| `discount` | string,null | optional, max length 10 characters | The discount amount applied to the order. |
+| `discountType` | string,null | optional | The type of discount applied to the order. |
+| `discountDescription` | string,null | optional, max length 255 characters | Description of the discount applied to the order. |
 | `createdAt` | string | required, max length 25 characters | Order created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Order updated at timestamp in RFC 3339 format. |
 
@@ -126,6 +132,22 @@ Below is a list of all possible fields this endpoint can return including relati
 | `revenueCenter` | object | required | Details of the revenue center associated with the order. |
 | `taxes` | object | required | Details of the taxes associated with the product. |
 | `orderItems` | object | required | Details of the items associated with the order. |
+
+#### order_item_identifier
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | [Resource identifier](orders.md#resource-identifier) | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+
+#### resource_identifier
+
+#### order_bundle_item_identifier
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | [Resource identifier](orders.md#resource-identifier) | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 
 #### invoice
 
@@ -358,8 +380,9 @@ Below is a list of all possible fields this endpoint can return including relati
 | `total` | string | required, max length 255 characters | The total price of the item after taxes and discounts have been applied. |
 | `discount` | string,null | optional, max length 255 characters | The percentage or amount of discount applied specifically to this item. |
 | `discountAmount` | string,null | optional, max length 255 characters | The total monetary value of the discount applied to this specific item. |
-| `comp` | boolean | required | Indicates whether the item was provided for free (comped) or not. |
-| `void` | boolean | required | Indicates whether the item has been voided from the order. |
+| `isComp` | boolean | required | Indicates whether the item was provided for free (comped) or not. |
+| `isVoid` | boolean | required | Indicates whether the item has been voided from the order. |
+| `notes` | string,null | optional, max length 2048 characters | Internal notes for the order item. |
 | `compVoidReason` | string,null | optional, max length 255 characters | The reason provided for voiding the item, if applicable. |
 | `compVoidNotes` | string,null | optional, max length 2048 characters | Additional notes regarding the comping or voiding of the item. |
 | `status` | string | required | The current status of the order item. |
@@ -372,10 +395,79 @@ Below is a list of all possible fields this endpoint can return including relati
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `product` | object | required | Details of the product associated with the order item. |
-| `productVariant` | object | required | Details of the product variant associated with the order item. |
-| `modifiers` | object | required | Details of the modifiers associated with the order item. |
-| `revenueCenter` | object | required | Details of the revenue center associated with the order item. |
+| `product` | [relationship_product](orders.md#relationship_product) | required | Details of the product associated with the selected item. |
+| `productVariant` | [relationship_product_variant](orders.md#relationship_product_variant) | required | Details of the product variant associated with the selected item. |
+| `modifiers` | [relationship_modifiers](orders.md#relationship_modifiers) | required | Details of the modifiers associated with the selected item. |
+| `revenueCenter` | [relationship_revenue_center](orders.md#relationship_revenue_center) | required | Details of the revenue center associated with the selected item. |
+
+#### relationship_product
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | object | required |  |
+
+#### relationship_product_variant
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | object,null | optional |  |
+
+#### relationship_modifiers
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | array of object object | required, max 1000 items |  |
+
+#### relationship_revenue_center
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | object,null | optional |  |
+
+#### order_bundle
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | [Resource identifier](orders.md#resource-identifier) | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [order_bundle_attributes](orders.md#order_bundle_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `links` | object | required | A [links object](https://jsonapi.org/format/#document-resource-object-links) containing links related to the resource. |
+
+#### order_bundle_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `discount` | string,null | optional, max length 255 characters | The percentage or amount of discount applied specifically to this item. |
+| `discountType` | string | required | The type of discount applied to the order item. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+
+#### order_bundle_item
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | [Resource identifier](orders.md#resource-identifier) | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+| `attributes` | [order_bundle_item_attributes](orders.md#order_bundle_item_attributes) | required | An [attributes object](https://jsonapi.org/format/#document-resource-object-attributes) representing some of the resource's data. |
+| `relationships` | [order_item_relationships](orders.md#order_item_relationships) | required | A [relationships object](https://jsonapi.org/format/#document-resource-object-relationships) describing relationships between the resource and other JSON:API resources. |
+| `links` | object | required | A [links object](https://jsonapi.org/format/#document-resource-object-links) containing links related to the resource. |
+
+#### order_bundle_item_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `quantity` | string | required, max length 255 characters | The number of units of the product being ordered. |
+| `unitPriceInclTax` | string | required, max length 255 characters | The price of the product per unit, including applicable taxes. |
+| `total` | string | required, max length 255 characters | The total price of the item after taxes and discounts have been applied. |
+| `notes` | string,null | optional, max length 1000 characters | Internal notes for the order bundle item. |
+| `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
+| `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+
+#### relationship_order_bundle
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | object | required |  |
 
 #### links
 
@@ -445,8 +537,8 @@ This operation creates an order.
             "tempId": "order-item-1"
           },
           {
-            "type": "productBundleItems",
-            "tempId": "product-bundle-item-1"
+            "type": "orderBundleItems",
+            "tempId": "order-bundle-item-1"
           }
         ]
       }
@@ -464,7 +556,12 @@ This operation creates an order.
             "subtotal": "17.00",
             "discount": "10.00",
             "discountType": "percentage",
-            "discountDescription": "Regular customer"
+            "discountDescription": "Regular customer",
+            "isComp": false,
+            "isVoid": false,
+            "notes": "Special preparation instructions",
+            "compVoidReason": "Example comp reason",
+            "compVoidNotes": "Example void reason"
           },
           "relationships": {
             "product": {
@@ -490,8 +587,58 @@ This operation creates an order.
           }
         },
         {
-          "type": "productBundleItems",
-          "tempId": "product-bundle-item-1"
+          "type": "orderBundleItems",
+          "tempId": "order-bundle-item-1",
+          "attributes": {
+            "unitPriceInclTax": "12.50",
+            "total": "12.50",
+            "notes": "Special bundle item"
+          },
+          "relationships": {
+            "product": {
+              "data": {
+                "type": "products",
+                "id": "c8e421ac-dcce-458a-ba7c-6f44b642718e"
+              }
+            },
+            "productVariant": {
+              "data": {
+                "type": "productVariants",
+                "id": "39117180-5203-462a-b325-689427a7029f"
+              }
+            },
+            "productBundleItem": {
+              "data": {
+                "type": "productBundleItems",
+                "id": "d4f5e6a7-b8c9-40d1-9e2f-3a4b5c6d7e8f"
+              }
+            },
+            "orderBundle": {
+              "data": {
+                "type": "orderBundles",
+                "tempId": "order-bundle-1"
+              }
+            },
+            "modifiers": {
+              "data": [
+                {
+                  "type": "modifiers",
+                  "id": "55667788-99aa-bbcc-ddee-ff0011223344"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "orderBundles": [
+        {
+          "type": "orderBundles",
+          "tempId": "order-bundle-1",
+          "attributes": {
+            "quantity": "1.00",
+            "discount": "5.00",
+            "discountType": "percentage"
+          }
         }
       ]
     }
@@ -518,6 +665,44 @@ This operation creates an order.
 | :-- | :-- | :-- | :-- |
 | `notes` | string | required, max length 500 characters | Notes about the order. |
 | `covers` | integer | required | How many people are seated at the table. |
+| `surcharge` | string,null | optional, max length 10 characters | The surcharge amount applied to the order. |
+| `surchargeType` | string,null | optional | The type of surcharge applied to the order. |
+| `surchargeDescription` | string,null | optional, max length 255 characters | Description of the surcharge applied to the order. |
+| `discount` | string,null | optional, max length 10 characters | The discount amount applied to the order. |
+| `discountType` | string,null | optional | The type of discount applied to the order. |
+| `discountDescription` | string,null | optional, max length 255 characters | Description of the discount applied to the order. |
+
+#### order_bundle_item_create_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `total` | string | required, max length 10 characters | Total price of the item including tax. |
+| `unitPriceInclTax` | string | required, max length 10 characters | Unit price including tax. |
+| `notes` | string | required, max length 500 characters | Internal notes for the bundle item. |
+
+#### order_bundle_item_create_relationships
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `productBundleItem` | object | required |  |
+| `orderBundle` | object | required |  |
+| `product` | object | required |  |
+| `productVariant` | object | required |  |
+| `modifiers` | object | required |  |
+
+#### order_bundle_create_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `quantity` | string | required, max length 10 characters | Quantity of the bundle item. |
+| `discount` | string | required, max length 10 characters | Discount amount for the item. |
+| `discountType` | string | required | Type of discount applied. |
+
+#### order_bundle_create_relationships
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `productBundle` | object | required |  |
 
 ### Response
 
@@ -574,8 +759,106 @@ This operation creates an order.
             "type": "taxes"
           }
         ]
+      },
+      "orderItems": {
+        "data": [
+          {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "orderItems"
+          },
+          {
+            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+            "type": "orderBundleItems"
+          }
+        ]
       }
     },
+    "included": [
+      {
+        "type": "orderItems",
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "attributes": {
+          "quantity": "3.00",
+          "total": "18.00",
+          "unitPriceInclTax": "6.00",
+          "tax": "1.00",
+          "subtotal": "17.00",
+          "discount": "10.00",
+          "discountType": "percentage",
+          "discountDescription": "Regular customer"
+        },
+        "relationships": {
+          "product": {
+            "data": {
+              "type": "products",
+              "id": "c8e421ac-dcce-458a-ba7c-6f44b642718e"
+            }
+          },
+          "productVariant": {
+            "data": {
+              "type": "productVariants",
+              "id": "39117180-5203-462a-b325-689427a7029f"
+            }
+          },
+          "modifiers": {
+            "data": [
+              {
+                "type": "modifiers",
+                "id": "44582405-1201-427c-9015-153b4b1d724f"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "orderBundleItems",
+        "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+        "attributes": {
+          "unitPriceInclTax": "12.50",
+          "total": "12.50",
+          "notes": "Special bundle item"
+        },
+        "relationships": {
+          "productBundleItem": {
+            "data": {
+              "type": "productBundleItems",
+              "id": "d4f5e6a7-b8c9-40d1-9e2f-3a4b5c6d7e8f"
+            }
+          },
+          "modifiers": {
+            "data": [
+              {
+                "type": "modifiers",
+                "id": "55667788-99aa-bbcc-ddee-ff0011223344"
+              }
+            ]
+          },
+          "orderBundle": {
+            "data": {
+              "type": "orderBundles",
+              "id": "f5e6d7c8-9ab0-1234-5678-90abcdef1234"
+            }
+          }
+        }
+      },
+      {
+        "type": "orderBundles",
+        "id": "f5e6d7c8-9ab0-1234-5678-90abcdef1234",
+        "attributes": {
+          "quantity": "1.00",
+          "discount": "5.00",
+          "discountType": "percentage"
+        },
+        "relationships": {
+          "productBundle": {
+            "data": {
+              "type": "productBundles",
+              "id": "f2b8e1d3-3c4b-4e6a-9f5e-2d3c45b6a7b8"
+            }
+          }
+        }
+      }
+    ],
     "links": {
       "self": "https://api.mews-demo.com/pos/v1/orders/2496b6bd-a326-4a5a-95c8-359c943dcee8"
     }
@@ -587,7 +870,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | [order](orders.md#order) | required | The document's "primary data". |
-| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item) | optional, max 100 items | Details of the objects to which the order is associated. |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item),[order_bundle_item](orders.md#order_bundle_item),[order_bundle](orders.md#order_bundle) | optional, max 100 items | Details of the objects to which the order is associated. |
 
 ## Get order
 
@@ -657,8 +940,106 @@ An order represents a single set of items that was ordered by a customer. Each o
             "type": "taxes"
           }
         ]
+      },
+      "orderItems": {
+        "data": [
+          {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "orderItems"
+          },
+          {
+            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+            "type": "orderBundleItems"
+          }
+        ]
       }
     },
+    "included": [
+      {
+        "type": "orderItems",
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "attributes": {
+          "quantity": "3.00",
+          "total": "18.00",
+          "unitPriceInclTax": "6.00",
+          "tax": "1.00",
+          "subtotal": "17.00",
+          "discount": "10.00",
+          "discountType": "percentage",
+          "discountDescription": "Regular customer"
+        },
+        "relationships": {
+          "product": {
+            "data": {
+              "type": "products",
+              "id": "c8e421ac-dcce-458a-ba7c-6f44b642718e"
+            }
+          },
+          "productVariant": {
+            "data": {
+              "type": "productVariants",
+              "id": "39117180-5203-462a-b325-689427a7029f"
+            }
+          },
+          "modifiers": {
+            "data": [
+              {
+                "type": "modifiers",
+                "id": "44582405-1201-427c-9015-153b4b1d724f"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "orderBundleItems",
+        "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+        "attributes": {
+          "unitPriceInclTax": "12.50",
+          "total": "12.50",
+          "notes": "Special bundle item"
+        },
+        "relationships": {
+          "productBundleItem": {
+            "data": {
+              "type": "productBundleItems",
+              "id": "d4f5e6a7-b8c9-40d1-9e2f-3a4b5c6d7e8f"
+            }
+          },
+          "modifiers": {
+            "data": [
+              {
+                "type": "modifiers",
+                "id": "55667788-99aa-bbcc-ddee-ff0011223344"
+              }
+            ]
+          },
+          "orderBundle": {
+            "data": {
+              "type": "orderBundles",
+              "id": "f5e6d7c8-9ab0-1234-5678-90abcdef1234"
+            }
+          }
+        }
+      },
+      {
+        "type": "orderBundles",
+        "id": "f5e6d7c8-9ab0-1234-5678-90abcdef1234",
+        "attributes": {
+          "quantity": "1.00",
+          "discount": "5.00",
+          "discountType": "percentage"
+        },
+        "relationships": {
+          "productBundle": {
+            "data": {
+              "type": "productBundles",
+              "id": "f2b8e1d3-3c4b-4e6a-9f5e-2d3c45b6a7b8"
+            }
+          }
+        }
+      }
+    ],
     "links": {
       "self": "https://api.mews-demo.com/pos/v1/orders/2496b6bd-a326-4a5a-95c8-359c943dcee8"
     }
@@ -670,7 +1051,7 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | [order](orders.md#order) | required | The document's "primary data". |
-| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item) | optional, max 100 items | Details of the objects to which the order is associated. |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item),[order_bundle_item](orders.md#order_bundle_item),[order_bundle](orders.md#order_bundle) | optional, max 100 items | Details of the objects to which the order is associated. |
 
 ## Update order
 
@@ -732,6 +1113,10 @@ This operation updates an existing order. You can update order attributes (cover
           {
             "type": "orderItems",
             "tempId": "order-item-2"
+          },
+          {
+            "type": "orderBundleItems",
+            "tempId": "order-bundle-item-1"
           }
         ]
       }
@@ -773,6 +1158,103 @@ This operation updates an existing order. You can update order attributes (cover
               ]
             }
           }
+        },
+        {
+          "type": "orderBundleItems",
+          "tempId": "order-bundle-item-1",
+          "attributes": {
+            "total": "12.50",
+            "unitPriceInclTax": "12.50",
+            "notes": "Special bundle item"
+          },
+          "relationships": {
+            "product": {
+              "data": {
+                "type": "products",
+                "id": "c8e421ac-dcce-458a-ba7c-6f44b642718e"
+              }
+            },
+            "productVariant": {
+              "data": {
+                "type": "productVariants",
+                "id": "39117180-5203-462a-b325-689427a7029f"
+              }
+            },
+            "productBundleItem": {
+              "data": {
+                "type": "productBundleItems",
+                "id": "d4f5e6a7-b8c9-40d1-9e2f-3a4b5c6d7e8f"
+              }
+            },
+            "orderBundle": {
+              "data": {
+                "type": "orderBundles",
+                "tempId": "order-bundle-1"
+              }
+            },
+            "modifiers": {
+              "data": [
+                {
+                  "type": "modifiers",
+                  "id": "55667788-99aa-bbcc-ddee-ff0011223344"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "orderBundleItems",
+          "tempId": "order-bundle-item-1",
+          "attributes": {
+            "total": "12.50",
+            "unitPriceInclTax": "12.50",
+            "notes": "Special bundle item"
+          },
+          "relationships": {
+            "product": {
+              "data": {
+                "type": "products",
+                "id": "c8e421ac-dcce-458a-ba7c-6f44b642718e"
+              }
+            },
+            "productVariant": {
+              "data": {
+                "type": "productVariants",
+                "id": "39117180-5203-462a-b325-689427a7029f"
+              }
+            },
+            "productBundleItem": {
+              "data": {
+                "type": "productBundleItems",
+                "id": "d4f5e6a7-b8c9-40d1-9e2f-3a4b5c6d7e8f"
+              }
+            },
+            "orderBundle": {
+              "data": {
+                "type": "orderBundles",
+                "id": "87654321-0abc-def1-2345-67890abcdef1"
+              }
+            }
+          }
+        }
+      ],
+      "orderBundles": [
+        {
+          "type": "orderBundles",
+          "tempId": "order-bundle-1",
+          "attributes": {
+            "quantity": "1.00",
+            "discount": "5.00",
+            "discountType": "percentage"
+          },
+          "relationships": {
+            "productBundle": {
+              "data": {
+                "type": "productBundles",
+                "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+              }
+            }
+          }
         }
       ]
     }
@@ -800,6 +1282,12 @@ This operation updates an existing order. You can update order attributes (cover
 | :-- | :-- | :-- | :-- |
 | `notes` | string,null | optional, max length 500 characters | Notes about the order. |
 | `covers` | undefined | required | How many people are seated at the table. |
+| `surcharge` | string,null | optional, max length 10 characters | The surcharge amount applied to the order. |
+| `surchargeType` | string,null | optional | The type of surcharge applied to the order. |
+| `surchargeDescription` | string,null | optional, max length 255 characters | Description of the surcharge applied to the order. |
+| `discount` | string,null | optional, max length 10 characters | The discount amount applied to the order. |
+| `discountType` | string,null | optional | The type of discount applied to the order. |
+| `discountDescription` | string,null | optional, max length 255 characters | Description of the discount applied to the order. |
 
 #### order_item_update_attributes
 
@@ -813,6 +1301,11 @@ This operation updates an existing order. You can update order attributes (cover
 | `discount` | string | required, max length 10 characters | Discount amount for the item. |
 | `discountType` | string | required | Type of discount applied. |
 | `discountDescription` | string | required, max length 255 characters | Description of the discount. |
+| `isComp` | boolean | required | Indicates whether the item was provided for free (comped) or not. |
+| `isVoid` | boolean | required | Indicates whether the item has been voided from the order. |
+| `notes` | string,null | optional, max length 2048 characters | Internal notes for the order item. |
+| `compVoidReason` | string | required, max length 255 characters | The reason provided for voiding the item, if applicable. |
+| `compVoidNotes` | string | required, max length 2048 characters | Additional notes regarding the comping or voiding of the item. |
 
 #### order_item_update_relationships
 
@@ -821,6 +1314,29 @@ This operation updates an existing order. You can update order attributes (cover
 | `product` | object | required |  |
 | `productVariant` | object | required |  |
 | `modifiers` | object | required |  |
+
+#### order_bundle_item_update_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `total` | string | required, max length 10 characters | Total price of the item including tax. |
+| `unitPriceInclTax` | string | required, max length 10 characters | Unit price including tax. |
+| `notes` | string | required, max length 500 characters | Internal notes for the bundle item. |
+
+#### order_bundle_item_update_relationships
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `orderBundle` | object | required |  |
+| `modifiers` | object | required |  |
+
+#### order_bundle_update_attributes
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `quantity` | string | required, max length 10 characters | Quantity of the bundle item. |
+| `discount` | string | required, max length 10 characters | Discount amount for the item. |
+| `discountType` | string | required | Type of discount applied. |
 
 ### Response
 
@@ -877,8 +1393,106 @@ This operation updates an existing order. You can update order attributes (cover
             "type": "taxes"
           }
         ]
+      },
+      "orderItems": {
+        "data": [
+          {
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "type": "orderItems"
+          },
+          {
+            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+            "type": "orderBundleItems"
+          }
+        ]
       }
     },
+    "included": [
+      {
+        "type": "orderItems",
+        "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "attributes": {
+          "quantity": "3.00",
+          "total": "18.00",
+          "unitPriceInclTax": "6.00",
+          "tax": "1.00",
+          "subtotal": "17.00",
+          "discount": "10.00",
+          "discountType": "percentage",
+          "discountDescription": "Regular customer"
+        },
+        "relationships": {
+          "product": {
+            "data": {
+              "type": "products",
+              "id": "c8e421ac-dcce-458a-ba7c-6f44b642718e"
+            }
+          },
+          "productVariant": {
+            "data": {
+              "type": "productVariants",
+              "id": "39117180-5203-462a-b325-689427a7029f"
+            }
+          },
+          "modifiers": {
+            "data": [
+              {
+                "type": "modifiers",
+                "id": "44582405-1201-427c-9015-153b4b1d724f"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "orderBundleItems",
+        "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+        "attributes": {
+          "unitPriceInclTax": "12.50",
+          "total": "12.50",
+          "notes": "Special bundle item"
+        },
+        "relationships": {
+          "productBundleItem": {
+            "data": {
+              "type": "productBundleItems",
+              "id": "d4f5e6a7-b8c9-40d1-9e2f-3a4b5c6d7e8f"
+            }
+          },
+          "modifiers": {
+            "data": [
+              {
+                "type": "modifiers",
+                "id": "55667788-99aa-bbcc-ddee-ff0011223344"
+              }
+            ]
+          },
+          "orderBundle": {
+            "data": {
+              "type": "orderBundles",
+              "id": "f5e6d7c8-9ab0-1234-5678-90abcdef1234"
+            }
+          }
+        }
+      },
+      {
+        "type": "orderBundles",
+        "id": "f5e6d7c8-9ab0-1234-5678-90abcdef1234",
+        "attributes": {
+          "quantity": "1.00",
+          "discount": "5.00",
+          "discountType": "percentage"
+        },
+        "relationships": {
+          "productBundle": {
+            "data": {
+              "type": "productBundles",
+              "id": "f2b8e1d3-3c4b-4e6a-9f5e-2d3c45b6a7b8"
+            }
+          }
+        }
+      }
+    ],
     "links": {
       "self": "https://api.mews-demo.com/pos/v1/orders/2496b6bd-a326-4a5a-95c8-359c943dcee8"
     }
@@ -890,4 +1504,4 @@ Below is a list of all possible fields this endpoint can return including relati
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
 | `data` | [order](orders.md#order) | required | The document's "primary data". |
-| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item) | optional, max 100 items | Details of the objects to which the order is associated. |
+| `included` | array of object [invoice](orders.md#invoice),[table](orders.md#table),[booking](orders.md#booking),[customer](orders.md#customer),[promo_code](orders.md#promo_code),[outlet](orders.md#outlet),[revenue_center](orders.md#revenue_center),[tax](orders.md#tax),[order_item](orders.md#order_item),[order_bundle_item](orders.md#order_bundle_item),[order_bundle](orders.md#order_bundle) | optional, max 100 items | Details of the objects to which the order is associated. |

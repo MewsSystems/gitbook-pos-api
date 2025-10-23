@@ -154,8 +154,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `tax` | string | required, max length 255 characters | The tax amount applicable to the specific item. |
 | `total` | string | required, max length 255 characters | The total price of the item after taxes and discounts have been applied. |
 | `discount` | string,null | optional, max length 255 characters | The percentage or amount of discount applied specifically to this item. |
-| `comp` | boolean | required | Indicates whether the item was provided for free (comped) or not. |
-| `void` | boolean | required | Indicates whether the item has been voided from the invoice. |
+| `isComp` | boolean | required | Indicates whether the item was provided for free (comped) or not. |
+| `isVoid` | boolean | required | Indicates whether the item has been voided from the invoice. |
 | `compVoidReason` | string,null | optional, max length 255 characters | The reason provided for voiding the item, if applicable. |
 | `compVoidNotes` | string,null | optional, max length 2048 characters | Additional notes regarding the comping or voiding of the item. |
 | `discountAmount` | string,null | optional, max length 255 characters | The total monetary value of the discount applied to this specific item. |
@@ -164,6 +164,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `totalInclDiscount` | string | required, max length 255 characters | The tax amount applicable to the item after applying any discounts. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| ~~`comp`~~ | ~~boolean~~ | ~~required~~ | ~~Indicates whether the item was provided for free (comped) or not.~~ **Deprecated!** |
+| ~~`void`~~ | ~~boolean~~ | ~~required~~ | ~~Indicates whether the item has been voided from the invoice.~~ **Deprecated!** |
 
 #### invoice_item_relationships
 
@@ -233,6 +235,12 @@ Below is a list of all possible fields this endpoint can return including relati
 | `covers` | undefined | required | How many people are seated at the table. |
 | `depositAmount` | string,null | optional, max length 255 characters | The amount of discount applied to the invoice. |
 | `tableStatus` | string,null | optional | Status of the table. Possible values are "no_table", "seated", "cleaning", and "free". |
+| `surcharge` | string,null | optional, max length 10 characters | The surcharge amount applied to the order. |
+| `surchargeType` | string,null | optional | The type of surcharge applied to the order. |
+| `surchargeDescription` | string,null | optional, max length 255 characters | Description of the surcharge applied to the order. |
+| `discount` | string,null | optional, max length 10 characters | The discount amount applied to the order. |
+| `discountType` | string,null | optional | The type of discount applied to the order. |
+| `discountDescription` | string,null | optional, max length 255 characters | Description of the discount applied to the order. |
 | `createdAt` | string | required, max length 25 characters | Order created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Order updated at timestamp in RFC 3339 format. |
 
@@ -249,6 +257,22 @@ Below is a list of all possible fields this endpoint can return including relati
 | `revenueCenter` | object | required | Details of the revenue center associated with the order. |
 | `taxes` | object | required | Details of the taxes associated with the product. |
 | `orderItems` | object | required | Details of the items associated with the order. |
+
+#### order_item_identifier
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | [Resource identifier](invoices.md#resource-identifier) | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
+
+#### resource_identifier
+
+#### order_bundle_item_identifier
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `id` | [Resource identifier](invoices.md#resource-identifier) | required, max length 36 characters | Universally unique ID (UUID) that identifies the related object. |
+| `type` | string | required | The [type](https://jsonapi.org/format/#document-resource-object-identification) member is used to describe resource objects that share common attributes and relationships. |
 
 #### promo_code
 

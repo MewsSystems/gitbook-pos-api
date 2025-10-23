@@ -28,6 +28,8 @@ An invoice item is an individual order item that is part of an invoice.
       "quantity": "1.0",
       "comp": false,
       "void": false,
+      "isComp": false,
+      "isVoid": false,
       "compVoidReason": null,
       "compVoidNotes": null,
       "discountAmount": null,
@@ -95,8 +97,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `tax` | string | required, max length 255 characters | The tax amount applicable to the specific item. |
 | `total` | string | required, max length 255 characters | The total price of the item after taxes and discounts have been applied. |
 | `discount` | string,null | optional, max length 255 characters | The percentage or amount of discount applied specifically to this item. |
-| `comp` | boolean | required | Indicates whether the item was provided for free (comped) or not. |
-| `void` | boolean | required | Indicates whether the item has been voided from the invoice. |
+| `isComp` | boolean | required | Indicates whether the item was provided for free (comped) or not. |
+| `isVoid` | boolean | required | Indicates whether the item has been voided from the invoice. |
 | `compVoidReason` | string,null | optional, max length 255 characters | The reason provided for voiding the item, if applicable. |
 | `compVoidNotes` | string,null | optional, max length 2048 characters | Additional notes regarding the comping or voiding of the item. |
 | `discountAmount` | string,null | optional, max length 255 characters | The total monetary value of the discount applied to this specific item. |
@@ -105,6 +107,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `totalInclDiscount` | string | required, max length 255 characters | The tax amount applicable to the item after applying any discounts. |
 | `createdAt` | string | required, max length 25 characters | Created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Updated at timestamp in RFC 3339 format. |
+| ~~`comp`~~ | ~~boolean~~ | ~~required~~ | ~~Indicates whether the item was provided for free (comped) or not.~~ **Deprecated!** |
+| ~~`void`~~ | ~~boolean~~ | ~~required~~ | ~~Indicates whether the item has been voided from the invoice.~~ **Deprecated!** |
 
 #### invoice_item_relationships
 
