@@ -482,7 +482,7 @@ This operation creates an order.
 
 **Note:** This operation needs [Authentication](../essential-guide/authentication.md) and supports the following JSON:API features:
 
-- [Relationships](../guidelines/relationships.md) - `invoice`, `customer`, `booking`, `tables`, `promoCode`, `outlet`, `revenueCenter`, `taxes`, `orderItems` using `include` query parameter.
+- [Relationships](../guidelines/relationships.md) - `invoice`, `customer`, `booking`, `tables`, `promoCode`, `outlet`, `revenueCenter`, `taxes`, `orderItems`, `payments` using `include` query parameter.
 - [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `order` and related resources with `fields` query parameter.
 
 ### Request
@@ -539,6 +539,14 @@ This operation creates an order.
           {
             "type": "orderBundleItems",
             "tempId": "order-bundle-item-1"
+          }
+        ]
+      },
+      "payments": {
+        "data": [
+          {
+            "type": "payments",
+            "tempId": "payment-1"
           }
         ]
       }
@@ -638,6 +646,39 @@ This operation creates an order.
             "quantity": "1.00",
             "discount": "5.00",
             "discountType": "percentage"
+          },
+          "relationships": {
+            "productBundle": {
+              "data": {
+                "type": "productBundles",
+                "id": "123e4567-e89b-12d3-a456-426614174000"
+              }
+            }
+          }
+        }
+      ],
+      "payments": [
+        {
+          "type": "payments",
+          "tempId": "payment-1",
+          "attributes": {
+            "amount": "100.00",
+            "notes": "Payment for order",
+            "tipAmount": "15.00"
+          },
+          "relationships": {
+            "paymentMethod": {
+              "data": {
+                "type": "paymentMethods",
+                "id": "4014e105-57d6-4b12-a4fc-164601ec53e9"
+              }
+            },
+            "register": {
+              "data": {
+                "type": "registers",
+                "id": "4014e105-57d6-4b12-a4fc-164601ec53e9"
+              }
+            }
           }
         }
       ]

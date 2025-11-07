@@ -1,5 +1,14 @@
 # Changelog
 
+## 24th October 2025
+* [API Operations:](../operations/README.md)
+  * Updated operations index to include all missing operations.
+  * Added missing order operations: [Get order](../operations/orders.md#get-order), [Create order](../operations/orders.md#create-order), [Update order](../operations/orders.md#update-order).
+  * Added missing register operation: [Get register](../operations/registers.md#get-register).
+  * Added missing webhook operations: [Get webhook endpoints](../operations/webhookendpoints.md#get-webhook-endpoints), [Update webhook endpoint](../operations/webhookendpoints.md#update-webhook-endpoint).
+  * Added missing operations: [Get modifier sets](../operations/modifiersets.md#get-modifier-sets), [Get modifier set](../operations/modifiersets.md#get-modifier-set), [Get outlets](../operations/outlets.md#get-outlets), [Get payment methods](../operations/paymentmethods.md#get-payment-methods), [Create payment](../operations/payments.md#create-a-payment), [Get product bundles](../operations/productbundles.md#get-product-bundles), [Get promo codes](../operations/promocodes.md#get-promo-codes), [Get revenue centers](../operations/revenuecenters.md#get-revenue-centers), [Get health check](../operations/system.md#get-the-health-check).
+  * Sorted all operations alphabetically for better navigation.
+
 ## 23rd October 2025
 * [Create a payment:](../operations/payments.md#create-a-payment)
   * New operation added for creating payments.
