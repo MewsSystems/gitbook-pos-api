@@ -1,6 +1,6 @@
 # Changelog
 
-## 24th October 2025
+## 7th November 2025
 * [API Operations:](../operations/README.md)
   * Updated operations index to include all missing operations.
   * Added missing order operations: [Get order](../operations/orders.md#get-order), [Create order](../operations/orders.md#create-order), [Update order](../operations/orders.md#update-order).
