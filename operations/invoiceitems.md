@@ -23,9 +23,9 @@ An invoice item is an individual order item that is part of an invoice.
     "type": "invoiceItems",
     "attributes": {
       "productName": "Main InvoiceItem",
-      "unitPriceInclTax": "17.0",
-      "subtotal": "15.0",
-      "quantity": "1.0",
+      "unitPriceInclTax": "17.00",
+      "subtotal": "15.00",
+      "quantity": "1.00",
       "comp": false,
       "void": false,
       "isComp": false,
@@ -35,8 +35,8 @@ An invoice item is an individual order item that is part of an invoice.
       "discountAmount": null,
       "createdAt": "2024-10-24T08:44:45.409Z",
       "updatedAt": "2024-10-24T08:44:45.409Z",
-      "tax": "2.0",
-      "total": "17.0",
+      "tax": "2.00",
+      "total": "17.00",
       "discount": null
     },
     "relationships": {
