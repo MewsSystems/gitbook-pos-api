@@ -6,6 +6,9 @@
 * [Update order:](../operations/orders.md#update-order)
   * Enhanced documentation with clarification on item identifiers: use `tempId` for new items and `id` (UUID) for existing items.
   * Added example showing how to update existing order items using `id` in the request body.
+* [Digital ordering:](../use-cases/digital_ordering.md)
+  * Added room charge section with documentation on room number validation for payments.
+  * Clarified that `roomNumber` is only permitted when using the `room_charge` payment method.
 
 ## 7th November 2025
 * [API Operations:](../operations/README.md)
