@@ -122,3 +122,40 @@ GET https://api.pos.mews-demo.com/v1/orders?filter[tableIdEq]=6d5e100c-5bf9-4781
   ]
 }
 ```
+
+
+### Room charge
+
+#### Room Number Validation for Payments
+
+When creating a payment, the `room_charge` payment method is the only scenario in which a `roomNumber` value is permitted. This is because room-charge payments must be associated with a specific guest room for proper billing.
+
+If the payment method is anything other than `room_charge`, the `roomNumber` field must be omitted.
+Including a room number for non–room-charge payments causes the request to fail validation.
+
+#### Errors
+
+_Room number must be blank_
+
+`roomNumber` is only allowed when the payment method is room-service (e.g., room_charge).
+If `roomNumber` is provided with any other payment method, the request fails with HTTP 422 (Unprocessable Content).
+
+```
+{
+  "errors": [
+    {
+      "status": "422",
+      "source": {
+        "pointer": "/data/attributes/roomNumber"
+      },
+      "title": "Unprocessable Content",
+      "detail": "Room number must be blank",
+      "code": "present"
+    }
+  ]
+}
+```
+
+
+__In short:__
+If the payment isn’t a room-charge payment, don’t send a room number.

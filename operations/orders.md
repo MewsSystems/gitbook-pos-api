@@ -1096,7 +1096,11 @@ Below is a list of all possible fields this endpoint can return including relati
 
 ## Update order
 
-This operation updates an existing order. You can update order attributes (covers, notes) and relationships (customer, tables, outlet, revenue center, promo code). You can also add new items to the order.
+This operation updates an existing order. You can update order attributes (covers, notes) and relationships (customer, tables, outlet, revenue center, promo code). You can also add new items to the order or update existing ones.
+
+**Item Identifiers:**
+- Use `tempId` for new items being added to the order (items that don't exist in the database yet).
+- Use `id` (UUID) for existing items that are being updated or kept in the order.
 
 **Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
 
@@ -1156,6 +1160,10 @@ This operation updates an existing order. You can update order attributes (cover
             "tempId": "order-item-2"
           },
           {
+            "type": "orderItems",
+            "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef"
+          },
+          {
             "type": "orderBundleItems",
             "tempId": "order-bundle-item-1"
           }
@@ -1197,6 +1205,22 @@ This operation updates an existing order. You can update order attributes (cover
                   "id": "44582405-1201-427c-9015-153b4b1d724f"
                 }
               ]
+            }
+          }
+        },
+        {
+          "type": "orderItems",
+          "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+          "attributes": {
+            "quantity": "3.00",
+            "notes": "Updated quantity for existing item"
+          },
+          "relationships": {
+            "product": {
+              "data": {
+                "type": "products",
+                "id": "c8e421ac-dcce-458a-ba7c-6f44b642718e"
+              }
             }
           }
         },
