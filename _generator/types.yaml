@@ -799,3 +799,19 @@ types:
     file: payments.md
     anchor: payment_create
     tag: Payments
+  Menus_outlet:
+    file: menus.md
+    anchor: outlet
+    tag: Menus
+  Menus_outlet_attributes:
+    file: menus.md
+    anchor: outlet_attributes
+    tag: Menus
+  Menus_tax:
+    file: menus.md
+    anchor: tax
+    tag: Menus
+  Menus_tax_attributes:
+    file: menus.md
+    anchor: tax_attributes
+    tag: Menus

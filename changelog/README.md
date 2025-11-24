@@ -1,5 +1,11 @@
 # Changelog
 
+## 24th November 2025
+* [Get menus:](../operations/menus.md#get-menus)
+  * New operation added for retrieving a list of menus.
+* [Get menu details:](../operations/menus.md#get-menu-details)
+  * New operation added for retrieving details of a specific menu, including sections and associated outlets.
+
 ## 20th November 2025
 * [Get invoice item:](../operations/invoiceitems.md#get-invoice-items)
   * Updated JSON examples to use consistent 2-decimal place format for numeric values (e.g., "17.00" instead of "17.0").
