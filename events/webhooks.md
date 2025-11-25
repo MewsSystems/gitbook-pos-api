@@ -23,6 +23,8 @@ To implement Webhooks:
 | `bookings` | `booking.status.updated`  | A booking is updated. This includes any modifications to its properties. |
 | `orders` | `order.status.updated`  | An order status is updated. This includes any modifications to order status. |
 | `products` | `product.availability.updated`  | A product availability is updated. This includes any modifications to product availability. |
+| `orders` | `order.total.updated` | An order total is updated due to gratuity (tip) or correction amount changes. |
+| `orders` | `orders.payments.added` | A payment has been successfully added to an order. |
 
 ## Request body
 
@@ -37,7 +39,7 @@ To implement Webhooks:
         }
     },
     "meta": {
-        "event_type": "booking.status.updated"
+        "eventType": "booking.status.updated"
     }
 }
 ```
@@ -59,7 +61,7 @@ To implement Webhooks:
 
 | Property | Type | Contract | Description |
 | :-- | :-- | :-- | :-- |
-| `event_type` | string | required | The type of event, e.g. `booking.status.updated`. |
+| `eventType` | string | required | The type of event, e.g. `booking.status.updated`. |
 
 ### EventAttributes
 
@@ -76,7 +78,7 @@ To implement Webhooks:
 * `seated` – The customer has arrived and the party is seated.
 * `completed` – The booking has finished.
 * `cancelled` – The customer has cancelled the booking.
-* `noShow` – The customer did not show up and the booking has been registered by the staff as a 'no show'.
+* `no_show` – The customer did not show up and the booking has been registered by the staff as a 'no show'.
 
 #### order.status.updated properties:
 
@@ -102,3 +104,20 @@ To implement Webhooks:
 | :-- | :-- | :-- | :-- |
 | `isAvailable` | boolean | required | The new availability status of the product. |
 | `updatedAt` | string | required | Timestamp of when the product availability was updated. |
+
+#### order.total.updated properties:
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `tipAmount` | string or null | optional | The gratuity (tip) amount added to the order. |
+| `correctionAmount` | string or null | optional | A correction amount applied to the order total (can be positive or negative). |
+| `total` | string | required | The total amount of the order including gratuity and corrections. |
+| `updatedAt` | string | required | Timestamp of when the order total was updated. |
+
+#### orders.payments.added properties:
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `orderId` | string (UUID) | required | The unique identifier of the order the payment was added to. |
+| `paymentId` | string (UUID) | required | The unique identifier of the payment that was added. |
+| `updatedAt` | string | required | Timestamp of when the payment was added. |
