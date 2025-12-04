@@ -28,7 +28,8 @@ This operation returns a list of orders.
         "createdAt": "2021-06-29T08:00:00Z",
         "updatedAt": "2021-06-29T08:00:00Z",
         "tableStatus": "seated",
-        "status": "open",
+        "status": "received",
+        "state": "open",
         "depositAmount": "20.00"
       },
       "relationships": {
@@ -116,6 +117,8 @@ Below is a list of all possible fields this endpoint can return including relati
 | `discount` | string,null | optional, max length 10 characters | The discount amount applied to the order. |
 | `discountType` | string,null | optional | The type of discount applied to the order. |
 | `discountDescription` | string,null | optional, max length 255 characters | Description of the discount applied to the order. |
+| `status` | string,null | optional | Fulfillment status of the order lifecycle. |
+| `state` | string | required | Order state. |
 | `createdAt` | string | required, max length 25 characters | Order created at timestamp in RFC 3339 format. |
 | `updatedAt` | string | required, max length 25 characters | Order updated at timestamp in RFC 3339 format. |
 
