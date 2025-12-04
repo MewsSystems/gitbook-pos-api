@@ -19,10 +19,11 @@ To implement Webhooks:
 ## Supported events
 
 | <div style="width:100px">Entity</div> | <div style="width:150px">Event</div> | Description |
-| :-- | :-- | :-- |
-| `bookings` | `booking.status.updated`  | A booking is updated. This includes any modifications to its properties. |
-| `orders` | `order.status.updated`  | An order status is updated. This includes any modifications to order status. |
-| `products` | `product.availability.updated`  | A product availability is updated. This includes any modifications to product availability. |
+| :-- |:-- |:-- |
+| `bookings` | `booking.status.updated` | A booking is updated. This includes any modifications to its properties. |
+| `orders` | `order.state.updated` | An order state is updated. This includes any modifications to order state. |
+| `orders` | `order.status.updated` | An order status is updated. This includes any modifications to order fulfillment status. |
+| `products` | `product.availability.updated` | A product availability is updated. This includes any modifications to product availability. |
 | `orders` | `order.total.updated` | An order total is updated due to gratuity (tip) or correction amount changes. |
 | `orders` | `orders.payments.added` | A payment has been successfully added to an order. |
 
@@ -80,14 +81,14 @@ To implement Webhooks:
 * `cancelled` – The customer has cancelled the booking.
 * `no_show` – The customer did not show up and the booking has been registered by the staff as a 'no show'.
 
-#### order.status.updated properties:
+#### order.state.updated properties:
 
 | Property | Type | Contract | Description |
-| :-- | :-- | :-- | :-- |
-| `status` | string [Order status](#order-status) | required | The new status of the order, e.g. `paid`. |
+|:-- |:-- | :-- |:-- |
+| `state` | string [Order state](#order-state) | required | The new state of the order, e.g. `open`. |
 | `updatedAt` | string | required | Timestamp of when the order was updated. |
 
-#### Order status
+#### Order state
 
 * `draft` – The order is in draft state.
 * `sent` – The order has been sent.
@@ -97,6 +98,24 @@ To implement Webhooks:
 * `pending_payment` – The order is pending payment.
 * `open` – The order is open and can be modified.
 * `open_web` – The order is open for web processing.
+ 
+#### order.status.updated properties:
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- |:-- |
+| `status` | string [Order status](#order-status) | required | The new status of the order, e.g. `received`. |
+| `updatedAt` | string | required | Timestamp of when the order was updated. |
+
+#### Order status
+
+* `received` – The order has been received by the venue but has not yet been accepted.
+* `confirmed` – The venue has accepted the order and will proceed with fulfillment.
+* `rejected` – The venue has declined the order.
+* `preparing` – The order items are being prepared.
+* `ready_for_delivery` – The order is prepared and ready for pickup/hand‑off to a courier or customer.
+* `dispatched` – The order has left the venue with a courier/runner.
+* `in_transit` – The order is on the way to the customer.
+* `delivered` – The order has been delivered to the customer.
 
 #### product.availability.updated properties:
 

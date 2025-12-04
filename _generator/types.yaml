@@ -815,3 +815,7 @@ types:
     file: menus.md
     anchor: tax_attributes
     tag: Menus
+  Products_product_response:
+    file: products.md
+    anchor: product_response
+    tag: Products

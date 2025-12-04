@@ -8,7 +8,7 @@ This use case is aimed at Digital Ordering Systems and it describes how to use t
 ## Contents
 
 * [Products endpoint polling to get availability updates](#products-endpoint-polling-to-get-availability-updates)
-* [Orders endpoint polling to get most recent order status changes](#orders-endpoint-polling-to-get-most-recent-order-status-changes)
+* [Orders endpoint polling to get most recent order state changes](#orders-endpoint-polling-to-get-most-recent-order-state-changes)
 
 ## Products endpoint polling to get availability updates
 
@@ -46,17 +46,17 @@ GET https://api.pos.mews-demo.com/v1/products?filter[updatedAtGteq]=2025-03-12&f
 ```
 
 
-## Orders endpoint polling to get most recent order status changes
+## Orders endpoint polling to get most recent order state changes
 
-Track order status changes in real-time by polling the [Get orders](../operations/orders.md#get-orders) endpoint with filtering and sparse fieldsets to monitor order lifecycle updates.
+Track order state changes in real-time by polling the [Get orders](../operations/orders.md#get-orders) endpoint with filtering and sparse fieldsets to monitor order lifecycle updates.
 
 ### Polling strategy
 
-Poll the orders endpoint using the `updatedAtGteq` or `updatedAtGt` filters to retrieve only orders that have been updated since your last check. Use sparse fieldsets to request only the `status` field for efficient bandwidth usage.
+Poll the orders endpoint using the `updatedAtGteq` or `updatedAtGt` filters to retrieve only orders that have been updated since your last check. Use sparse fieldsets to request only the `state` field for efficient bandwidth usage.
 
 #### Example request:
 ```
-GET https://api.pos.mews-demo.com/v1/orders?filter[updatedAtGteq]=2025-05-16&fields[orders]=status
+GET https://api.pos.mews-demo.com/v1/orders?filter[updatedAtGteq]=2025-05-16&fields[orders]=state
 ```
 
 #### Example response:
@@ -67,14 +67,14 @@ GET https://api.pos.mews-demo.com/v1/orders?filter[updatedAtGteq]=2025-05-16&fie
       "id": "5624013b-5293-48b1-a07a-e7ee01cbde6a",
       "type": "orders",
       "attributes": {
-        "status": "closed"
+        "state": "closed"
       }
     },
     {
       "id": "7c8d9e0f-1234-5678-9abc-def012345678",
       "type": "orders",
       "attributes": {
-        "status": "open"
+        "state": "open"
       }
     }
   ]
@@ -105,7 +105,7 @@ GET https://api.pos.mews-demo.com/v1/orders?filter[tableIdEq]=6d5e100c-5bf9-4781
         "updatedAt": "2025-09-25T11:24:24.344Z",
         "depositAmount": null,
         "tableStatus": "seated",
-        "status": "paid",
+        "state": "paid",
         "covers": 4
       },
       "relationships": {

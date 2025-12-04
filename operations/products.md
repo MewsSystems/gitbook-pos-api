@@ -245,3 +245,101 @@ Below is a list of all possible fields this endpoint can return including relati
 | :-- | :-- | :-- | :-- |
 | `prev` | string,null | optional, max length 1024 characters | The link to the previous page of results. |
 | `next` | string,null | optional, max length 1024 characters | The link to the next page of results. |
+
+## Get product
+
+This operation returns a single product by its unique identifier.
+
+**Note:** This operation needs [Authentication](../guidelines/authentication.md) and supports the following JSON:API features:
+
+- [Relationships](../guidelines/relationships.md) - `productType`, `modifierSets`, `modifiers`, `productVariants`, `taxes` using `include` query parameter.
+- [Sparse fieldsets](../guidelines/sparse-fieldsets.md) - supports all fields of `product` and related resources with `fields` query parameter.
+
+### Request
+
+`GET` `[PlatformAddress]/v1/products/{id}`
+
+### Response
+
+```javascript
+{
+  "data": {
+    "id": "286ef74f-e37f-477f-bcda-77f8fbfd13ea",
+    "type": "products",
+    "attributes": {
+      "name": "Product Number One",
+      "description": "Description of product number one.",
+      "sku": "ABC-123-HR-K",
+      "status": "active",
+      "barcode": "1234567890",
+      "isAvailable": true,
+      "createdAt": "2022-10-16T11:29:00Z",
+      "updatedAt": "2022-10-19T11:29:00Z",
+      "tax": "2.00",
+      "retailPriceInclTax": "10.00",
+      "retailPriceExclTax": "8.00"
+    },
+    "relationships": {
+      "productType": {
+        "data": {
+          "id": "c53372e2-9aa1-452a-8965-2ea3fa514fb2",
+          "type": "productTypes"
+        }
+      },
+      "taxes": {
+        "data": [
+          {
+            "id": "5efa8b3c-b930-4b31-918d-95ab0e212e64",
+            "type": "taxes"
+          }
+        ]
+      },
+      "modifierSets": {
+        "data": [
+          {
+            "id": "06382148-c76a-489d-b382-72fb7d7ab37b",
+            "type": "modifierSets"
+          },
+          {
+            "id": "e727124a-d2bb-4002-98bd-81af6d788666",
+            "type": "modifierSets"
+          }
+        ]
+      },
+      "modifiers": {
+        "data": [
+          {
+            "id": "0907e6d2-62c1-44cd-a886-f403ce9c7145",
+            "type": "modifiers"
+          },
+          {
+            "id": "0d4e4ec6-118f-47a6-9040-b68abbec0575",
+            "type": "modifiers"
+          }
+        ]
+      },
+      "productVariants": {
+        "data": [
+          {
+            "id": "0907e6d2-62c1-44cd-a886-f403ce9c7145",
+            "type": "productVariants"
+          },
+          {
+            "id": "0d4e4ec6-118f-47a6-9040-b68abbec0575",
+            "type": "productVariants"
+          }
+        ]
+      }
+    },
+    "links": {
+      "self": "https://api.mews-demo.com/pos/v1/products/286ef74f-e37f-477f-bcda-77f8fbfd13ea"
+    }
+  }
+}
+```
+Below is a list of all possible fields this endpoint can return including relationships fields fetched with include query parameter.
+
+| Property | Type | Contract | Description |
+| :-- | :-- | :-- | :-- |
+| `data` | [product](products.md#product) | required | The document's "primary data". |
+| `included` | array of object [product_type](products.md#product_type),[modifier_set](products.md#modifier_set),[modifier](products.md#modifier),[product_variant](products.md#product_variant),[tax](products.md#tax) | optional, max 1000 items | Details of the objects to which the product is related. |

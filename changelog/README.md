@@ -1,5 +1,18 @@
 # Changelog
 
+## 4th December 2025
+* [Products:](../operations/products.md#get-product)
+  * Added new operation for retrieving a single product by ID.
+* [Orders:](../operations/orders.md#get-orders)
+  * Clarified new `state` field and its role in constraining `status` (fulfillment status).
+* [Invoices:](../operations/invoices.md#get-invoices)
+  * Updated embedded `order_attributes` section to reflect the `state` and `status` definitions.
+* [Payments:](../operations/payments.md#create-a-payment)
+  * Updated embedded `order_attributes` section to reflect the `state` and `status` definitions.
+* [Webhooks:](../events/webhooks.md)
+  * Added `order.state.updated` event for changes to order state.
+  * Updated `order.status.updated` event to reflect actual statuses.
+
 ## 25th November 2025
 * [Webhooks:](../events/webhooks.md)
   * Added `order.total.updated` event for changes to order totals due to gratuity (tip) or correction amount updates.
