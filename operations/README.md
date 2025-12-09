@@ -13,6 +13,7 @@ This section describes all endpoints and operations supported by the API.
 | [Get health check](system.md#get-the-health-check) | Returns the current health check status of the server. |
 | [Get invoice item](invoiceitems.md#get-invoice-items) | Returns details for an invoice item. |
 | [Get invoices](invoices.md#get-invoices) | Returns a list of invoices. |
+| [Get menus](menus.md#get-menus) | Returns a list of menus. |
 | [Get modifier set](modifiersets.md#get-modifier-set) | Returns details for a modifier set. |
 | [Get modifier sets](modifiersets.md#get-modifier-sets) | Returns a list of modifier sets. |
 | [Get order](orders.md#get-order) | Returns details for a specific order. |
