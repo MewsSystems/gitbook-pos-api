@@ -21,6 +21,7 @@
   * [Customers](operations/customers.md)
   * [Invoices](operations/invoices.md)
   * [Invoice Items](operations/invoiceitems.md)
+  * [Menus](operations/menus.md)
   * [Modifier Sets](operations/modifiersets.md)
   * [Orders](operations/orders.md)
   * [Outlets](operations/outlets.md)
