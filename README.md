@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This repository was merged into [open-api-docs](https://github.com/MewsSystems/open-api-docs) repository.
+
 # Mews POS API
 
 Welcome to the __Mews POS API__. This API supports use cases related to __Mews POS__. It can be used in conjunction with the [Mews Connector API](https://mews-systems.gitbook.io/connector-api) for a rich set of interactions with the **Mews Hospitality Cloud**.
